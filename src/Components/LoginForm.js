@@ -1,22 +1,24 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import SignupForm from "./SignUpForm";
 
-const LoginForm = ({ setCurrentUser }) => {
-  const [needsAccount, setNeedsAccount] = useState(false);
-  const [formData, setFormData] = useState({
-    username: "",
-    password: "",
-  });
+function LoginForm({ setIsAuthenticated, setCurrentUser }) {
+  const [formData, setFormData] = useState({ username: "", password: "" });
+  const [noAccount, setNoAccount] = useState(false)
+  const navigate = useNavigate();
 
-  const handleChange = (e) => {
+  // const storedUser = localStorage.getItem('user')
+  // console.log(storedUser)
+
+  function handleChange(e) {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value,
     });
-  };
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  }
 
+  function handleSubmit(e) {
+    e.preventDefault();
     const userCreds = { ...formData };
 
     fetch("http://localhost:3000/login", {
@@ -27,64 +29,53 @@ const LoginForm = ({ setCurrentUser }) => {
       body: JSON.stringify(userCreds),
     }).then((res) => {
       if (res.ok) {
-        res.json().then((user) => {
-          console.log(user);
+        res.json()
+        .then((user) => {
+          setNoAccount(false);
+          setIsAuthenticated(true)
           setCurrentUser(user);
           setFormData({
             username: "",
             password: "",
           });
+          navigate("/home");
         });
       } else {
-        res.json().then((errors) => {
-          console.error(errors);
-        });
+        setNoAccount(true);
+        throw Error(res.status, res.statusText);
       }
     });
-  };
-
-  function userNeedsAccount() {
-    setNeedsAccount(true)
   }
 
-  //   handle logout functionality
-  const handleLogout = () => {
-    fetch("http://localhost:3000/logout", { method: "DELETE" }).then((res) => {
-      if (res.ok) {
-        setCurrentUser(null);
-      }
-    });
-  };
+  function userNeedsAccount(e) {
+    e.preventDefault();
+    navigate("/")
+    }
 
   return (
     <>
-      {!needsAccount ? (
-        <>
-          <h1>Login here!</h1>
-          <form onSubmit={handleSubmit}>
-            <label htmlFor="username">Username:</label>
-            <input
-              id="username-input"
-              type="text"
-              name="username"
-              value={formData.username}
-              onChange={handleChange}
-            />
-            <label htmlFor="password">Password:</label>
-            <input
-              id="password-input"
-              type="password"
-              name="password"
-              value={formData.password}
-              onChange={handleChange}
-            />
-            <button type="submit">Submit</button>
-          </form>
-          <button onClick={userNeedsAccount}>Create an account</button>
-        </>
-      ) : (
-        <SignupForm />
-      )}
+      <h1>Login here!</h1>
+      <form onSubmit={handleSubmit}>
+        <label htmlFor="username">Username:</label>
+        <input
+          id="username-input"
+          type="text"
+          name="username"
+          value={formData.username}
+          onChange={handleChange}
+        />
+        <label htmlFor="password">Password:</label>
+        <input
+          id="password-input"
+          type="password"
+          name="password"
+          value={formData.password}
+          onChange={handleChange}
+        />
+        <button type="submit">Submit</button>
+      </form>
+      <button onClick={userNeedsAccount}>Create an account</button>
+      {noAccount ? <div><em>Error: Please double-check your username and/or password.</em></div> : null}
     </>
   );
 };

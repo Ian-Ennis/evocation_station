@@ -1,51 +1,32 @@
-import { useState, useEffect } from "react";
-import { BrowserRouter as Router } from "react-router-dom";
-import LoggedIn from "./Components/LoggedIn";
-import LoggedOut from "./Components/LoggedOut";
-import SignupForm from "./Components/SignUpForm";
+import { useState, useEffect} from "react";
+import { Routes, Route, useNavigate } from "react-router-dom";
+import SignUpForm from "./Components/SignUpForm";
 import LoginForm from "./Components/LoginForm";
+import LoggedIn from "./Components/LoggedIn";
 import "./App.css";
 
 const App = () => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [currentUser, setCurrentUser] = useState(null);
+  const navigate = useNavigate();
 
-  // When a user first lands on the app, a fetch request will be made
-  // to check if user has already been authenticated.
+  console.log('in app')
+  console.log(currentUser)
 
   useEffect(() => {
-    fetch("http://localhost:3000/me").then((res) => {
-      if (res.ok) {
-        console.log("response okay");
-        res.json().then((user) => {
-          setCurrentUser(user);
-          setIsAuthenticated(true);
-          console.log("user exists and is authenticated");
-        });
-      }
-    });
-  }, []);
-
-  // If client is not authenticated, the authentication process will begin
-  // by rendering either a login or signup form.
-  if (!isAuthenticated) {
-    return (
-      <SignupForm />
-    );
-  }
+    fetch("http://localhost:3000/me")
+      .then((r) => r.json())
+      .then((data) => console.log(data));
+  });
 
   return (
     <div>
       <h1>Evocation Station</h1>
-      <Router>
-        {currentUser ? (
-          <LoggedIn setCurrentUser={setCurrentUser} currentUser={currentUser} />
-        ) : (
-          <LoggedOut
-            setCurrentUser={setCurrentUser}
-          />
-        )}
-      </Router>
+      <Routes>
+          <Route path="/" element={<SignUpForm setIsAuthenticated={setIsAuthenticated} setCurrentUser={setCurrentUser}/>} />
+          <Route path="/login" element={<LoginForm setIsAuthenticated={setIsAuthenticated} setCurrentUser={setCurrentUser}/>} />
+          <Route path="/home" element={<LoggedIn setCurrentUser={setCurrentUser} currentUser={currentUser}/>} />
+      </Routes>
     </div>
   );
 };

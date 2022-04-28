@@ -1,20 +1,18 @@
 import React, { useState } from "react";
-import LoginForm from "./LoginForm";
+import { useNavigate } from "react-router-dom";
 
-const SignupForm = ({ setCurrentUser }) => {
-  const [hasAccount, setHasAccount] = useState(false);
-  const [formData, setFormData] = useState({
-    username: "",
-    password: "",
-  });
+function SignupForm({ setCurrentUser }) {
+  const [formData, setFormData] = useState({username: "", password: ""});
+  const [accountExists, setAccountExists] = useState(false)
 
-  const handleChange = (e) => {
+  const navigate = useNavigate();
+
+  function handleChange(e) {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value,
     });
-    console.log(...formData, e.target.name, e.target.value);
-  };
+  }
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -29,57 +27,57 @@ const SignupForm = ({ setCurrentUser }) => {
       body: JSON.stringify(userCreds),
     }).then((res) => {
       if (res.ok) {
-        res.json().then((user) => {
+        console.log(res.ok)
+        res.json()
+        .then((user) => {
           console.log("response is okay, here's the user:", user);
+          setAccountExists(false)
           setCurrentUser(user);
+          localStorage.setItem('user', user.id)
           setFormData({
             username: "",
             password: "",
           });
+          navigate("/login");
         });
-      } else {
-        res.json().then((errors) => {
-          console.error(errors);
-        });
+      } else {res.json()
+        setAccountExists(true)
+        throw Error(res.status, res.statusText)
       }
     });
   }
 
-  function userHasAccount() {
-    setHasAccount(true);
+  function userHasAccount(e) {
+    e.preventDefault();
+    navigate("/login")
   }
 
   return (
     <>
-      {!hasAccount ? (
-        <>
-          <h1>Sign up here!</h1>
-          <form onSubmit={handleSubmit}>
-            <label htmlFor="username">Username:</label>
-            <input
-              id="username-signup-input"
-              type="text"
-              name="username"
-              value={formData.username}
-              onChange={handleChange}
-            />
-            <label htmlFor="password">Password:</label>
-            <input
-              id="password-signup-input"
-              type="password"
-              name="password"
-              value={formData.password}
-              onChange={handleChange}
-            />
-            <button type="submit">Submit</button>
-          </form>
-          <button onClick={userHasAccount}>Have an account?</button>
-        </>
-      ) : (
-        <LoginForm />
-      )}
+      <h1>Sign up here!</h1>
+      <form onSubmit={handleSubmit}>
+        <label htmlFor="username">Username:</label>
+        <input
+          id="username-signup-input"
+          type="text"
+          name="username"
+          value={formData.username}
+          onChange={handleChange}
+        />
+        <label htmlFor="password">Password:</label>
+        <input
+          id="password-signup-input"
+          type="password"
+          name="password"
+          value={formData.password}
+          onChange={handleChange}
+        />
+        <button type="submit">Submit</button>
+      </form>
+      <button onClick={userHasAccount}>Have an account?</button>
+      {accountExists ? <div>An account already exists with this username/password. Please log in.</div> : null}
     </>
   );
-};
+}
 
 export default SignupForm;
