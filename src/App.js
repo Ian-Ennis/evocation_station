@@ -13,6 +13,8 @@ const App = () => {
   console.log('in app')
   console.log(currentUser)
 
+  // this is a test commit
+
   useEffect(() => {
     fetch("http://localhost:3000/me")
       .then((r) => r.json())
