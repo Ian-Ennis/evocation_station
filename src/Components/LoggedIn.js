@@ -4,11 +4,21 @@ import { useNavigate } from "react-router-dom";
 const LoggedIn = ({ currentUser, setCurrentUser }) => {
   const navigate = useNavigate();
 
-  console.log("in logged in");
+  console.log("logged in");
 
+  useEffect(() => {
+    console.log('in LoggedIn useEffect')
     fetch("http://localhost:3000/me")
-      .then((r) => r.json())
-      .then((data) => console.log(data));
+      .then((response) => {
+        if (response.ok) {
+          console.log("Status Text:", response.status)
+          response.json().then(data => {
+            setCurrentUser(data)
+            navigate("/home");
+          })
+        }
+      })
+  }, []);
 
   function logout() {
     fetch("http://localhost:3000/logout", {

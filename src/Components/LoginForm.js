@@ -2,13 +2,10 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import SignupForm from "./SignUpForm";
 
-function LoginForm({ setIsAuthenticated, setCurrentUser }) {
+function LoginForm({ setIsAuthenticated, setCurrentUser, currentUser }) {
   const [formData, setFormData] = useState({ username: "", password: "" });
   const [noAccount, setNoAccount] = useState(false)
   const navigate = useNavigate();
-
-  // const storedUser = localStorage.getItem('user')
-  // console.log(storedUser)
 
   function handleChange(e) {
     setFormData({
@@ -27,9 +24,11 @@ function LoginForm({ setIsAuthenticated, setCurrentUser }) {
         "Content-Type": "application/json",
       },
       body: JSON.stringify(userCreds),
-    }).then((res) => {
-      if (res.ok) {
-        res.json()
+    }).then((response) => {
+      console.log(response)
+      if (response.ok) {
+        console.log("login response is good")
+        response.json()
         .then((user) => {
           setNoAccount(false);
           setIsAuthenticated(true)
@@ -42,7 +41,7 @@ function LoginForm({ setIsAuthenticated, setCurrentUser }) {
         });
       } else {
         setNoAccount(true);
-        throw Error(res.status, res.statusText);
+        throw Error(response.status, response.statusText);
       }
     });
   }

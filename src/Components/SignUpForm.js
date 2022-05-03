@@ -25,24 +25,22 @@ function SignupForm({ setCurrentUser }) {
         "Content-Type": "application/json",
       },
       body: JSON.stringify(userCreds),
-    }).then((res) => {
-      if (res.ok) {
-        console.log(res.ok)
-        res.json()
+    }).then((response) => {
+      if (response.ok) {
+        response.json()
         .then((user) => {
           console.log("response is okay, here's the user:", user);
-          setAccountExists(false)
           setCurrentUser(user);
-          localStorage.setItem('user', user.id)
+          setAccountExists(false)
           setFormData({
             username: "",
             password: "",
           });
           navigate("/login");
         });
-      } else {res.json()
+      } else {response.json()
         setAccountExists(true)
-        throw Error(res.status, res.statusText)
+        throw Error(response.status, response.statusText)
       }
     });
   }
