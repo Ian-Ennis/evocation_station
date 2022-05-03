@@ -12,6 +12,8 @@ const App = () => {
 
   console.log('App')
 
+  // test
+
   useEffect(() => {
     console.log('in App useEffect')
     fetch("http://localhost:3000/me")
