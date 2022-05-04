@@ -6,6 +6,8 @@ const LoggedIn = ({ currentUser, setCurrentUser }) => {
 
   console.log("logged in");
 
+  // test
+
   useEffect(() => {
     console.log('in LoggedIn useEffect')
     fetch("http://localhost:3000/me")
