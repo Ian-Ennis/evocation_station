@@ -8,7 +8,9 @@ const LoggedIn = ({ currentUser, setCurrentUser }) => {
 
   // test
 
-  // test 
+  // test 2
+
+  // test 3
   
   useEffect(() => {
     console.log('in LoggedIn useEffect')
