@@ -27,7 +27,6 @@ function LoginForm({ setIsAuthenticated, setCurrentUser, currentUser }) {
     }).then((response) => {
       console.log(response)
       if (response.ok) {
-        console.log("login response is good")
         response.json()
         .then((user) => {
           setNoAccount(false);

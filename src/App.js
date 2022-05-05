@@ -12,19 +12,19 @@ const App = () => {
 
   console.log('App')
 
-  useEffect(() => {
-    console.log('in App useEffect')
-    fetch("http://localhost:3000/me")
-      .then((response) => {
-        if (response.ok) {
-          console.log("Status Text:", response.status)
-          response.json().then(data => {
-            setCurrentUser(data)
-            navigate("/home");
-          })
-        }
-      })
-  }, []);
+  // useEffect(() => {
+  //   console.log('in App useEffect')
+  //   fetch("http://localhost:3000/me")
+  //     .then((response) => {
+  //       if (response.ok) {
+  //         console.log("Status Text:", response.status)
+  //         response.json().then(data => {
+  //           setCurrentUser(data)
+  //           navigate("/home");
+  //         })
+  //       }
+  //     })
+  // }, []);
 
   return (
     <div>
