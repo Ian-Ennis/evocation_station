@@ -5,10 +5,11 @@ function Poems() {
     const [poems, setPoems] = useState([])
 
     useEffect(() => {
+        console.log('poems useEffect trigger')
         fetch("http://localhost:3000/poems").then(response => {
+
           if (response.ok) {
             response.json().then(data => {
-              console.log('poems useEffect trigger')
               setPoems(data)
             })
           } else {
@@ -20,14 +21,15 @@ function Poems() {
 
       const poemData = poems.map(poem => {
         return (
-          <div id="poems" key={uuid().slice(0,8)}>
+          <div key={uuid().slice(0,8)}>
             <p><em>{poem.text}</em></p>
           </div>
         )
       })
 
     return (
-        <div>
+        <div id="poems">
+            Poems:
             {poemData}
         </div>
     )

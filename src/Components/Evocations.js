@@ -6,10 +6,11 @@ function Evocations() {
   const rootURL = `http://localhost:3000`;
 
   useEffect(() => {
+    console.log('evocations useEffect trigger')
+
     fetch("http://localhost:3000/evocations").then((response) => {
       if (response.ok) {
         response.json().then((data) => {
-          console.log('evocations useEffect trigger')
           setEvocations(data);
         });
       } else {
@@ -73,7 +74,7 @@ function Evocations() {
     return (
       <div id="evocations" key={uuid().slice(0,8)}>
         <p>{evocation.text}</p>
-        <img src={`${rootURL}${evocation.image}`}/>
+        <img src={`${rootURL}${evocation.image}`}/> 
         <audio controls>
           <source src={`${rootURL}${evocation.audio}`}/>
         </audio>
@@ -98,7 +99,8 @@ function Evocations() {
   }
 
   return (
-    <>
+    <div id="evocations">
+      <b>Make your own</b>
       <form id="new_evocation" onSubmit={uploadEvocation}>
         <label for="image_upload">Add an image</label>
         <input type="file" name="image_upload" accept="image/png, image/jpeg, image/jpg"></input>
@@ -110,7 +112,7 @@ function Evocations() {
       </form>
       <button onClick={retrieveEvocations}>Retrieve evocations</button>
       {evocationData}
-    </>
+    </div>
   );
 }
 

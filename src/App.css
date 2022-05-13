@@ -3,5 +3,31 @@
 }
 
 body {
+  margin: 0% 15%;
   background-color: brown;
+}
+
+#evocations {
+  border: 2px solid black;
+}
+
+#new_evocation {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+}
+
+#materials {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 0% 25%;
+}
+
+#phrases {
+  border: 2px solid black;
+}
+
+#poems {
+  border: 2px solid black;
 }
