@@ -1,6 +1,8 @@
 // import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import NewEvocation from "./NewEvocation";
+import Evocations from "./Evocations";
+import Phrases from "./Phrases";
+import Poems from "./Poems";
 
 const LoggedIn = ({ currentUser, setCurrentUser }) => {
   const navigate = useNavigate();
@@ -35,7 +37,9 @@ const LoggedIn = ({ currentUser, setCurrentUser }) => {
     <div>
       <h1>Welcome, {currentUser.username}</h1>
       <button onClick={logout}>Log out</button>
-      <NewEvocation />
+      <Evocations />
+      <Phrases />
+      <Poems />
     </div>
   );
 };
