@@ -2,23 +2,21 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Template from "./Template";
 import Evocations from "./Evocations";
-import Phrases from "./Phrases";
-import Poems from "./Poems";
+import Writings from "./Writings";
 import Images from "./Images";
 import Sounds from "./Sounds";
 
 const LoggedIn = ({ currentUser, setCurrentUser }) => {
   const navigate = useNavigate();
 
-  const [writing, setWriting] = useState([])
   const [showWriting, setShowWriting] = useState(false)
-  const [clickedWriting, setClickedWriting] = useState([])
-  const [imagery, setImagery] = useState([])
+  const [writing, setWriting] = useState([])
+
   const [showImagery, setShowImagery] = useState(false)
-  const [clickedImagery, setClickedImagery] = useState([])
-  const [sound, setSound] = useState([])
+  const [image, setImage] = useState([])
+
   const [showSound, setShowSound] = useState(false)
-  const [clickedSound, setClickedSound] = useState([])
+  const [sound, setSound] = useState([])
 
   function renderWriting(e) {
     e.preventDefault();
@@ -68,10 +66,10 @@ const LoggedIn = ({ currentUser, setCurrentUser }) => {
       <h3 onClick={renderImagery}>Imagery</h3>
       <h3 onClick={renderSound}>Sounds</h3>
       </div>
-      <Template writing={writing} setWriting={setWriting} imagery={imagery} setImagery={setImagery} clickedImagery={clickedImagery} sound={sound} setSound={setSound} clickedSound={clickedSound}/>
-      {showWriting ? <div><Phrases /> <Poems /></div> : null}
-      {showImagery ? <div><Images setClickedImagery={setClickedImagery}/></div> : null}
-      {showSound ? <div><Sounds setClickedSound={setClickedSound}/></div> : null}
+      <Template writing={writing} image={image} sound={sound} />
+      {showWriting ? <div><Writings setWriting={setWriting}/> </div> : null}
+      {showImagery ? <div><Images setImage={setImage} /></div> : null}
+      {showSound ? <div><Sounds setSound={setSound} /></div> : null}
     </div>
   );
 };

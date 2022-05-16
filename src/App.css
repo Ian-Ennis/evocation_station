@@ -24,10 +24,10 @@ body {
   gap: 0% 25%;
 }
 
-#phrases {
+#writings {
   border: 2px solid black;
 }
 
-#poems {
-  border: 2px solid black;
+#template {
+  border: 2px solid gray;
 }

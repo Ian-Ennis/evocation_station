@@ -1,12 +1,17 @@
 import React from "react";
 
-function Template({ clickedImagery, clickedSound }) {
+function Template({ writing, image, sound }) {
+  const rootURL = `http://localhost:3000`;
+
 
     return (
-      <div>
+      <div id="template">
         <b>Template</b>
-        {clickedImagery}
-        {/* {clickedSound !== [] ? clickedSound : null} */}
+        <p>{writing}</p>
+        <img src={`${rootURL}${image}`} />
+        <audio controls>
+          <source src={`${rootURL}${sound}`} />
+        </audio>
       </div>
     );
 }

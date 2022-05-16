@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { v4 as uuid } from "uuid"
 
-function Sounds({ setClickedSound }) {
+function Sounds({ setSound }) {
     const [sounds, setSounds] = useState([])
     const rootURL = `http://localhost:3000`;
 
@@ -46,12 +46,13 @@ function Sounds({ setClickedSound }) {
         });
       }
 
-      const soundData = sounds.map((sound) => {
+      const soundData = sounds.map((s) => {
         return (
-          <div id="soundData" onClick={setClickedSound} key={uuid().slice(0, 8)}>
+          <div id="soundData" key={uuid().slice(0, 8)}>
             <audio controls>
-              <source src={`${rootURL}${sound.audio}`} />
+              <source src={`${rootURL}${s.audio}`} />
             </audio>
+            <button onClick={setSound(s.audio)}>Select Sound</button>
           </div>
         );
       });
