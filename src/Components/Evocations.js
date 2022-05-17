@@ -1,17 +1,15 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import { v4 as uuid } from "uuid"
 
-function Evocations() {
-  const [evocations, setEvocations] = useState([]);
+function Evocations({ evocations, setEvocations }) {
   const rootURL = `http://localhost:3000`;
 
   useEffect(() => {
-    console.log('evocations useEffect trigger')
-
     fetch("http://localhost:3000/evocations").then((response) => {
       if (response.ok) {
         response.json().then((data) => {
-          setEvocations(data);
+          console.log(data)
+          // setEvocations(data);
         });
       } else {
         response.json();
@@ -23,14 +21,18 @@ function Evocations() {
   function uploadEvocation(e) {
     e.preventDefault();
 
-    const image = e.target.image_upload.files[0];
-    const audio = e.target.audio_upload.files[0];
     const text = e.target.text.value;
+    const picture = e.target.image_upload.files[0];
+    const audio = e.target.audio_upload.files[0];
+
+    // console.log("text:", text)
+    // console.log("picture:", picture)
+    // console.log("audio:", audio)
 
     const formData = new FormData();
-    formData.append("image", image);
-    formData.append("audio", audio);
-    formData.append("text", text);
+    if (text) formData.append("text", text);
+    if (picture) formData.append("image", picture);
+    if (audio) formData.append("audio", audio);
 
     fetch("http://localhost:3000/evocations", {
       method: "POST",
@@ -40,8 +42,8 @@ function Evocations() {
         console.log(response);
         if (response.ok) {
           response.json().then((data) => {
-            setEvocations(data);
-            console.log(evocations)
+            console.log(data)
+            // setEvocations(data);
           });
         } else {
           response.json();

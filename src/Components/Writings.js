@@ -2,17 +2,15 @@ import React, { useState, useEffect } from "react";
 import { v4 as uuid } from "uuid"
 import Template from "./Template";
 
-function Writings({ writing, setWriting, test }) {
+function Writings({ evocations, setEvocations, writing, setWriting, image, setImage, sound, setSound }) {
     const [writings, setWritings] = useState([])
 
-    console.log(test)
-
     useEffect(() => {
-        console.log('writings useEffect trigger')
-
+      console.log("in writings use effect")
         fetch("http://localhost:3000/writings").then((response) => {
           if (response.ok) {
             response.json().then((data) => {
+              console.log(data)
               setWritings(data);
             });
           } else {
@@ -32,7 +30,7 @@ function Writings({ writing, setWriting, test }) {
 
     return (
         <div id="writings">
-          <Template writing={writing}/>
+          <Template setEvocations={setEvocations} writing={writing} setWriting={setWriting} image={image} setImage={setImage} sound={sound} setSound={setSound} />
             Writings:
             {writingData}
         </div>

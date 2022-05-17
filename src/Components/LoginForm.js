@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import SignupForm from "./SignUpForm";
 
 function LoginForm({ setCurrentUser, currentUser, setSignedIn }) {
   const [formData, setFormData] = useState({ username: "", password: "" });
