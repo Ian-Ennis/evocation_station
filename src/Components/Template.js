@@ -3,7 +3,6 @@ import React from "react";
 function Template({ writing, image, sound }) {
   const rootURL = `http://localhost:3000`;
 
-
     return (
       <div id="template">
         <b>Template</b>

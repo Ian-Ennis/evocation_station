@@ -1,39 +1,38 @@
-import { useState, useEffect} from "react";
-import { Routes, Route, useNavigate } from "react-router-dom";
+import { useState} from "react";
+import { Routes, Route } from "react-router-dom";
 import SignUpForm from "./Components/SignUpForm";
 import LoginForm from "./Components/LoginForm";
-import LoggedIn from "./Components/LoggedIn";
+import Home from "./Components/Home";
+import NavBar from "./Components/NavBar";
+import Writings from "./Components/Writings";
+import Images from "./Components/Images";
+import Sounds from "./Components/Sounds";
 import "./App.css";
 
 const App = () => {
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [currentUser, setCurrentUser] = useState(null);
-  const navigate = useNavigate();
+  const [signedIn, setSignedIn] = useState(false)
 
-  console.log('App')
-
-  // useEffect(() => {
-  //   console.log('in App useEffect')
-  //   fetch("http://localhost:3000/me")
-  //     .then((response) => {
-  //       if (response.ok) {
-  //         console.log("Status Text:", response.status)
-  //         response.json().then(data => {
-  //           setCurrentUser(data)
-  //           navigate("/home");
-  //         })
-  //       }
-  //     })
-  // }, []);
+  const [writing, setWriting] = useState([])
+  const [image, setImage] = useState([])
+  const [sound, setSound] = useState([])
 
   return (
-    <div>
-      <h1>Evocation Station</h1>
-      <Routes>
-          <Route path="/" element={<SignUpForm setIsAuthenticated={setIsAuthenticated} setCurrentUser={setCurrentUser}/>} />
-          <Route path="/login" element={<LoginForm setIsAuthenticated={setIsAuthenticated} setCurrentUser={setCurrentUser} currentUser={currentUser}/>} />
-          <Route path="/home" element={<LoggedIn setCurrentUser={setCurrentUser} currentUser={currentUser}/>} />
-      </Routes>
+    <div id="application">
+      <div id="menu_column">
+        <h1>Evocation Station</h1>
+        {signedIn ? <NavBar setImage={setImage} /> : null}
+      </div>
+      <div id="evocation_main">
+        <Routes>
+          <Route path="/" element={<SignUpForm setCurrentUser={setCurrentUser}/>} />
+          <Route path="/login" element={<LoginForm setCurrentUser={setCurrentUser} currentUser={currentUser} setSignedIn={setSignedIn} />} />
+          <Route path="/home" element={<Home setCurrentUser={setCurrentUser} currentUser={currentUser} setSignedIn={setSignedIn} writing={writing} setWriting={setWriting} image={image} setImage={setImage} sound={sound} setSound={setSound} />} />
+          <Route path="/writings" element={<Writings  writing={writing} setWriting={setWriting} />} />
+          <Route path="/images" element={<Images />} image={image} setImage={setImage} />
+          <Route path="/sounds" element={<Sounds />} sound={sound} setSound={setSound} />
+        </Routes>
+      </div>
     </div>
   );
 };

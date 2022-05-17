@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import SignupForm from "./SignUpForm";
 
-function LoginForm({ setIsAuthenticated, setCurrentUser, currentUser }) {
+function LoginForm({ setCurrentUser, currentUser, setSignedIn }) {
   const [formData, setFormData] = useState({ username: "", password: "" });
   const [noAccount, setNoAccount] = useState(false)
   const navigate = useNavigate();
@@ -30,7 +30,7 @@ function LoginForm({ setIsAuthenticated, setCurrentUser, currentUser }) {
         response.json()
         .then((user) => {
           setNoAccount(false);
-          setIsAuthenticated(true)
+          setSignedIn(true)
           setCurrentUser(user);
           setFormData({
             username: "",

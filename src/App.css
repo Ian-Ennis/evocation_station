@@ -3,8 +3,27 @@
 }
 
 body {
-  margin: 0% 15%;
+  margin: 0% 5%;
   background-color: brown;
+}
+
+#application {
+  display: flex;
+  flex-direction: row;
+}
+
+#navbar a {
+  display: flex;
+  flex-direction: column;
+  margin: 10pt;
+}
+
+#menu_column {
+  width: 20%;
+}
+
+#evocation_main {
+  width: 80%;
 }
 
 #evocations {

@@ -1,22 +1,18 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import NavBar from "./NavBar";
 import Template from "./Template";
 import Evocations from "./Evocations";
 import Writings from "./Writings";
 import Images from "./Images";
 import Sounds from "./Sounds";
 
-const LoggedIn = ({ currentUser, setCurrentUser }) => {
+const Home = ({ currentUser, setCurrentUser, setSignedIn, writing, setWriting, image, setImage, sound, setSound }) => {
   const navigate = useNavigate();
 
   const [showWriting, setShowWriting] = useState(false)
-  const [writing, setWriting] = useState([])
-
   const [showImagery, setShowImagery] = useState(false)
-  const [image, setImage] = useState([])
-
   const [showSound, setShowSound] = useState(false)
-  const [sound, setSound] = useState([])
 
   function renderWriting(e) {
     e.preventDefault();
@@ -47,19 +43,20 @@ const LoggedIn = ({ currentUser, setCurrentUser }) => {
       },
     }).then((r) => {
       setCurrentUser(null);
+      setSignedIn(false)
       navigate("/");
     });
   }
 
   return (
-    <div>
+    <div id="home">
       <h1>Welcome, {currentUser.username}</h1>
       <button onClick={logout}>Log out</button>
-      <div>
+      <p>
         Welcome! Create your own evocation. An evocation is any combination of
         writing, imagery, and sound, that together convey meaning. There are materials to choose from, and you can upload your own materials too. Be creative
         and see what you can make!
-      </div>
+      </p>
       <Evocations />
       <div id="materials">
       <h3 onClick={renderWriting}>Writing</h3>
@@ -67,11 +64,11 @@ const LoggedIn = ({ currentUser, setCurrentUser }) => {
       <h3 onClick={renderSound}>Sounds</h3>
       </div>
       <Template writing={writing} image={image} sound={sound} />
-      {showWriting ? <div><Writings setWriting={setWriting}/> </div> : null}
-      {showImagery ? <div><Images setImage={setImage} /></div> : null}
+      {showWriting ? <div><Writings setWriting={setWriting} test={"writing test"}/> </div> : null}
+      {showImagery ? <div><Images setImage={setImage} test={"image test"}/></div> : null}
       {showSound ? <div><Sounds setSound={setSound} /></div> : null}
     </div>
   );
 };
 
-export default LoggedIn;
+export default Home;

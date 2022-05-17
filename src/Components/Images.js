@@ -1,9 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { v4 as uuid } from "uuid"
+import Template from "./Template";
 
-function Images({ setImage }) {
+function Images({ image, setImage, test }) {
     const [images, setImages] = useState([])
     const rootURL = `http://localhost:3000`;
+
+    console.log(test)
 
     useEffect(() => {
         fetch("http://localhost:3000/images").then((response) => {
@@ -48,14 +51,15 @@ function Images({ setImage }) {
 
       const imageData = images.map(i => {
         return (
-          <div id="imageData" key={uuid().slice(0, 8)}>
-            <img onClick={() => setImage(i.image)} src={`${rootURL}${i.image}`} />
+          <div onClick={() => setImage(i.image)} key={uuid().slice(0, 8)}>
+            <img src={`${rootURL}${i.image}`} />
           </div>
         );
       })
 
     return (
-      <div>
+      <div id="images">
+        <Template image={image}/>
         Images
         <form id="images" onSubmit={uploadImage}>
           <label for="image_upload">Add an image</label>

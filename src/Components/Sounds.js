@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { v4 as uuid } from "uuid"
+import Template from "./Template";
 
-function Sounds({ setSound }) {
+function Sounds({ sound, setSound }) {
     const [sounds, setSounds] = useState([])
     const rootURL = `http://localhost:3000`;
 
@@ -52,13 +53,14 @@ function Sounds({ setSound }) {
             <audio controls>
               <source src={`${rootURL}${s.audio}`} />
             </audio>
-            <button onClick={setSound(s.audio)}>Select Sound</button>
+            <button onClick={() => setSound(s.audio)}>Select Sound</button>
           </div>
         );
       });
 
     return (
-      <div>
+      <div id="sounds">
+        <Template sound={sound}/>
         Sounds
         <form id="sounds" onSubmit={uploadSound}>
           <label for="audio_upload">Add a sound</label>
