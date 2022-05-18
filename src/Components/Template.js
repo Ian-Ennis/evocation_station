@@ -5,21 +5,26 @@ function Template({ setEvocations, writing, setWriting, image, setImage, sound, 
   const navigate = useNavigate();
   const rootURL = `http://localhost:3000`;
 
-  function uploadEvocation(e) {
+  function uploadTemplate(e) {
     e.preventDefault();
 
-    const formData = new FormData();
-    if (writing) formData.append("text", writing);
-    if (image) formData.append("image", `${rootURL}${image}`);
-    if (sound) formData.append("audio", `${rootURL}${sound}`);
+    // const formData = new FormData();
+    // if (writing) formData.append("text", writing);
+    // if (image) formData.append("image", `${rootURL}${image}`);
+    // if (sound) formData.append("audio", `${rootURL}${sound}`);
 
     // console.log("text:", writing)
     // console.log("image:", `${rootURL}${image}`)
     // console.log("audio:", `${rootURL}${sound}`)
 
+
     fetch("http://localhost:3000/evocations", {
       method: "POST",
-      body: formData
+      body: JSON.stringify({
+        text: writing,
+        image_url: `${rootURL}${image}`,
+        audio_url: `${rootURL}${sound}`
+      })
     }).then(() => {
       fetch("http://localhost:3000/evocations").then((response) => {
         console.log(response);
@@ -55,7 +60,7 @@ function Template({ setEvocations, writing, setWriting, image, setImage, sound, 
         <button onClick={() => setSound([])}>Detach Sound</button></> : null}
 
         {writing.length || image.length || sound.length ? 
-          <button onClick={(e) => uploadEvocation(e)}>Submit Evocation</button> : null}
+          <button onClick={(e) => uploadTemplate(e)}>Submit Evocation</button> : null}
 
       </div>
     );

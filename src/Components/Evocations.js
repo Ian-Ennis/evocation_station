@@ -25,9 +25,9 @@ function Evocations({ evocations, setEvocations }) {
     const picture = e.target.image_upload.files[0];
     const audio = e.target.audio_upload.files[0];
 
-    // console.log("text:", text)
-    // console.log("picture:", picture)
-    // console.log("audio:", audio)
+    console.log("text:", text)
+    console.log("picture:", picture)
+    console.log("audio:", audio)
 
     const formData = new FormData();
     if (text) formData.append("text", text);
@@ -43,7 +43,7 @@ function Evocations({ evocations, setEvocations }) {
         if (response.ok) {
           response.json().then((data) => {
             console.log(data)
-            // setEvocations(data);
+            setEvocations(data);
           });
         } else {
           response.json();
