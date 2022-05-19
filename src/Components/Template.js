@@ -1,7 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 
-function Template({ setEvocations, writing, setWriting, image, setImage, sound, setSound }) {
+function Template({ setNewEvocations, writing, setWriting, image, setImage, sound, setSound }) {
   const navigate = useNavigate();
   const rootURL = `http://localhost:3000`;
 
@@ -25,7 +25,8 @@ function Template({ setEvocations, writing, setWriting, image, setImage, sound, 
         console.log(response);
         if (response.ok) {
           response.json().then((data) => {
-            console.log(data)
+            setNewEvocations(data)
+            navigate("/home")
           });
         } else {
           response.json();
@@ -37,7 +38,7 @@ function Template({ setEvocations, writing, setWriting, image, setImage, sound, 
 
     return (
       <div id="template">
-        <b>Template</b>
+        <b>Your Evocation Template:</b>
 
         {image.length ? <><img src={`${rootURL}${image}`} />
         <button onClick={() => setImage([])}>Detach Image</button>

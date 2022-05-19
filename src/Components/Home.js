@@ -1,6 +1,6 @@
-import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import NewEvocations from "./NewEvocations";
+import UploadForm from "./UploadForm";
+import UploadedEvocations from "./UploadedEvocations";
 import PrebuiltEvocations from "./PrebuiltEvocations";
 
 
@@ -32,7 +32,8 @@ const Home = ({ currentUser, setCurrentUser, setSignedIn, newEvocations, setNewE
         writing, imagery, and sound, that together convey meaning. There are materials to choose from, and you can upload your own materials too. Be creative
         and see what you can make!
       </p>
-      <NewEvocations newEvocations={newEvocations} setNewEvocations={setNewEvocations}/>
+      <UploadForm setNewEvocations={setNewEvocations}/>
+      <UploadedEvocations newEvocations={newEvocations} setNewEvocations={setNewEvocations}/>
       <PrebuiltEvocations prebuiltEvocations={prebuiltEvocations} setPrebuiltEvocations={setPrebuiltEvocations} />
     </div>
   );

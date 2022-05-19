@@ -4,7 +4,7 @@
 
 body {
   margin: 0% 5%;
-  background-color: brown;
+  /* background-color: brown; */
 }
 
 #application {
@@ -27,24 +27,46 @@ body {
 }
 
 #new_evocations {
+  padding: 20px;
   border: 2px solid black;
 }
 
-#new_evocation {
+#evocations {
+  border: 1px solid black;
+}
+
+#prebuilt_evocations {
+  padding: 20px;
+  border: 2px solid black;
+}
+
+#new_evocation_form {
   display: flex;
   flex-direction: column;
+  gap: 10px 10px;
   margin: 0 auto;
 }
 
-#materials {
+#writings {
   display: flex;
-  flex-direction: row;
-  justify-content: center;
-  gap: 0% 25%;
+  flex-wrap: wrap;
 }
 
-#writings {
-  border: 2px solid black;
+#each_writing {
+  border: 1px solid black;
+  padding: 20px;
+  max-width: 100px;
+  cursor: pointer;
+}
+
+#each_image {
+  padding: 20px;
+  border: 1px solid black;
+}
+
+#each_sound {
+  padding: 20px;
+  border: 1px solid black;
 }
 
 #template {

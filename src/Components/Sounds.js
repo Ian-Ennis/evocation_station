@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { v4 as uuid } from "uuid"
 import Template from "./Template";
 
-function Sounds({ evocations, setEvocations, writing, setWriting, image, setImage, sound, setSound }) {
+function Sounds({ setNewEvocations, writing, setWriting, image, setImage, sound, setSound }) {
     const [sounds, setSounds] = useState([])
     const rootURL = `http://localhost:3000`;
 
@@ -48,7 +48,7 @@ function Sounds({ evocations, setEvocations, writing, setWriting, image, setImag
 
       const soundData = sounds.map((s) => {
         return (
-          <div id="soundData" key={uuid().slice(0, 8)}>
+          <div id="each_sound" key={uuid().slice(0, 8)}>
             <audio controls>
               <source src={`${rootURL}${s.audio}`} />
             </audio>
@@ -60,10 +60,10 @@ function Sounds({ evocations, setEvocations, writing, setWriting, image, setImag
 
     return (
       <div id="sounds">
-        <Template setEvocations={setEvocations} writing={writing} setWriting={setWriting} image={image} setImage={setImage} sound={sound} setSound={setSound} />
-        Sounds
+        <Template setNewEvocations={setNewEvocations} writing={writing} setWriting={setWriting} image={image} setImage={setImage} sound={sound} setSound={setSound} />
+        <p><b>Sounds</b></p>
         <form id="sounds" onSubmit={uploadSound}>
-          <label for="audio_upload">Add a sound</label>
+          <label for="audio_upload">Upload a sound: </label>
           <input type="file" name="audio_upload" accept="audio/*"></input>
           <label for="audio_name">Name your sound:</label>
           <input type="text" name="audio_name"></input>

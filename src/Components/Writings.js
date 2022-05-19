@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { v4 as uuid } from "uuid"
 import Template from "./Template";
 
-function Writings({ evocations, setEvocations, writing, setWriting, image, setImage, sound, setSound }) {
+function Writings({ setNewEvocations, writing, setWriting, image, setImage, sound, setSound }) {
     const [writings, setWritings] = useState([])
 
     useEffect(() => {
@@ -21,17 +21,19 @@ function Writings({ evocations, setEvocations, writing, setWriting, image, setIm
 
       const writingData = writings.map(w => {
         return (
-          <div onClick={() => setWriting(w.text)} key={uuid().slice(0,8)}>
-            <h5>{w.text}</h5>
-          </div>
+          <p id="each_writing" onClick={() => setWriting(w.text)} key={uuid().slice(0,8)}>
+            {w.text}
+          </p>
         )
       })
 
     return (
-        <div id="writings">
-          <Template setEvocations={setEvocations} writing={writing} setWriting={setWriting} image={image} setImage={setImage} sound={sound} setSound={setSound} />
-            Writings:
-            {writingData}
+        <div>
+          <Template setNewEvocations={setNewEvocations} writing={writing} setWriting={setWriting} image={image} setImage={setImage} sound={sound} setSound={setSound} />
+            <p><b>Writings:</b></p>
+            <div id="writings">
+              {writingData}
+            </div>
         </div>
     )
 }

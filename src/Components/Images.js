@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { v4 as uuid } from "uuid"
 import Template from "./Template";
 
-function Images({ evocations, setEvocations, writing, setWriting, image, setImage, sound, setSound }) {
+function Images({ setNewEvocations, writing, setWriting, image, setImage, sound, setSound }) {
     const [images, setImages] = useState([])
     const rootURL = `http://localhost:3000`;
 
@@ -45,7 +45,7 @@ function Images({ evocations, setEvocations, writing, setWriting, image, setImag
 
       const imageData = images.map(i => {
         return (
-          <div key={uuid().slice(0, 8)}>
+          <div id="each_image" key={uuid().slice(0, 8)}>
             <img onClick={(e) => {e.preventDefault(); setImage(i.image)}} src={`${rootURL}${i.image}`} />
           </div>
         );
@@ -53,10 +53,10 @@ function Images({ evocations, setEvocations, writing, setWriting, image, setImag
 
     return (
       <div id="images">
-        <Template setEvocations={setEvocations} writing={writing} setWriting={setWriting} image={image} setImage={setImage} sound={sound} setSound={setSound}/>
-        Images
+        <Template setNewEvocations={setNewEvocations} writing={writing} setWriting={setWriting} image={image} setImage={setImage} sound={sound} setSound={setSound}/>
+        <p><b>Images</b></p>
         <form id="images" onSubmit={uploadImage}>
-          <label for="image_upload">Add an image</label>
+          <label for="image_upload">Upload an image: </label>
           <input type="file" name="image_upload" accept="image/png, image/jpeg, image/jpg"
           ></input>
           <button type="submit">Submit</button>
