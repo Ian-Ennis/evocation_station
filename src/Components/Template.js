@@ -8,31 +8,24 @@ function Template({ setEvocations, writing, setWriting, image, setImage, sound, 
   function uploadTemplate(e) {
     e.preventDefault();
 
-    // const formData = new FormData();
-    // if (writing) formData.append("text", writing);
-    // if (image) formData.append("image", `${rootURL}${image}`);
-    // if (sound) formData.append("audio", `${rootURL}${sound}`);
+    console.log("Writing:", writing)
+    console.log("Image:", image)
 
-    // console.log("text:", writing)
-    // console.log("image:", `${rootURL}${image}`)
-    // console.log("audio:", `${rootURL}${sound}`)
-
-
-    fetch("http://localhost:3000/evocations", {
+    fetch("http://localhost:3000/prebuiltevocations", {
       method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
       body: JSON.stringify({
         text: writing,
         image_url: `${rootURL}${image}`,
-        audio_url: `${rootURL}${sound}`
       })
     }).then(() => {
-      fetch("http://localhost:3000/evocations").then((response) => {
+      fetch("http://localhost:3000/prebuiltevocations").then((response) => {
         console.log(response);
         if (response.ok) {
           response.json().then((data) => {
             console.log(data)
-            // setEvocations(data);
-            // navigate("/home")
           });
         } else {
           response.json();
@@ -46,12 +39,12 @@ function Template({ setEvocations, writing, setWriting, image, setImage, sound, 
       <div id="template">
         <b>Template</b>
 
-        {writing.length ? <><p>{writing}</p>
-        <button onClick={() => setWriting([])}>Detach Writing</button></> : null}
-
         {image.length ? <><img src={`${rootURL}${image}`} />
         <button onClick={() => setImage([])}>Detach Image</button>
         </> : null}
+
+        {writing.length ? <><p>{writing}</p>
+        <button onClick={() => setWriting([])}>Detach Writing</button></> : null}
 
         {sound.length ? <>
         <audio controls>

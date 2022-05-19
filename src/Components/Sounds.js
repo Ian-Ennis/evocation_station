@@ -8,11 +8,9 @@ function Sounds({ evocations, setEvocations, writing, setWriting, image, setImag
 
     useEffect(() => {
         fetch("http://localhost:3000/sounds").then((response) => {
-          console.log(response);
           if (response.ok) {
             response.json().then((data) => {
               setSounds(data);
-              console.log(sounds)
             });
           } else {
             response.json();
@@ -36,10 +34,8 @@ function Sounds({ evocations, setEvocations, writing, setWriting, image, setImag
           body: formData
         }).then(() => {
           fetch("http://localhost:3000/sounds").then((response) => {
-            console.log(response);
             if (response.ok) {
               response.json().then((data) => {
-                  console.log(data)
                 setSounds(data);
               });
             } else {

@@ -8,7 +8,6 @@ function Images({ evocations, setEvocations, writing, setWriting, image, setImag
 
     useEffect(() => {
         fetch("http://localhost:3000/images").then((response) => {
-          console.log(response);
           if (response.ok) {
             response.json().then((data) => {
               setImages(data);
@@ -19,8 +18,6 @@ function Images({ evocations, setEvocations, writing, setWriting, image, setImag
           }
         });
       }, []);
-
-      console.log(images)
 
     function uploadImage(e) {
         e.preventDefault();
@@ -34,10 +31,8 @@ function Images({ evocations, setEvocations, writing, setWriting, image, setImag
           body: formData
         }).then(() => {
           fetch("http://localhost:3000/images").then((response) => {
-            console.log(response);
             if (response.ok) {
               response.json().then((data) => {
-                  console.log(data)
                 setImages(data);
               });
             } else {
@@ -50,8 +45,8 @@ function Images({ evocations, setEvocations, writing, setWriting, image, setImag
 
       const imageData = images.map(i => {
         return (
-          <div onClick={() => setImage(i.image)} key={uuid().slice(0, 8)}>
-            <img src={`${rootURL}${i.image}`} />
+          <div key={uuid().slice(0, 8)}>
+            <img onClick={(e) => {e.preventDefault(); setImage(i.image)}} src={`${rootURL}${i.image}`} />
           </div>
         );
       })

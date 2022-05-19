@@ -14,11 +14,11 @@ const App = () => {
   const [currentUser, setCurrentUser] = useState(null);
   const [signedIn, setSignedIn] = useState(false)
 
-  const [evocations, setEvocations] = useState([]);
+  const [newEvocations, setNewEvocations] = useState([]);
+  const [prebuiltEvocations, setPrebuiltEvocations] = useState([])
   const [writing, setWriting] = useState([])
   const [image, setImage] = useState([])
   const [sound, setSound] = useState([])
-  
 
   return (
     <div id="application">
@@ -30,10 +30,10 @@ const App = () => {
         <Routes>
           <Route path="/" element={<SignUpForm setCurrentUser={setCurrentUser}/>} />
           <Route path="/login" element={<LoginForm setCurrentUser={setCurrentUser} currentUser={currentUser} setSignedIn={setSignedIn} />} />
-          <Route path="/home" element={<Home setCurrentUser={setCurrentUser} currentUser={currentUser} setSignedIn={setSignedIn} evocations={evocations} setEvocations={setEvocations} setWriting={setWriting} setImage={setImage} setSound={setSound}/>} />
-          <Route path="/writings" element={<Writings evocations={evocations} setEvocations={setEvocations} writing={writing} setWriting={setWriting} image={image} setImage={setImage} sound={sound} setSound={setSound} />} />
-          <Route path="/images" element={<Images evocations={evocations} setEvocations={setEvocations} writing={writing} setWriting={setWriting} image={image} setImage={setImage} sound={sound} setSound={setSound} />} />
-          <Route path="/sounds" element={<Sounds evocations={evocations} setEvocations={setEvocations} writing={writing} setWriting={setWriting} image={image} setImage={setImage} sound={sound} setSound={setSound} />} />
+          <Route path="/home" element={<Home setCurrentUser={setCurrentUser} currentUser={currentUser} setSignedIn={setSignedIn} newEvocations={newEvocations} setNewEvocations={setNewEvocations} prebuiltEvocations={prebuiltEvocations} setPrebuiltEvocations={setPrebuiltEvocations} setWriting={setWriting} setImage={setImage} setSound={setSound}/>} />
+          <Route path="/writings" element={<Writings newEvocations={newEvocations} setNewEvocations={setNewEvocations} writing={writing} setWriting={setWriting} image={image} setImage={setImage} sound={sound} setSound={setSound} />} />
+          <Route path="/images" element={<Images newEvocations={newEvocations} setNewEvocations={setNewEvocations} writing={writing} setWriting={setWriting} image={image} setImage={setImage} sound={sound} setSound={setSound} />} />
+          <Route path="/sounds" element={<Sounds newEvocations={newEvocations} setNewEvocations={setNewEvocations} writing={writing} setWriting={setWriting} image={image} setImage={setImage} sound={sound} setSound={setSound} />} />
         </Routes>
       </div>
     </div>

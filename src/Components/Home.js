@@ -1,9 +1,10 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import Evocations from "./Evocations";
+import NewEvocations from "./NewEvocations";
+import PrebuiltEvocations from "./PrebuiltEvocations";
 
 
-const Home = ({ currentUser, setCurrentUser, setSignedIn, evocations, setEvocations, setWriting, setImage, setSound }) => {
+const Home = ({ currentUser, setCurrentUser, setSignedIn, newEvocations, setNewEvocations, prebuiltEvocations, setPrebuiltEvocations, setWriting, setImage, setSound }) => {
   const navigate = useNavigate();
 
   function logout() {
@@ -31,7 +32,8 @@ const Home = ({ currentUser, setCurrentUser, setSignedIn, evocations, setEvocati
         writing, imagery, and sound, that together convey meaning. There are materials to choose from, and you can upload your own materials too. Be creative
         and see what you can make!
       </p>
-      <Evocations evocations={evocations} setEvocations={setEvocations}/>
+      <NewEvocations newEvocations={newEvocations} setNewEvocations={setNewEvocations}/>
+      <PrebuiltEvocations prebuiltEvocations={prebuiltEvocations} setPrebuiltEvocations={setPrebuiltEvocations} />
     </div>
   );
 };

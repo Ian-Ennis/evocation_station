@@ -10,7 +10,6 @@ function Writings({ evocations, setEvocations, writing, setWriting, image, setIm
         fetch("http://localhost:3000/writings").then((response) => {
           if (response.ok) {
             response.json().then((data) => {
-              console.log(data)
               setWritings(data);
             });
           } else {
