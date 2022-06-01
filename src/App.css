@@ -26,7 +26,17 @@ body {
   width: 80%;
 }
 
-#new_evocations {
+#welcome_bar {
+  display: flex;
+  flex-direction: row;
+}
+
+#logout_button {
+  height: 20px;
+  margin: 30px 20px;
+}
+
+#new_and_uploaded_evocations {
   padding: 20px;
   border: 2px solid black;
 }
@@ -42,7 +52,7 @@ body {
   border: 2px solid black;
 }
 
-#prebuilt_image {
+#evocation_image {
   max-width: 300px;
   max-height: auto;
 }
@@ -55,22 +65,40 @@ body {
 }
 
 #writings {
-  display: flex;
-  flex-wrap: wrap;
+  column-count: 4;
+  max-width: 1000px;
+  margin: 20px auto;
+  padding: 20px;
 }
 
 #each_writing {
-  border: 1px solid black;
-  padding: 20px;
-  max-width: 100px;
+  width: 100%;
+  height: auto;
+  display: block;
+  margin-bottom: 20px;
+  padding: 10px;
+  box-sizing: border-box;
+  box-shadow: 0 0 2px black;
   cursor: pointer;
 }
 
-#each_image {
+#images {
+  margin-top: 20px;
+  column-count: 4;
+  max-width: 1000px;
+  margin: 30px auto;
   padding: 20px;
-  border: 1px solid black;
-  max-width: 200px;
-  max-height: auto;
+}
+
+#each_image {
+  width: 100%;
+  height: auto;
+  display: block;
+  margin-bottom: 20px;
+  padding: 10px;
+  box-sizing: border-box;
+  box-shadow: 0 0 5px black;
+  cursor: pointer;
 }
 
 #image {
@@ -78,9 +106,17 @@ body {
   max-height: 100%;
 }
 
+#sounds {
+  margin-top: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 10px;
+}
+
 #each_sound {
   padding: 20px;
   border: 1px solid black;
+  max-width: 400px;
 }
 
 #template {

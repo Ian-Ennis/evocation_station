@@ -40,7 +40,7 @@ function UploadedEvocations({ newEvocations, setNewEvocations }) {
     return (
       <div id="evocations" key={uuid().slice(0,8)}>
         {evocation.text ? <p>{evocation.text}</p> : null}
-        {evocation.image ? <img src={`${rootURL}${evocation.image}`}/> : null}
+        {evocation.image ? <img id="evocation_image" src={`${rootURL}${evocation.image}`}/> : null}
         {evocation.audio ? <audio controls>
           <source src={`${rootURL}${evocation.audio}`}/>
         </audio> : null}
@@ -50,7 +50,7 @@ function UploadedEvocations({ newEvocations, setNewEvocations }) {
   })
 
   return (
-    <div id="new_evocations">
+    <div id="uploaded_evocations">
       <b>Uploaded Evocations</b>
       {evocationData}
     </div>

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { v4 as uuid } from "uuid"
 import Template from "./Template";
 
-function Writings({ setNewEvocations, writing, setWriting, image, setImage, sound, setSound }) {
+function Writings({ setPrebuiltEvocations, writing, setWriting, image, setImage, sound, setSound }) {
     const [writings, setWritings] = useState([])
 
     useEffect(() => {
@@ -10,6 +10,7 @@ function Writings({ setNewEvocations, writing, setWriting, image, setImage, soun
         fetch("http://localhost:3000/writings").then((response) => {
           if (response.ok) {
             response.json().then((data) => {
+              console.log(data)
               setWritings(data);
             });
           } else {
@@ -29,7 +30,7 @@ function Writings({ setNewEvocations, writing, setWriting, image, setImage, soun
 
     return (
         <div>
-          <Template setNewEvocations={setNewEvocations} writing={writing} setWriting={setWriting} image={image} setImage={setImage} sound={sound} setSound={setSound} />
+          <Template setPrebuiltEvocations={setPrebuiltEvocations} writing={writing} setWriting={setWriting} image={image} setImage={setImage} sound={sound} setSound={setSound} />
             <p><b>Writings:</b></p>
             <div id="writings">
               {writingData}

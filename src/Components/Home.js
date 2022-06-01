@@ -25,8 +25,10 @@ const Home = ({ currentUser, setCurrentUser, setSignedIn, newEvocations, setNewE
 
   return (
     <div id="home">
-      <h1>Welcome, {currentUser.username}</h1>
-      <button onClick={logout}>Log out</button>
+      <div id="welcome_bar">
+        <h1>Welcome, {currentUser.username}</h1>
+        <button id="logout_button" onClick={logout}>Log out</button>
+      </div>
       <p>
         Welcome! Create your own evocation. An evocation is any combination of
         writing, imagery, and sound, that together convey meaning. There are materials to choose from, and you can upload your own materials too. Be creative

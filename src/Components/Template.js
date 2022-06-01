@@ -1,7 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 
-function Template({ setNewEvocations, writing, setWriting, image, setImage, sound, setSound }) {
+function Template({ setPrebuiltEvocations, writing, setWriting, image, setImage, sound, setSound }) {
   const navigate = useNavigate();
   const rootURL = `http://localhost:3000`;
 
@@ -27,7 +27,7 @@ function Template({ setNewEvocations, writing, setWriting, image, setImage, soun
         console.log(response);
         if (response.ok) {
           response.json().then((data) => {
-            setNewEvocations(data)
+            setPrebuiltEvocations(data)
             navigate("/home")
           });
         } else {

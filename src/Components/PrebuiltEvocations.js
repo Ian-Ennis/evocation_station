@@ -5,6 +5,7 @@ function PrebuiltEvocations({ prebuiltEvocations, setPrebuiltEvocations }) {
     const rootURL = `http://localhost:3000`;
 
   useEffect(() => {
+    console.log("in prebuilt evocations useEffect", prebuiltEvocations)
     fetch("http://localhost:3000/prebuiltevocations").then((response) => {
       if (response.ok) {
         response.json().then((data) => {
@@ -40,9 +41,9 @@ function PrebuiltEvocations({ prebuiltEvocations, setPrebuiltEvocations }) {
     return (
       <div id="evocations" key={uuid().slice(0,8)}>
         {evocation.text ? <p>{evocation.text}</p> : null}
-        {evocation.image_url ? <img id="prebuilt_image" src={`${evocation.image_url}`}/> : null}
-        {evocation.audio ? <audio controls>
-          <source src={`${rootURL}${evocation.audio}`}/>
+        {evocation.image_url ? <img id="evocation_image" src={`${evocation.image_url}`}/> : null}
+        {evocation.sound_url ? <audio controls>
+          <source src={`${evocation.sound_url}`}/>
         </audio> : null}
         <button onClick={(e) => deletePrebuiltEvocation(e, evocation)}>Delete</button>
       </div>
