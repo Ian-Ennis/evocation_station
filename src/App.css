@@ -33,11 +33,18 @@ body {
 
 #evocations {
   border: 1px solid black;
+  width: 300px;
+  height: auto;
 }
 
 #prebuilt_evocations {
   padding: 20px;
   border: 2px solid black;
+}
+
+#prebuilt_image {
+  max-width: 300px;
+  max-height: auto;
 }
 
 #new_evocation_form {
@@ -62,6 +69,13 @@ body {
 #each_image {
   padding: 20px;
   border: 1px solid black;
+  max-width: 200px;
+  max-height: auto;
+}
+
+#image {
+  max-width: 100%;
+  max-height: 100%;
 }
 
 #each_sound {
@@ -71,4 +85,9 @@ body {
 
 #template {
   border: 2px solid gray;
+}
+
+#template_image {
+  max-width: 300px;
+  max-height: auto;
 }

@@ -10,6 +10,7 @@ function Template({ setNewEvocations, writing, setWriting, image, setImage, soun
 
     console.log("Writing:", writing)
     console.log("Image:", image)
+    console.log("Sound:", sound)
 
     fetch("http://localhost:3000/prebuiltevocations", {
       method: "POST",
@@ -19,6 +20,7 @@ function Template({ setNewEvocations, writing, setWriting, image, setImage, soun
       body: JSON.stringify({
         text: writing,
         image_url: `${rootURL}${image}`,
+        sound_url: `${rootURL}${sound}`
       })
     }).then(() => {
       fetch("http://localhost:3000/prebuiltevocations").then((response) => {
@@ -40,9 +42,9 @@ function Template({ setNewEvocations, writing, setWriting, image, setImage, soun
       <div id="template">
         <b>Your Evocation Template:</b>
 
-        {image.length ? <><img src={`${rootURL}${image}`} />
+        {image.length ? <div id="template_image"><img id="image" src={`${rootURL}${image}`} />
         <button onClick={() => setImage([])}>Detach Image</button>
-        </> : null}
+        </div> : null}
 
         {writing.length ? <><p>{writing}</p>
         <button onClick={() => setWriting([])}>Detach Writing</button></> : null}

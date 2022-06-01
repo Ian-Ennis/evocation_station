@@ -43,10 +43,30 @@ function Images({ setNewEvocations, writing, setWriting, image, setImage, sound,
         });
       }
 
+      function deleteImage(e, i) {
+        e.preventDefault();
+        console.log(i.id)
+
+        fetch(`http://localhost:3000/images/${i.id}`, {
+          method: "DELETE",
+        }).then(() => {
+          fetch("http://localhost:3000/images").then((response) => {
+            if (response.ok) {
+              response.json().then((data) => {
+                setImages(data);
+              });
+            } else {
+              response.json();
+              throw Error(response.status, response.statusText);
+            }
+          });
+        });
+      }
+
       const imageData = images.map(i => {
         return (
           <div id="each_image" key={uuid().slice(0, 8)}>
-            <img onClick={(e) => {e.preventDefault(); setImage(i.image)}} src={`${rootURL}${i.image}`} />
+            <img id="image" onClick={(e) => {e.preventDefault(); setImage(i.image)}} src={`${rootURL}${i.image}`} />
           </div>
         );
       })
