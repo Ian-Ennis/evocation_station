@@ -7,12 +7,9 @@ function Sounds({ setPrebuiltEvocations, writing, setWriting, image, setImage, s
     const rootURL = `http://localhost:3000`;
 
     useEffect(() => {
-      console.log("in sounds use effect")
-
         fetch("http://localhost:3000/sounds").then((response) => {
           if (response.ok) {
             response.json().then((data) => {
-              console.log(data)
               setSounds(data);
             });
           } else {
@@ -52,10 +49,10 @@ function Sounds({ setPrebuiltEvocations, writing, setWriting, image, setImage, s
       const soundData = sounds.map((s) => {
         return (
           <div id="each_sound" key={uuid().slice(0, 8)}>
+            <p>&nbsp;{s.audio_name}</p>
             <audio controls>
               <source src={`${rootURL}${s.audio}`} />
             </audio>
-            <p>{s.audio_name}</p>
             <button onClick={() => setSound(s.audio)}>Select Sound</button>
           </div>
         );

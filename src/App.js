@@ -1,4 +1,4 @@
-import { useState} from "react";
+import { useState, useEffect} from "react";
 import { Routes, Route } from "react-router-dom";
 import SignUpForm from "./Components/SignUpForm";
 import LoginForm from "./Components/LoginForm";
@@ -20,10 +20,28 @@ const App = () => {
   const [image, setImage] = useState([])
   const [sound, setSound] = useState([])
 
+  console.log(currentUser)
+
+  useEffect(() => {
+    console.log('page reloaded')
+
+    // fetch(`http://localhost:3000/users/${currentUser.id}`).then((response) => {
+    //   if (response.ok) {
+    //     response.json().then(data => console.log(data))
+    //   } else {
+    //     response.json();
+    //     throw Error(response.status, response.statusText)
+    //   }
+    // })
+  })
+
   return (
     <div id="application">
-      <div id="menu_column">
+      <div id="title">
         <h1>Evocation Station</h1>
+      </div>
+      <div id="menu_and_main">
+      <div id="menu_column">
         {signedIn ? <NavBar /> : null}
       </div>
       <div id="evocation_main">
@@ -35,6 +53,11 @@ const App = () => {
           <Route path="/images" element={<Images prebuiltEvocations={prebuiltEvocations} setPrebuiltEvocations={setPrebuiltEvocations} writing={writing} setWriting={setWriting} image={image} setImage={setImage} sound={sound} setSound={setSound} />} />
           <Route path="/sounds" element={<Sounds prebuiltEvocations={prebuiltEvocations} setPrebuiltEvocations={setPrebuiltEvocations} writing={writing} setWriting={setWriting} image={image} setImage={setImage} sound={sound} setSound={setSound} />} />
         </Routes>
+        <div id="footer">
+          <p>Site managed and maintained by Ian Ennis</p>
+          <p>Images provided by https://www.pexels.com/ &nbsp; | &nbsp; Sounds provided by https://freesound.org/</p>
+        </div>
+      </div>
       </div>
     </div>
   );

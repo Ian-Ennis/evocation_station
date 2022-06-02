@@ -7,6 +7,8 @@ import PrebuiltEvocations from "./PrebuiltEvocations";
 const Home = ({ currentUser, setCurrentUser, setSignedIn, newEvocations, setNewEvocations, prebuiltEvocations, setPrebuiltEvocations, setWriting, setImage, setSound }) => {
   const navigate = useNavigate();
 
+  // console.log(currentUser.id)
+
   function logout() {
     fetch("http://localhost:3000/logout", {
       method: "DELETE",

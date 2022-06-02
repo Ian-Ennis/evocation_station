@@ -6,11 +6,9 @@ function Writings({ setPrebuiltEvocations, writing, setWriting, image, setImage,
     const [writings, setWritings] = useState([])
 
     useEffect(() => {
-      console.log("in writings use effect")
         fetch("http://localhost:3000/writings").then((response) => {
           if (response.ok) {
             response.json().then((data) => {
-              console.log(data)
               setWritings(data);
             });
           } else {

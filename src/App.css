@@ -4,10 +4,16 @@
 
 body {
   margin: 0% 5%;
+  max-width: 1500px;
   /* background-color: brown; */
 }
 
-#application {
+#title {
+  margin: 30px 0;
+  min-width: 275px;
+}
+
+#menu_and_main {
   display: flex;
   flex-direction: row;
 }
@@ -15,15 +21,21 @@ body {
 #navbar a {
   display: flex;
   flex-direction: column;
-  margin: 10pt;
+  margin: 15pt 0;
+}
+
+#crafting_materials {
+  margin-left: 10%;
 }
 
 #menu_column {
-  width: 20%;
+  min-width: 200px;
+  max-width: 200px;
 }
 
 #evocation_main {
-  width: 80%;
+  min-width: 700px;
+  max-width: 1050px;
 }
 
 #welcome_bar {
@@ -36,15 +48,15 @@ body {
   margin: 30px 20px;
 }
 
-#new_and_uploaded_evocations {
-  padding: 20px;
-  border: 2px solid black;
-}
-
 #evocations {
   border: 1px solid black;
   width: 300px;
   height: auto;
+}
+
+#uploaded_evocations {
+  padding: 20px;
+  border: 2px solid black;
 }
 
 #prebuilt_evocations {
@@ -121,9 +133,40 @@ body {
 
 #template {
   border: 2px solid gray;
+  padding: 20px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+#actions {
+  display: flex;
+  flex-direction: column;
+  gap: 15px 0px;
+  max-width: 20%;
+  margin: 0 0;
+}
+
+#actions button {
+  max-width: 75px;
+}
+
+#selected_materials {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  max-width: 80%;
+}
+
+#selected_materials p, div, audio {
+  margin: 0 auto;
 }
 
 #template_image {
-  max-width: 300px;
+  max-width: 50%;
   max-height: auto;
+}
+
+#footer {
+  text-align: center;
+  margin-top: 50px;
 }

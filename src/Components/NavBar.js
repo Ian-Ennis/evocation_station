@@ -5,9 +5,12 @@ function NavBar() {
     return (
         <nav id="navbar">
             <Link to="/home">Home</Link>
-            <Link to="/writings">Writings</Link>
-            <Link to="/images">Images</Link>
-            <Link to="/sounds">Sounds</Link>
+                <p>Crafting Materials:</p>
+            <div id="crafting_materials">
+                <Link to="/writings">Writings</Link>
+                <Link to="/images">Images</Link>
+                <Link to="/sounds">Sounds</Link>
+            </div>
         </nav>
     )
 }

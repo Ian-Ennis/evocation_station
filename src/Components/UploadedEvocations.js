@@ -51,7 +51,7 @@ function UploadedEvocations({ newEvocations, setNewEvocations }) {
 
   return (
     <div id="uploaded_evocations">
-      <b>Uploaded Evocations</b>
+      <b>Custom / Uploaded Evocations</b>
       {evocationData}
     </div>
   );

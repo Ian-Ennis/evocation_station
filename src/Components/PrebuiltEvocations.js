@@ -5,7 +5,6 @@ function PrebuiltEvocations({ prebuiltEvocations, setPrebuiltEvocations }) {
     const rootURL = `http://localhost:3000`;
 
   useEffect(() => {
-    console.log("in prebuilt evocations useEffect", prebuiltEvocations)
     fetch("http://localhost:3000/prebuiltevocations").then((response) => {
       if (response.ok) {
         response.json().then((data) => {

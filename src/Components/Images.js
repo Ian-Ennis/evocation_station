@@ -7,11 +7,9 @@ function Images({ setPrebuiltEvocations, writing, setWriting, image, setImage, s
     const rootURL = `http://localhost:3000`;
 
     useEffect(() => {
-      console.log("in images use effect")
         fetch("http://localhost:3000/images").then((response) => {
           if (response.ok) {
             response.json().then((data) => {
-              console.log(data)
               setImages(data);
             });
           } else {
@@ -47,7 +45,6 @@ function Images({ setPrebuiltEvocations, writing, setWriting, image, setImage, s
 
       function deleteImage(e, i) {
         e.preventDefault();
-        console.log(i.id)
 
         fetch(`http://localhost:3000/images/${i.id}`, {
           method: "DELETE",

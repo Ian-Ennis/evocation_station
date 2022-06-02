@@ -8,10 +8,6 @@ function Template({ setPrebuiltEvocations, writing, setWriting, image, setImage,
   function uploadTemplate(e) {
     e.preventDefault();
 
-    console.log("Writing:", writing)
-    console.log("Image:", image)
-    console.log("Sound:", sound)
-
     fetch("http://localhost:3000/prebuiltevocations", {
       method: "POST",
       headers: {
@@ -39,26 +35,35 @@ function Template({ setPrebuiltEvocations, writing, setWriting, image, setImage,
   }
 
     return (
-      <div id="template">
-        <b>Your Evocation Template:</b>
-
-        {image.length ? <div id="template_image"><img id="image" src={`${rootURL}${image}`} />
-        <button onClick={() => setImage([])}>Detach Image</button>
-        </div> : null}
-
-        {writing.length ? <><p>{writing}</p>
-        <button onClick={() => setWriting([])}>Detach Writing</button></> : null}
-
-        {sound.length ? <>
-        <audio controls>
-          <source src={`${rootURL}${sound}`} />
-        </audio> 
-        <button onClick={() => setSound([])}>Detach Sound</button></> : null}
-
+      <>
         {writing.length || image.length || sound.length ? 
-          <button onClick={(e) => uploadTemplate(e)}>Submit Evocation</button> : null}
-
-      </div>
+        <>
+          <p><b>Your Evocation Template:</b></p>
+          <div id="template">
+            <div id="actions">
+            <p>Actions:</p>
+              {writing.length ? <button onClick={() => setWriting([])}>Detach Writing</button> : null}
+              {image.length ? <button onClick={() => setImage([])}>Detach Image</button> : null}
+              {sound.length ? <button onClick={() => setSound([])}>Detach Sound</button> : null}
+              {writing.length || image.length || sound.length ? 
+                <button id="commit_evocation" onClick={(e) => uploadTemplate(e)}>Commit Evocation</button>
+              : null}
+          </div>
+          <div id="selected_materials">
+            {writing.length ? <><p>{writing}</p>
+              </> : null}
+            {image.length ? <div id="template_image"><img id="image" src={`${rootURL}${image}`} />
+              </div> : null}
+            {sound.length ? <>
+              <audio controls>
+                <source src={`${rootURL}${sound}`} />
+              </audio> 
+            </> : null}
+            </div>
+          </div>
+        </>
+        : null}
+      </>
     );
 }
 
