@@ -33,7 +33,7 @@ const Home = ({ currentUser, setCurrentUser, setSignedIn, newEvocations, setNewE
       </div>
       <p>
         Welcome! Create your own evocation. An evocation is any combination of
-        writing, imagery, and sound, that together convey meaning. There are materials to choose from, and you can upload your own materials too. Be creative
+        writing, imagery, and sound, that together convey meaning. There are crafting materials to choose from on the left, and you can upload your own materials too. Be creative
         and see what you can make!
       </p>
       <UploadForm setNewEvocations={setNewEvocations}/>
