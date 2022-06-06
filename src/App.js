@@ -20,20 +20,41 @@ const App = () => {
   const [image, setImage] = useState([])
   const [sound, setSound] = useState([])
 
-  console.log(currentUser)
 
   useEffect(() => {
-    console.log('page reloaded')
+    console.log("APP use effect")
+    
+    fetch('http://localhost:3000/authorized_user')
+    .then((response) => {
+      console.log(response)
+      if (response.ok) {
+        response.json()
+        .then((user) => {
+          console.log(user)
+          // setIsAuthenticated(true);
+          // setUser(user);
+        });
+      }
+    });
 
-    // fetch(`http://localhost:3000/users/${currentUser.id}`).then((response) => {
-    //   if (response.ok) {
-    //     response.json().then(data => console.log(data))
-    //   } else {
-    //     response.json();
-    //     throw Error(response.status, response.statusText)
-    //   }
-    // })
-  })
+    // dependancy array?
+  });
+
+
+  // useEffect(() => {
+  //   console.log('in find user auth')
+
+  //   fetch("http://localhost:3000/authorized_user")
+  //     .then(response => {
+  //       console.log(response)
+  //       if (response.ok) {
+  //         response.json()
+  //         .then(data => console.log(data))
+  //       } else {
+  //         throw Error(response.status, response.statusText);
+  //       }
+  //     })
+  // })
 
   return (
     <div id="application">
@@ -46,19 +67,19 @@ const App = () => {
       </div>
       <div id="evocation_main">
         <Routes>
-          <Route path="/" element={<SignUpForm setCurrentUser={setCurrentUser}/>} />
+          <Route path="/" element={<SignUpForm />} />
           <Route path="/login" element={<LoginForm setCurrentUser={setCurrentUser} currentUser={currentUser} setSignedIn={setSignedIn} />} />
           <Route path="/home" element={<Home setCurrentUser={setCurrentUser} currentUser={currentUser} setSignedIn={setSignedIn} newEvocations={newEvocations} setNewEvocations={setNewEvocations} prebuiltEvocations={prebuiltEvocations} setPrebuiltEvocations={setPrebuiltEvocations} setWriting={setWriting} setImage={setImage} setSound={setSound}/>} />
           <Route path="/writings" element={<Writings prebuiltEvocations={prebuiltEvocations} setPrebuiltEvocations={setPrebuiltEvocations} writing={writing} setWriting={setWriting} image={image} setImage={setImage} sound={sound} setSound={setSound} />} />
           <Route path="/images" element={<Images prebuiltEvocations={prebuiltEvocations} setPrebuiltEvocations={setPrebuiltEvocations} writing={writing} setWriting={setWriting} image={image} setImage={setImage} sound={sound} setSound={setSound} />} />
           <Route path="/sounds" element={<Sounds prebuiltEvocations={prebuiltEvocations} setPrebuiltEvocations={setPrebuiltEvocations} writing={writing} setWriting={setWriting} image={image} setImage={setImage} sound={sound} setSound={setSound} />} />
         </Routes>
+      </div>
+      </div>
         <div id="footer">
           <p>Site managed and maintained by Ian Ennis</p>
           <p>Images provided by https://www.pexels.com/ &nbsp; | &nbsp; Sounds provided by https://freesound.org/</p>
         </div>
-      </div>
-      </div>
     </div>
   );
 };

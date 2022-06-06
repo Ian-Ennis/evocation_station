@@ -33,6 +33,7 @@ function Images({ setPrebuiltEvocations, writing, setWriting, image, setImage, s
           fetch("http://localhost:3000/images").then((response) => {
             if (response.ok) {
               response.json().then((data) => {
+                console.log(data)
                 setImages(data);
               });
             } else {
