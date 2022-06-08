@@ -15,8 +15,8 @@ function Template({ setPrebuiltEvocations, writing, setWriting, image, setImage,
       },
       body: JSON.stringify({
         text: writing,
-        image_url: `${rootURL}${image}`,
-        sound_url: `${rootURL}${sound}`
+        image_url: `${image}`,
+        sound_url: `${sound}`
       })
     }).then(() => {
       fetch("http://localhost:3000/prebuiltevocations").then((response) => {
@@ -52,11 +52,11 @@ function Template({ setPrebuiltEvocations, writing, setWriting, image, setImage,
           <div id="selected_materials">
             {writing.length ? <><p>{writing}</p>
               </> : null}
-            {image.length ? <div id="template_image"><img id="image" src={`${rootURL}${image}`} />
+            {image.length ? <div id="template_image"><img id="image" src={`${image}`} />
               </div> : null}
             {sound.length ? <>
               <audio controls>
-                <source src={`${rootURL}${sound}`} />
+                <source src={`${sound}`} />
               </audio> 
             </> : null}
             </div>

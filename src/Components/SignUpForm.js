@@ -16,7 +16,6 @@ function SignupForm({ setCurrentUser }) {
 
   function handleSubmit(e) {
     e.preventDefault();
-
     const userCreds = { ...formData };
 
     fetch("http://localhost:3000/users", {

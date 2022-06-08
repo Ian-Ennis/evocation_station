@@ -20,21 +20,6 @@ const App = () => {
   const [image, setImage] = useState([])
   const [sound, setSound] = useState([])
 
-  console.log(currentUser)
-
-  useEffect(() => {
-    console.log('page reloaded')
-
-    // fetch(`http://localhost:3000/users/${currentUser.id}`).then((response) => {
-    //   if (response.ok) {
-    //     response.json().then(data => console.log(data))
-    //   } else {
-    //     response.json();
-    //     throw Error(response.status, response.statusText)
-    //   }
-    // })
-  })
-
   return (
     <div id="application">
       <div id="title">

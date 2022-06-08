@@ -3,83 +3,159 @@ import { v4 as uuid } from "uuid"
 import Template from "./Template";
 
 function Images({ setPrebuiltEvocations, writing, setWriting, image, setImage, sound, setSound }) {
-    const [images, setImages] = useState([])
-    const rootURL = `http://localhost:3000`;
+  const [images, setImages] = useState([])
+  const rootURL = `http://localhost:3000`;
 
-    useEffect(() => {
-        fetch("http://localhost:3000/images").then((response) => {
-          if (response.ok) {
-            response.json().then((data) => {
-              setImages(data);
-            });
-          } else {
-            response.json();
-            throw Error(response.status, response.statusText);
-          }
-        });
-      }, []);
+  const awsImageTable = [
+    {
+      id: 1,
+      title: "Concert Hall",
+      url: "https://evocation-station.s3.amazonaws.com/pioilpsr893oo5ucmfczdc7qvk7a"
+    },
+    {
+      id: 2,
+      title: "Firefly",
+      url: "https://evocation-station.s3.amazonaws.com/o4xbv1030h6h2yfhwcu8uuqo1q27"
+    },
+    {
+      id: 3,
+      title: "Breaking Waves",
+      url: "https://evocation-station.s3.amazonaws.com/lefg1onaa56yr0zh6gn049hjnf31"
+    },
+    {
+      id: 4,
+      title: "Volcano",
+      url: "https://evocation-station.s3.amazonaws.com/laotc5on7xsxghqd6iixce627rs1"
+    },
+    {
+      id: 5,
+      title: "Rising Dusk",
+      url: "https://evocation-station.s3.amazonaws.com/kxmwva61suofvt7jsv91wqnusuh8"
+    },
+    {
+      id: 6,
+      title: "Elegance",
+      url: "https://evocation-station.s3.amazonaws.com/iqbjmbo5dzrimwgxa766d5r7viqf"
+    },
+    {
+      id: 7,
+      title: "Terra Cotta Rain",
+      url: "https://evocation-station.s3.amazonaws.com/hkerd5ybj5cvo5bvane72xivfwy9"
+    },
+    {
+      id: 8,
+      title: "On The Town",
+      url: "https://evocation-station.s3.amazonaws.com/hevd0u0jdxg698rom2hc3zjgifde"
+    },
+    {
+      id: 9,
+      title: "Midnight Reflections",
+      url: "https://evocation-station.s3.amazonaws.com/g7xm1drxocy3s1yxz0bkpponuqof"
+    },
+    {
+      id: 10,
+      title: "Firework",
+      url: "https://evocation-station.s3.amazonaws.com/2zk0l9i5q3qilc0zvu1qnpm92y3t"
+    },
+    {
+      id: 11,
+      title: "Ignite",
+      url: "https://evocation-station.s3.amazonaws.com/zq3di5xzjarvne2g8h4uui0gw8ry"
+    },
+    {
+      id: 12,
+      title: "Windmill",
+      url: "https://evocation-station.s3.amazonaws.com/ze7ophk6cb9kiw3bguq8l5hdkl2h"
+    },
+    {
+      id: 13,
+      title: "VHS",
+      url: "https://evocation-station.s3.amazonaws.com/y68b1z7ek7r8hg2q0mjddvqswcvb"
+    },
+    {
+      id: 14,
+      title: "Mandrillus sphinx",
+      url: "https://evocation-station.s3.amazonaws.com/xjl1k97vbu2f4ebkp3watx2ggreu"
+    },
+    {
+      id: 15,
+      title: "Train Station",
+      url: "https://evocation-station.s3.amazonaws.com/x0xp2wrs5iqq749oh087pofsgu52"
+    },
+    {
+      id: 16,
+      title: "Boombox",
+      url: "https://evocation-station.s3.amazonaws.com/vpnrhjvs7i3f07tm6w3zjcs5kdug"
+    },
+    {
+      id: 17,
+      title: "Autumn Stream",
+      url: "https://evocation-station.s3.amazonaws.com/q4dskxcfgqua5j5zxtu7wh4h8m2p",
+    }
+  ]
 
-    function uploadImage(e) {
-        e.preventDefault();
-    
-        const image = e.target.image_upload.files[0];
-        const formData = new FormData();
-        formData.append("image", image);
+  // function uploadImage(e) {
+  //   e.preventDefault();
 
-        fetch("http://localhost:3000/images", {
-          method: "POST",
-          body: formData
-        }).then(() => {
-          fetch("http://localhost:3000/images").then((response) => {
-            if (response.ok) {
-              response.json().then((data) => {
-                setImages(data);
-              });
-            } else {
-              response.json();
-              throw Error(response.status, response.statusText);
-            }
-          })
-        });
-      }
+  //   const image = e.target.image_upload.files[0];
+  //   const formData = new FormData();
+  //   formData.append("image", image);
 
-      function deleteImage(e, i) {
-        e.preventDefault();
+  //   fetch("http://localhost:3000/images", {
+  //     method: "POST",
+  //     body: formData,
+  //   }).then(() => {
+  //     fetch("http://localhost:3000/images").then((response) => {
+  //       if (response.ok) {
+  //         response.json().then((data) => {
+  //           console.log(data);
+  //           setImages(data);
+  //         });
+  //       } else {
+  //         response.json();
+  //         throw Error(response.status, response.statusText);
+  //       }
+  //     });
+  //   });
+  // }
+      
+  // function deleteImage(e, i) {
+  //   e.preventDefault();
 
-        fetch(`http://localhost:3000/images/${i.id}`, {
-          method: "DELETE",
-        }).then(() => {
-          fetch("http://localhost:3000/images").then((response) => {
-            if (response.ok) {
-              response.json().then((data) => {
-                setImages(data);
-              });
-            } else {
-              response.json();
-              throw Error(response.status, response.statusText);
-            }
-          });
-        });
-      }
+  //   fetch(`http://localhost:3000/images/${i.id}`, {
+  //     method: "DELETE",
+  //   }).then(() => {
+  //     fetch("http://localhost:3000/images").then((response) => {
+  //       if (response.ok) {
+  //         response.json().then((data) => {
+  //           setImages(data);
+  //         });
+  //       } else {
+  //         response.json();
+  //         throw Error(response.status, response.statusText);
+  //       }
+  //     });
+  //   });
+  // }
 
-      const imageData = images.map(i => {
-        return (
-          <div id="each_image" key={uuid().slice(0, 8)}>
-            <img id="image" onClick={(e) => {e.preventDefault(); setImage(i.image)}} src={`${rootURL}${i.image}`} />
-          </div>
-        );
-      })
+  const imageData = awsImageTable.map(image => {
+    return (
+      <div id="each_image" key={uuid().slice(0, 8)}>
+        <img id="image" onClick={(e) => {e.preventDefault(); setImage(image.url)}} src={`${image.url}`} />
+      </div>
+    )
+  })
 
     return (
       <div>
         <Template setPrebuiltEvocations={setPrebuiltEvocations} writing={writing} setWriting={setWriting} image={image} setImage={setImage} sound={sound} setSound={setSound}/>
         <p><b>Images</b></p>
-        <form onSubmit={uploadImage}>
+        {/* <form onSubmit={uploadImage}>
           <label for="image_upload">Upload an image: </label>
           <input type="file" name="image_upload" accept="image/png, image/jpeg, image/jpg"
           ></input>
           <button type="submit">Submit</button>
-        </form>
+        </form> */}
         <div id="images">
           {imageData}
         </div>
