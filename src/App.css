@@ -131,14 +131,12 @@ body {
   max-width: 400px;
 }
 
-#template {
-  border: 2px solid gray;
-  padding: 20px;
+#controls_template_container {
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: row;
 }
 
-#actions {
+#controls {
   display: flex;
   flex-direction: column;
   gap: 15px 0px;
@@ -146,8 +144,15 @@ body {
   margin: 0 0;
 }
 
-#actions button {
+#controls button {
   max-width: 75px;
+}
+
+#template {
+  border: 2px solid gray;
+  padding: 20px;
+  max-width: 80%;
+  margin-right: 0%;
 }
 
 #selected_materials {
