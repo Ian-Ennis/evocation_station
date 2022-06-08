@@ -38,17 +38,8 @@ function Template({ setPrebuiltEvocations, writing, setWriting, image, setImage,
       <>
         {writing.length || image.length || sound.length ? 
         <>
-          <p><b>Your Evocation Template:</b></p>
+          <p className="labels"><b>Your Evocation Template:</b></p>
           <div id="controls_template_container">
-            <div id="controls">
-              <p>Actions:</p>
-                {writing.length ? <button onClick={() => setWriting([])}>Detach Writing</button> : null}
-                {image.length ? <button onClick={() => setImage([])}>Detach Image</button> : null}
-                {sound.length ? <button onClick={() => setSound([])}>Detach Sound</button> : null}
-                {writing.length || image.length || sound.length ? 
-                <button id="commit_evocation" onClick={(e) => uploadTemplate(e)}><b>Commit Evocation</b></button>
-                  : null}
-             </div>
             <div id="template">
               <div id="selected_materials">
                 {writing.length ? <><p><b>{writing}</b></p>&nbsp;
@@ -62,9 +53,20 @@ function Template({ setPrebuiltEvocations, writing, setWriting, image, setImage,
                 </> : null}
               </div>
             </div>
+            <div>
+              <p className="labels">Selected materials actions:</p>
+              <div id="controls">
+                {writing.length ? <button onClick={() => setWriting([])}>Detach Writing</button> : null}
+                {image.length ? <button onClick={() => setImage([])}>Detach Image</button> : null}
+                {sound.length ? <button onClick={() => setSound([])}>Detach Sound</button> : null}
+              </div>
+                {writing.length || image.length || sound.length ? 
+                  <button id="commit_evocation" onClick={(e) => uploadTemplate(e)}><b>Commit Evocation</b></button>
+                  : null}
+             </div>
           </div>
         </>
-        : null}
+        : <><p className="labels">Select a crafting material..</p>&nbsp;</>}
       </>
     );
 }

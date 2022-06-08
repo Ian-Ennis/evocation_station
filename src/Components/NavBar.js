@@ -5,7 +5,7 @@ function NavBar() {
     return (
         <nav id="navbar">
             <Link to="/home">Home</Link>
-                <p>Crafting Materials:</p>
+                <p><b>Crafting Materials:</b></p>
             <div id="crafting_materials">
                 <Link to="/writings">Writings</Link>
                 <Link to="/images">Images</Link>

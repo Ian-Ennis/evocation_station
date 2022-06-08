@@ -94,50 +94,6 @@ function Images({ setPrebuiltEvocations, writing, setWriting, image, setImage, s
     }
   ]
 
-  // function uploadImage(e) {
-  //   e.preventDefault();
-
-  //   const image = e.target.image_upload.files[0];
-  //   const formData = new FormData();
-  //   formData.append("image", image);
-
-  //   fetch("http://localhost:3000/images", {
-  //     method: "POST",
-  //     body: formData,
-  //   }).then(() => {
-  //     fetch("http://localhost:3000/images").then((response) => {
-  //       if (response.ok) {
-  //         response.json().then((data) => {
-  //           console.log(data);
-  //           setImages(data);
-  //         });
-  //       } else {
-  //         response.json();
-  //         throw Error(response.status, response.statusText);
-  //       }
-  //     });
-  //   });
-  // }
-      
-  // function deleteImage(e, i) {
-  //   e.preventDefault();
-
-  //   fetch(`http://localhost:3000/images/${i.id}`, {
-  //     method: "DELETE",
-  //   }).then(() => {
-  //     fetch("http://localhost:3000/images").then((response) => {
-  //       if (response.ok) {
-  //         response.json().then((data) => {
-  //           setImages(data);
-  //         });
-  //       } else {
-  //         response.json();
-  //         throw Error(response.status, response.statusText);
-  //       }
-  //     });
-  //   });
-  // }
-
   const imageData = awsImageTable.map(image => {
     return (
       <div id="each_image" key={uuid().slice(0, 8)}>
@@ -149,13 +105,7 @@ function Images({ setPrebuiltEvocations, writing, setWriting, image, setImage, s
     return (
       <div>
         <Template setPrebuiltEvocations={setPrebuiltEvocations} writing={writing} setWriting={setWriting} image={image} setImage={setImage} sound={sound} setSound={setSound}/>
-        <p><b>Images</b></p>
-        {/* <form onSubmit={uploadImage}>
-          <label for="image_upload">Upload an image: </label>
-          <input type="file" name="image_upload" accept="image/png, image/jpeg, image/jpg"
-          ></input>
-          <button type="submit">Submit</button>
-        </form> */}
+        <p className="labels"><b>Images</b></p>
         <div id="images">
           {imageData}
         </div>

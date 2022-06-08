@@ -29,7 +29,7 @@ function Writings({ setPrebuiltEvocations, writing, setWriting, image, setImage,
     return (
         <div>
           <Template setPrebuiltEvocations={setPrebuiltEvocations} writing={writing} setWriting={setWriting} image={image} setImage={setImage} sound={sound} setSound={setSound} />
-            <p><b>Writings:</b></p>
+            <p className="labels"><b>Writings:</b></p>
             <div id="writings">
               {writingData}
             </div>
