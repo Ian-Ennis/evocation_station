@@ -18,7 +18,7 @@ function SignupForm({ setCurrentUser }) {
     e.preventDefault();
     const userCreds = { ...formData };
 
-    fetch("http://localhost:3000/users", {
+    fetch("https://murmuring-caverns-44222.herokuapp.com/users", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

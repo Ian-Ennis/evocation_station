@@ -2,31 +2,15 @@ import React, { useEffect } from "react";
 import { v4 as uuid } from "uuid"
 
 function UploadedEvocations({ newEvocations, setNewEvocations }) {
-  const rootURL = `http://localhost:3000`;
+  const rootURL = `https://murmuring-caverns-44222.herokuapp.com/`;
 
-  // useEffect(() => {
-  //   console.log('hit useEffect'
-  //   )
-  //   fetch("http://localhost:3000/newevocations").then((response) => {
-  //     if (response.ok) {
-  //       response.json().then((data) => {
-  //         setNewEvocations(data);
-  //       });
-  //     } else {
-  //       response.json();
-  //       throw Error(response.status, response.statusText);
-  //     }
-  //   })
-  // }, [])
-
-  console.log('rerender')
   function deleteNewEvocation(e, evoc) {
     e.preventDefault();
 
-    fetch(`http://localhost:3000/newevocations/${evoc.id}`, {
+    fetch(`${rootURL}/newevocations/${evoc.id}`, {
       method: "DELETE",
     }).then(() => {
-      fetch("http://localhost:3000/newevocations").then((response) => {
+      fetch(`${rootURL}/newevocations/`).then((response) => {
         if (response.ok) {
           response.json().then((data) => {
             setNewEvocations(data);

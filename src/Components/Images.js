@@ -3,9 +3,7 @@ import { v4 as uuid } from "uuid"
 import Template from "./Template";
 
 function Images({ setPrebuiltEvocations, writing, setWriting, image, setImage, sound, setSound }) {
-  const [images, setImages] = useState([])
-  const rootURL = `http://localhost:3000`;
-
+  
   const awsImageTable = [
     {
       id: 1,

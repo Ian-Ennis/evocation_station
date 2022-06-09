@@ -3,9 +3,7 @@ import { v4 as uuid } from "uuid"
 import Template from "./Template";
 
 function Sounds({ setPrebuiltEvocations, writing, setWriting, image, setImage, sound, setSound }) {
-    const [sounds, setSounds] = useState([])
-    const rootURL = `http://localhost:3000`;
-
+  
     const awsSoundTable = [
       {
         id: 1,

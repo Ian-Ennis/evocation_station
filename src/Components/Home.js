@@ -8,7 +8,7 @@ const Home = ({ currentUser, setCurrentUser, setSignedIn, newEvocations, setNewE
   const navigate = useNavigate();
 
   function logout() {
-    fetch("http://localhost:3000/logout", {
+    fetch("https://murmuring-caverns-44222.herokuapp.com/logout", {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",

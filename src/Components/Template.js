@@ -3,12 +3,12 @@ import { useNavigate } from "react-router-dom";
 
 function Template({ setPrebuiltEvocations, writing, setWriting, image, setImage, sound, setSound }) {
   const navigate = useNavigate();
-  const rootURL = `http://localhost:3000`;
+  const rootURL = `https://murmuring-caverns-44222.herokuapp.com`;
 
   function uploadTemplate(e) {
     e.preventDefault();
 
-    fetch("http://localhost:3000/prebuiltevocations", {
+    fetch(`${rootURL}/prebuiltevocations`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -19,7 +19,7 @@ function Template({ setPrebuiltEvocations, writing, setWriting, image, setImage,
         sound_url: `${sound}`
       })
     }).then(() => {
-      fetch("http://localhost:3000/prebuiltevocations").then((response) => {
+      fetch(`${rootURL}/prebuiltevocations`).then((response) => {
         console.log(response);
         if (response.ok) {
           response.json().then((data) => {

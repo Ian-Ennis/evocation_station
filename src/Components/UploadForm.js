@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { v4 as uuid } from "uuid"
 
 function UploadForm({ newEvocations, setNewEvocations }) {
-  const rootURL = `http://localhost:3000`;
+  const rootURL = `https://murmuring-caverns-44222.herokuapp.com`;
 
   function uploadNewEvocation(e) {
     e.preventDefault();
@@ -16,11 +16,11 @@ function UploadForm({ newEvocations, setNewEvocations }) {
     if (picture) formData.append("image", picture);
     if (audio) formData.append("audio", audio);
 
-    fetch("http://localhost:3000/newevocations", {
+    fetch(`${rootURL}/newevocations`, {
       method: "POST",
       body: formData
     }).then(() => {
-      fetch("http://localhost:3000/newevocations").then((response) => {
+      fetch(`${rootURL}/newevocations`).then((response) => {
         if (response.ok) {
           response.json().then((data) => {
             console.log(data)

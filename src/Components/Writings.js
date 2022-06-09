@@ -6,7 +6,7 @@ function Writings({ setPrebuiltEvocations, writing, setWriting, image, setImage,
     const [writings, setWritings] = useState([])
 
     useEffect(() => {
-        fetch("http://localhost:3000/writings").then((response) => {
+        fetch("https://murmuring-caverns-44222.herokuapp.com/writings").then((response) => {
           if (response.ok) {
             response.json().then((data) => {
               setWritings(data);
