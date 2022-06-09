@@ -80,15 +80,23 @@ body {
   box-shadow: 0 0 5px black;
 }
 
-#new_evocation_form {
+#new_evocations {
   display: flex;
   flex-direction: column;
-  gap: 10px 10px;
-  margin: 0 0;
-  width: 50%;
+  justify-content: center;
+  text-align: center;
 }
 
-#new_evocation_form button {
+#new_evocation_form {
+  padding: 20px;
+  display: flex;
+  flex-direction: row;
+  gap: 10px 10px;
+  margin: 0 auto;
+  width: 90%;
+}
+
+#upload_form_button {
   width: 100px;
 } 
 

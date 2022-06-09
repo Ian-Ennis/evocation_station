@@ -1,5 +1,6 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { v4 as uuid } from "uuid"
+import ReactHtmlParser from "react-html-parser"
 
 function UploadedEvocations({ newEvocations, setNewEvocations }) {
   const rootURL = `https://murmuring-caverns-44222.herokuapp.com/`;
@@ -24,12 +25,9 @@ function UploadedEvocations({ newEvocations, setNewEvocations }) {
   }
 
   const evocationData = newEvocations.map(evocation => {
-    console.log(evocation)
-
-    if (evocation.text) console.log(evocation.text)
     return (
       <div id="evocations" key={uuid().slice(0,8)}>
-        {evocation.text ? <p>{evocation.text}</p> : null}
+        {evocation.text ? <p>{ReactHtmlParser(evocation.text)}</p> : null}
         {evocation.image ? <img id="evocation_image" src={`${rootURL}${evocation.image}`}/> : null}
         {evocation.audio ? <audio controls>
           <source src={`${rootURL}${evocation.audio}`}/>

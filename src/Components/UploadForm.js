@@ -15,9 +15,6 @@ function UploadForm({ newEvocations, setNewEvocations }) {
     e.preventDefault();
 
     const text = editorRef.current.getContent().replace(/(&nbsp;)*/g, "").replace(/(<p>)*/g, "").replace(/<(\/)?p[^>]*>/g, "");;
-    // console.log(text)
-
-    // const text = e.target.text.value;
     const picture = e.target.image_upload.files[0];
     const audio = e.target.audio_upload.files[0];
 
@@ -45,16 +42,13 @@ function UploadForm({ newEvocations, setNewEvocations }) {
 
   return (
     <div id="new_evocations">
-      <p>
-        <b>Upload your own materials</b>
-      </p>
-      <form id="new_evocation_form" onSubmit={uploadNewEvocation}>
-        <Editor
+      <p><b>Upload your own materials</b></p>
+      <div id="editor_uploads_container">
+        <Editor id="text_editor"
           tinymceScriptSrc={process.env.PUBLIC_URL + "/tinymce/tinymce.min.js"}
           onInit={(evt, editor) => (editorRef.current = editor)}
-          initialValue="<p>This is the initial content of the editor.</p>"
           init={{
-            height: 500,
+            height: 300,
             menubar: false,
             plugins: [
               "advlist",
@@ -84,19 +78,14 @@ function UploadForm({ newEvocations, setNewEvocations }) {
               "body { font-family:Helvetica,Arial,sans-serif; font-size:14px }",
           }}
         />
-        {/* <button onClick={log}>Log editor content</button> */}
-        {/* <label for="text">Writing: </label>
-        <textarea id="my_text_area" name="text"></textarea> */}
-        <label for="image_upload">Add an image: </label>
-        <input
-          type="file"
-          name="image_upload"
-          accept="image/png, image/jpeg, image/jpg"
-        ></input>
-        <label for="audio_upload">Add a sound: </label>
-        <input type="file" name="audio_upload" accept="audio/*"></input>
-        <button type="submit">Submit</button>
-      </form>
+        <form id="new_evocation_form" onSubmit={uploadNewEvocation}>
+          <label for="image_upload">Add an image: </label>
+            <input type="file" name="image_upload" accept="image/png, image/jpeg, image/jpg"></input>
+          <label for="audio_upload">Add a sound: </label>
+            <input type="file" name="audio_upload" accept="audio/*"></input>
+          <button id="upload_form_button" type="submit">Submit</button>
+        </form>
+      </div>
     </div>
   );
 }
