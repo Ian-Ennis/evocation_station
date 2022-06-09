@@ -25,6 +25,8 @@ function UploadedEvocations({ newEvocations, setNewEvocations }) {
 
   const evocationData = newEvocations.map(evocation => {
     console.log(evocation)
+
+    if (evocation.text) console.log(evocation.text)
     return (
       <div id="evocations" key={uuid().slice(0,8)}>
         {evocation.text ? <p>{evocation.text}</p> : null}

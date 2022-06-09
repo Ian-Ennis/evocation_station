@@ -6,12 +6,15 @@
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^13.1.1",
     "@testing-library/user-event": "^13.5.0",
+    "@tinymce/tinymce-react": "^4.1.0",
     "aws-amplify": "^4.3.24",
     "aws-sdk": "^2.1150.0",
+    "fs-extra": "^10.1.0",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
     "react-router-dom": "^6.2.1",
     "react-scripts": "5.0.1",
+    "tinymce": "^6.0.3",
     "util": "^0.12.4",
     "uuidv4": "^6.2.13",
     "web-vitals": "^2.1.4"
@@ -20,7 +23,8 @@
     "start": "PORT=4000 react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "postinstall": "node ./postinstall.js"
   },
   "eslintConfig": {
     "extends": [

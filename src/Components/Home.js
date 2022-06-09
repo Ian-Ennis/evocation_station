@@ -34,7 +34,7 @@ const Home = ({ currentUser, setCurrentUser, setSignedIn, newEvocations, setNewE
         writing, imagery, and sound, that together convey meaning. There are crafting materials to choose from on the left, and you can upload your own materials too. Be creative
         and see what you can make!
       </p>
-      <UploadForm setNewEvocations={setNewEvocations}/>
+      <UploadForm newEvocations={newEvocations} setNewEvocations={setNewEvocations}/>
       <UploadedEvocations newEvocations={newEvocations} setNewEvocations={setNewEvocations}/>
       <PrebuiltEvocations prebuiltEvocations={prebuiltEvocations} setPrebuiltEvocations={setPrebuiltEvocations} />
     </div>

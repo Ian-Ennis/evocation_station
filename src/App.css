@@ -88,6 +88,10 @@ body {
   width: 50%;
 }
 
+#new_evocation_form button {
+  width: 100px;
+} 
+
 .labels {
   text-align: center;
 }
