@@ -23,6 +23,7 @@ function UploadForm({ newEvocations, setNewEvocations }) {
       fetch("http://localhost:3000/newevocations").then((response) => {
         if (response.ok) {
           response.json().then((data) => {
+            console.log(data)
             setNewEvocations(data);
           });
         } else {
@@ -37,15 +38,14 @@ function UploadForm({ newEvocations, setNewEvocations }) {
     <div id="new_evocations">
       <b>Upload your own materials</b>
       <form id="new_evocation_form" onSubmit={uploadNewEvocation}>
+        <label for="text">Writing: </label>
+        <textarea name="text"></textarea>
         <label for="image_upload">Add an image: </label>
         <input type="file" name="image_upload" accept="image/png, image/jpeg, image/jpg"></input>
         <label for="audio_upload">Add a sound: </label>
         <input type="file" name="audio_upload" accept="audio/*"></input>
-        <label for="text">Writing: </label>
-        <textarea name="text"></textarea>
         <button type="submit">Submit</button>
       </form>
-      {/* <button onClick={retrieveNewEvocations}>Retrieve evocations</button> */}
     </div>
   );
 }

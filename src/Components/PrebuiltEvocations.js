@@ -39,7 +39,7 @@ function PrebuiltEvocations({ prebuiltEvocations, setPrebuiltEvocations }) {
   const evocationData = prebuiltEvocations.map(evocation => {
     return (
       <div id="evocations" key={uuid().slice(0,8)}>
-        {evocation.text ? <p>{evocation.text}</p> : null}
+        {evocation.text ? <p className="labels"><b>{evocation.text}</b></p> : null}
         {evocation.image_url ? <img id="evocation_image" src={`${evocation.image_url}`}/> : null}
         {evocation.sound_url ? <audio controls>
           <source src={`${evocation.sound_url}`}/>

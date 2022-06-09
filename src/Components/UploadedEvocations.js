@@ -4,19 +4,22 @@ import { v4 as uuid } from "uuid"
 function UploadedEvocations({ newEvocations, setNewEvocations }) {
   const rootURL = `http://localhost:3000`;
 
-  useEffect(() => {
-    fetch("http://localhost:3000/newevocations").then((response) => {
-      if (response.ok) {
-        response.json().then((data) => {
-          setNewEvocations(data);
-        });
-      } else {
-        response.json();
-        throw Error(response.status, response.statusText);
-      }
-    })
-  }, [])
+  // useEffect(() => {
+  //   console.log('hit useEffect'
+  //   )
+  //   fetch("http://localhost:3000/newevocations").then((response) => {
+  //     if (response.ok) {
+  //       response.json().then((data) => {
+  //         setNewEvocations(data);
+  //       });
+  //     } else {
+  //       response.json();
+  //       throw Error(response.status, response.statusText);
+  //     }
+  //   })
+  // }, [])
 
+  console.log('rerender')
   function deleteNewEvocation(e, evoc) {
     e.preventDefault();
 
@@ -37,6 +40,7 @@ function UploadedEvocations({ newEvocations, setNewEvocations }) {
   }
 
   const evocationData = newEvocations.map(evocation => {
+    console.log(evocation)
     return (
       <div id="evocations" key={uuid().slice(0,8)}>
         {evocation.text ? <p>{evocation.text}</p> : null}

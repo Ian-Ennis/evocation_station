@@ -15,7 +15,7 @@ function Sounds({ setPrebuiltEvocations, writing, setWriting, image, setImage, s
       {
         id: 2,
         name: "Crickets",
-        url: "https://evocation-station.s3.amazonaws.com/lew4xxap3naemj83eky8gkj8oqt1"
+        url: "https://evocation-station.s3.amazonaws.com/Night_time_crickets.wav"
       },
       {
         id: 3,

@@ -97,7 +97,7 @@ function Images({ setPrebuiltEvocations, writing, setWriting, image, setImage, s
   const imageData = awsImageTable.map(image => {
     return (
       <div id="each_image" key={uuid().slice(0, 8)}>
-        <img id="image" onClick={(e) => {e.preventDefault(); setImage(image.url)}} src={`${image.url}`} />
+        <img id="image" onClick={(e) => {e.preventDefault(); console.log(image.url); setImage(image.url)}} src={`${image.url}`} />
       </div>
     )
   })
@@ -105,7 +105,7 @@ function Images({ setPrebuiltEvocations, writing, setWriting, image, setImage, s
     return (
       <div>
         <Template setPrebuiltEvocations={setPrebuiltEvocations} writing={writing} setWriting={setWriting} image={image} setImage={setImage} sound={sound} setSound={setSound}/>
-        <p className="labels"><b>Images</b></p>
+        <p><b>Images</b></p>
         <div id="images">
           {imageData}
         </div>
