@@ -36,7 +36,7 @@ function UploadForm({ newEvocations, setNewEvocations }) {
 
   return (
     <div id="new_evocations">
-      <b>Upload your own materials</b>
+      <p><b>Upload your own materials</b></p>
       <form id="new_evocation_form" onSubmit={uploadNewEvocation}>
         <label for="text">Writing: </label>
         <textarea name="text"></textarea>

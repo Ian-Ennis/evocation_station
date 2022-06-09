@@ -3,7 +3,7 @@ import { v4 as uuid } from "uuid"
 import Template from "./Template";
 
 function Images({ setPrebuiltEvocations, writing, setWriting, image, setImage, sound, setSound }) {
-  
+
   const awsImageTable = [
     {
       id: 1,
@@ -103,7 +103,7 @@ function Images({ setPrebuiltEvocations, writing, setWriting, image, setImage, s
     return (
       <div>
         <Template setPrebuiltEvocations={setPrebuiltEvocations} writing={writing} setWriting={setWriting} image={image} setImage={setImage} sound={sound} setSound={setSound}/>
-        <p><b>Images</b></p>
+        <p className="labels"><b>Images</b></p>
         <div id="images">
           {imageData}
         </div>

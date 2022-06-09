@@ -4,7 +4,7 @@
 
 body {
   margin: 0% 5%;
-  max-width: 1500px;
+  max-width: 1200px;
   /* background-color: brown; */
 }
 
@@ -34,6 +34,7 @@ body {
 }
 
 #evocation_main {
+  padding: 20px;
   min-width: 700px;
   max-width: 1050px;
 }
@@ -84,6 +85,7 @@ body {
   flex-direction: column;
   gap: 10px 10px;
   margin: 0 0;
+  width: 50%;
 }
 
 .labels {
@@ -152,7 +154,7 @@ body {
 
 #template {
   border: 2px solid gray;
-  padding: 20px;
+  padding: 40px;
   max-width: 80%;
 }
 
@@ -185,8 +187,10 @@ body {
   max-width: 75px;
 }
 
-#commit_evocation {
-  margin: 10% 25%;
+#commit_container {
+  display: flex;
+  justify-content: center;
+  padding: 15px;
 }
 
 #footer {
