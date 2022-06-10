@@ -14,7 +14,7 @@ function UploadForm({ newEvocations, setNewEvocations }) {
   function uploadNewEvocation(e) {
     e.preventDefault();
 
-    const text = editorRef.current.getContent().replace(/(&nbsp;)*/g, "").replace(/(<p>)*/g, "").replace(/<(\/)?p[^>]*>/g, "");;
+    const text = editorRef.current.getContent()
     const picture = e.target.image_upload.files[0];
     const audio = e.target.audio_upload.files[0];
 
