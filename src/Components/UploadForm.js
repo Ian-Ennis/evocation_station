@@ -2,7 +2,7 @@ import React, { useRef } from "react";
 import { Editor } from '@tinymce/tinymce-react';
 
 function UploadForm({ newEvocations, setNewEvocations }) {
-  const rootURL = `https://murmuring-caverns-44222.herokuapp.com`;
+  const rootURL = `https://evocation-station-api.herokuapp.com`;
 
   const editorRef = useRef(null);
   const log = () => {

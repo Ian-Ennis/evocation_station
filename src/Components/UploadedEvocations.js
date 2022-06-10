@@ -3,7 +3,7 @@ import { v4 as uuid } from "uuid"
 import ReactHtmlParser from "react-html-parser"
 
 function UploadedEvocations({ newEvocations, setNewEvocations }) {
-  const rootURL = `https://murmuring-caverns-44222.herokuapp.com/`;
+  const rootURL = `https://evocation-station-api.herokuapp.com`;
 
   function deleteNewEvocation(e, evoc) {
     e.preventDefault();

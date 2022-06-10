@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { v4 as uuid } from "uuid"
 
 function PrebuiltEvocations({ prebuiltEvocations, setPrebuiltEvocations }) {
-    const rootURL = `https://murmuring-caverns-44222.herokuapp.com`;
+    const rootURL = `https://evocation-station-api.herokuapp.com`;
 
   useEffect(() => {
     fetch(`${rootURL}/prebuiltevocations`).then((response) => {

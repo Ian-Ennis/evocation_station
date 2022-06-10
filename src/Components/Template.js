@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 
 function Template({ setPrebuiltEvocations, writing, setWriting, image, setImage, sound, setSound }) {
   const navigate = useNavigate();
-  const rootURL = `https://murmuring-caverns-44222.herokuapp.com`;
+  const rootURL = `https://evocation-station-api.herokuapp.com`;
 
   function uploadTemplate(e) {
     e.preventDefault();

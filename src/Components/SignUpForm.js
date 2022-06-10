@@ -18,7 +18,7 @@ function SignupForm({ setCurrentUser }) {
     e.preventDefault();
     const userCreds = { ...formData };
 
-    fetch("https://murmuring-caverns-44222.herokuapp.com/users", {
+    fetch("https://evocation-station-api.herokuapp.com/users", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
