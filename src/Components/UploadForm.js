@@ -5,11 +5,11 @@ function UploadForm({ newEvocations, setNewEvocations }) {
   const rootURL = `https://evocation-station-api.herokuapp.com`;
 
   const editorRef = useRef(null);
-  const log = () => {
-    if (editorRef.current) {
-      console.log(editorRef.current.getContent());
-    }
-  };
+  // const log = () => {
+  //   if (editorRef.current) {
+  //     console.log(editorRef.current.getContent());
+  //   }
+  // };
 
   function uploadNewEvocation(e) {
     e.preventDefault();
@@ -19,7 +19,10 @@ function UploadForm({ newEvocations, setNewEvocations }) {
     const audio = e.target.audio_upload.files[0];
 
     const formData = new FormData();
-    if (text) formData.append("text", text);
+    if (text) {
+      console.log("yes, text:", text)
+      formData.append("text", text);
+    }
     if (picture) formData.append("image", picture);
     if (audio) formData.append("audio", audio);
 
