@@ -1,4 +1,3 @@
-import React from "react";
 import { useNavigate } from "react-router-dom";
 
 function Template({ setPrebuiltEvocations, writing, setWriting, image, setImage, sound, setSound }) {
