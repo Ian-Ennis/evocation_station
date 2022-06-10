@@ -25,10 +25,9 @@ function UploadedEvocations({ newEvocations, setNewEvocations }) {
   }
 
   const evocationData = newEvocations.map(evocation => {
-    let parsedText = parse(evocation.text)
     return (
       <div id="evocations" key={uuid().slice(0,8)}>
-        {evocation.text ? <p>{parsedText}</p> : null}
+        {evocation.text ? <p>{parse(evocation.text)}</p> : null}
         {evocation.image ? <img id="evocation_image" src={`${rootURL}${evocation.image}`}/> : null}
         {evocation.audio ? <audio controls>
           <source src={`${rootURL}${evocation.audio}`}/>
