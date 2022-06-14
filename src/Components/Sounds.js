@@ -52,7 +52,7 @@ function Sounds({ setPrebuiltEvocations, writing, setWriting, image, setImage, s
         <p>&nbsp;{sound.name}</p>
         <audio controls className="audio_controls">
           <source src={`${sound.url}`} />
-        </audio>
+        </audio>&nbsp;
         <button id="select_sound_button" onClick={() => setSound(sound.url)}>Select Sound</button>
       </div>
     )

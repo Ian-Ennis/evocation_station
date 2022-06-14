@@ -55,9 +55,9 @@ function Template({ setPrebuiltEvocations, writing, setWriting, image, setImage,
             <div>
               <p className="labels">Template actions:</p>
               <div id="controls">
-                {writing.length ? <button onClick={() => setWriting([])}>Detach Writing</button> : null}
                 {image.length ? <button onClick={() => setImage([])}>Detach Image</button> : null}
                 {sound.length ? <button onClick={() => setSound([])}>Detach Sound</button> : null}
+                {writing.length ? <button onClick={() => setWriting([])}>Detach Writing</button> : null}
               </div>
                 {writing.length || image.length || sound.length ?
                 <div id="commit_container"> 
