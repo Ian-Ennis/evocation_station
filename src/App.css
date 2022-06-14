@@ -59,7 +59,7 @@ body {
 
 #logout_btn {
   width: 100px;
-  margin-left: 93%;
+  margin-left: 91%;
 }
 
 #welcome_bar {
@@ -84,6 +84,7 @@ body {
   height: auto;
   box-sizing: border-box;
   box-shadow: 0 0 20px black;
+  position: relative;
 }
 
 #uploaded_evocations_container {
@@ -122,9 +123,14 @@ body {
   box-sizing: border-box;
   box-shadow: 0 0 5px black;
 }
+
+.delete_button {
+  position:absolute;                
+  bottom: 10px;   
+  left: 43%;                        
+}
  
 #new_evocations {
-  /* padding: 20px; */
   display: flex;
   flex-direction: column;
   justify-content: center;

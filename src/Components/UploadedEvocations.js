@@ -45,7 +45,7 @@ function UploadedEvocations({ newEvocations, setNewEvocations }) {
           <source src={`${rootURL}${evocation.audio}`}/>
         </audio> : null}
         {evocation.text ? <p>{parse(evocation.text)}</p> : null}
-        <button onClick={(e) => deleteNewEvocation(e, evocation)}>Delete</button>
+        <button className="delete_button" onClick={(e) => deleteNewEvocation(e, evocation)}>Delete</button>
       </div>
     )
   })
