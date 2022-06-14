@@ -17,25 +17,6 @@ function PrebuiltEvocations({ prebuiltEvocations, setPrebuiltEvocations }) {
     })
   }, [])
 
-  function deletePrebuiltEvocation(e, evoc) {
-    e.preventDefault();
-
-    fetch(`${rootURL}/prebuiltevocations/${evoc.id}`, {
-      method: "DELETE",
-    }).then(() => {
-      fetch(`${rootURL}/prebuiltevocations`).then((response) => {
-        if (response.ok) {
-          response.json().then((data) => {
-            setPrebuiltEvocations(data);
-          });
-        } else {
-          response.json();
-          throw Error(response.status, response.statusText);
-        }
-      });
-    });
-  }
-
   const evocationData = prebuiltEvocations.map(evocation => {
     return (
       <div id="evocations" key={uuid().slice(0,8)}>
@@ -44,30 +25,16 @@ function PrebuiltEvocations({ prebuiltEvocations, setPrebuiltEvocations }) {
         {evocation.sound_url ? <audio controls>
           <source src={`${evocation.sound_url}`}/>
         </audio> : null}
-        <button onClick={(e) => deletePrebuiltEvocation(e, evocation)}>Delete</button>
       </div>
     )
   })
 
-  function retrievePrebuiltEvocations(e) {
-    e.preventDefault();
-
-    fetch(`${rootURL}/prebuiltevocations`).then((response) => {
-      if (response.ok) {
-        response.json().then((data) => {
-          setPrebuiltEvocations(data);
-        });
-      } else {
-        response.json();
-        throw Error(response.status, response.statusText);
-      }
-    })
-  }
-
   return (
-    <div id="prebuilt_evocations">
-        <b>Prebuilt Evocations</b>
-      {evocationData}
+    <div id="prebuilt_evocations_container">
+        <p className="labels"><b>Prebuilt Evocations</b></p>
+      <div id="prebuilt_evocations">
+        {evocationData}
+      </div>
     </div>
   );
 }

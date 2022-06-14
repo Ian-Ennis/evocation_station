@@ -3,7 +3,6 @@ import UploadForm from "./UploadForm";
 import UploadedEvocations from "./UploadedEvocations";
 import PrebuiltEvocations from "./PrebuiltEvocations";
 
-
 const Home = ({ currentUser, setCurrentUser, setSignedIn, newEvocations, setNewEvocations, prebuiltEvocations, setPrebuiltEvocations, setWriting, setImage, setSound }) => {
   const navigate = useNavigate();
 
@@ -25,13 +24,14 @@ const Home = ({ currentUser, setCurrentUser, setSignedIn, newEvocations, setNewE
 
   return (
     <div id="home">
+      <button id="logout_btn" onClick={logout}>Log out</button>
       <div id="welcome_bar">
-        <h1>Welcome, {currentUser.username}</h1>
-        <button id="logout_button" onClick={logout}>Log out</button>
+        <h2>Welcome, {currentUser.username}</h2>
       </div>
       <p>
         Welcome! Create your own evocation. An evocation is any combination of
-        writing, imagery, and sound, that together convey meaning. There are crafting materials to choose from on the left, and you can upload your own materials too. Be creative
+        writing, imagery, and sound, that together convey meaning. There are crafting materials to choose 
+        from on the left, and you can upload your own materials too. Be creative
         and see what you can make!
       </p>
       <UploadForm newEvocations={newEvocations} setNewEvocations={setNewEvocations}/>

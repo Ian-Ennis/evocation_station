@@ -8,7 +8,6 @@ import Writings from "./Components/Writings";
 import Images from "./Components/Images";
 import Sounds from "./Components/Sounds";
 import "./App.css";
-import { setSelectionRange } from "@testing-library/user-event/dist/utils";
 
 const App = () => {
   const [currentUser, setCurrentUser] = useState(null);
@@ -39,7 +38,8 @@ const App = () => {
           <Route path="/sounds" element={<Sounds prebuiltEvocations={prebuiltEvocations} setPrebuiltEvocations={setPrebuiltEvocations} writing={writing} setWriting={setWriting} image={image} setImage={setImage} sound={sound} setSound={setSound} />} />
         </Routes>
         <div id="footer">
-          <p>Site managed and maintained by Ian Ennis</p>
+          <p>Copyright © 2022 by Ian Ennis</p>
+          <p>All rights reserved.</p>
           <p>Images provided by https://www.pexels.com/ &nbsp; | &nbsp; Sounds provided by https://freesound.org/</p>
         </div>
       </div>

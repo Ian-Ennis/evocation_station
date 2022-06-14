@@ -100,9 +100,9 @@ function Images({ setPrebuiltEvocations, writing, setWriting, image, setImage, s
   })
 
     return (
-      <div>
+      <div className="materials">
         <Template setPrebuiltEvocations={setPrebuiltEvocations} writing={writing} setWriting={setWriting} image={image} setImage={setImage} sound={sound} setSound={setSound}/>
-        <p className="labels"><b>Images</b></p>
+        <p className="labels"><b>Images:</b></p>
         <div id="images">
           {imageData}
         </div>

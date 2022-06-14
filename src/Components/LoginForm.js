@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-function LoginForm({ setCurrentUser, currentUser, setSignedIn }) {
+function LoginForm({ setCurrentUser, setSignedIn }) {
   const [formData, setFormData] = useState({ username: "", password: "" });
   const [noAccount, setNoAccount] = useState(false)
   const navigate = useNavigate();
@@ -51,8 +51,8 @@ function LoginForm({ setCurrentUser, currentUser, setSignedIn }) {
 
   return (
     <>
-      <h1>Login here!</h1>
-      <form onSubmit={handleSubmit}>
+      <form className="auth_forms" onSubmit={handleSubmit}>
+      <h1>...login</h1>
         <label htmlFor="username">Username:</label>
         <input
           id="username-input"
@@ -70,8 +70,8 @@ function LoginForm({ setCurrentUser, currentUser, setSignedIn }) {
           onChange={handleChange}
         />
         <button type="submit">Submit</button>
+      <button className="auth_form_switch" onClick={userNeedsAccount}>Create an account</button>
       </form>
-      <button onClick={userNeedsAccount}>Create an account</button>
       {noAccount ? <div><em>Error: Please double-check your username and/or password.</em></div> : null}
     </>
   );

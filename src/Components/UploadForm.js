@@ -1,15 +1,9 @@
 import { useRef } from "react";
 import { Editor } from '@tinymce/tinymce-react';
 
-function UploadForm({ newEvocations, setNewEvocations }) {
+function UploadForm({ setNewEvocations }) {
   const rootURL = `https://evocation-station-api.herokuapp.com`;
-
   const editorRef = useRef(null);
-  // const log = () => {
-  //   if (editorRef.current) {
-  //     console.log(editorRef.current.getContent());
-  //   }
-  // };
 
   function uploadNewEvocation(e) {
     e.preventDefault();
@@ -45,8 +39,9 @@ function UploadForm({ newEvocations, setNewEvocations }) {
 
   return (
     <div id="new_evocations">
-      <p><b>Upload your own materials</b></p>
+      <p><b>Upload any combination of your own materials..</b></p>
       <div id="editor_uploads_container">
+        <p className="labels">Add writing:</p>&nbsp;
         <Editor id="text_editor"
           tinymceScriptSrc={process.env.PUBLIC_URL + "/tinymce/tinymce.min.js"}
           onInit={(evt, editor) => (editorRef.current = editor)}
@@ -86,7 +81,7 @@ function UploadForm({ newEvocations, setNewEvocations }) {
             <input type="file" name="image_upload" accept="image/png, image/jpeg, image/jpg"></input>
           <label for="audio_upload">Add a sound: </label>
             <input type="file" name="audio_upload" accept="audio/*"></input>
-          <button id="upload_form_button" type="submit">Submit</button>
+          <button id="upload_form_button" type="submit"><b>Upload Evocation</b></button>
         </form>
       </div>
     </div>

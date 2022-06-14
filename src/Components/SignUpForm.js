@@ -51,8 +51,8 @@ function SignupForm({ setCurrentUser }) {
 
   return (
     <>
-      <h1>Sign up here!</h1>
-      <form onSubmit={handleSubmit}>
+      <form className="auth_forms" onSubmit={handleSubmit}>
+      <h1>...sign up</h1>
         <label htmlFor="username">Username:</label>
         <input
           id="username-signup-input"
@@ -70,8 +70,8 @@ function SignupForm({ setCurrentUser }) {
           onChange={handleChange}
         />
         <button type="submit">Submit</button>
+      <button className="auth_form_switch" onClick={userHasAccount}>Have an account?</button>
       </form>
-      <button onClick={userHasAccount}>Have an account?</button>
       {accountExists ? <div>An account already exists with this username/password. Please log in.</div> : null}
     </>
   );

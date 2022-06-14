@@ -67,7 +67,7 @@ function Template({ setPrebuiltEvocations, writing, setWriting, image, setImage,
              </div>
           </div>
         </>
-        : <><p className="labels">Select a crafting material..</p>&nbsp;</>}
+        : <><p className="labels">Select a specific crafting material..</p>&nbsp;</>}
       </>
     );
 }

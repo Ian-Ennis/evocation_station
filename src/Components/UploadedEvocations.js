@@ -1,9 +1,22 @@
-import React from "react";
+import { useEffect } from "react";
 import { v4 as uuid } from "uuid"
 import parse from 'html-react-parser';
 
 function UploadedEvocations({ newEvocations, setNewEvocations }) {
   const rootURL = `https://evocation-station-api.herokuapp.com`;
+
+  useEffect(() => {
+      fetch(`${rootURL}/newevocations`).then((response) => {
+        if (response.ok) {
+          response.json().then((data) => {
+            setNewEvocations(data);
+          });
+        } else {
+          response.json();
+          throw Error(response.status, response.statusText);
+        }
+    });
+  }, [])
 
   function deleteNewEvocation(e, evoc) {
     e.preventDefault();
@@ -38,9 +51,11 @@ function UploadedEvocations({ newEvocations, setNewEvocations }) {
   })
 
   return (
-    <div id="uploaded_evocations">
-      <b>Custom / Uploaded Evocations</b>
-      {evocationData}
+    <div id="uploaded_evocations_container">
+      <p className="labels"><b>Uploaded Evocations</b></p>
+      <div id="uploaded_evocations">
+        {evocationData}
+      </div>
     </div>
   );
 }
