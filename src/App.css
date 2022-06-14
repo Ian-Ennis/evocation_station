@@ -220,7 +220,6 @@ body {
 #each_sound {
   display: flex;
   flex-direction: column;
-  width: 450px;
   padding: 20px;
   border: .5px solid black;
   box-shadow: 0 0 2px black;
