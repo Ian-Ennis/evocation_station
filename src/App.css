@@ -50,7 +50,6 @@ body {
   padding: 20px;
   min-width: 900px;
   max-width: 1750px;
-  margin: 0 auto;
   margin-right: 10%;
 }
 
@@ -149,6 +148,10 @@ body {
   width: 10%;
 } 
 
+.materials {
+  text-align: center;
+}
+
 .labels {
   text-align: center;
 }
@@ -198,12 +201,14 @@ body {
 
 #sounds {
   column-count: 2;
-  max-width: 1000px;
-  margin: 0 auto;
+  max-width: 1200px;
+  margin: 0px auto;
   padding: 20px;
 }
 
 #each_sound {
+  box-shadow: 0 0 2px black;
+  width: 450px;
   padding: 20px;
   border: 1px solid black;
   margin-bottom: 20px;
