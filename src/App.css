@@ -113,7 +113,7 @@ body {
 #evocation_image {
   max-width: 300px;
   max-height: auto;
-  margin: 0 auto;
+  margin: 25px auto 0 auto;
   box-sizing: border-box;
   box-shadow: 0 0 5px black;
 }
@@ -207,11 +207,24 @@ body {
 }
 
 #each_sound {
+  display: flex;
+  flex-direction: column;
   box-shadow: 0 0 2px black;
   width: 450px;
   padding: 20px;
   border: 1px solid black;
   margin-bottom: 20px;
+}
+
+#select_sound_button {
+  width: 100px;
+  margin: 0 auto;
+  margin-top: 10px;
+}
+
+.audio_controls {
+  margin: 0 auto;
+  text-align: center;
 }
 
 #controls_template_container {

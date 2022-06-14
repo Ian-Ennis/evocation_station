@@ -14,7 +14,6 @@ function UploadForm({ setNewEvocations }) {
 
     const formData = new FormData();
     if (text) {
-      console.log("yes, text:", text)
       formData.append("text", text);
     }
     if (picture) formData.append("image", picture);
