@@ -52,7 +52,7 @@ body {
 
 #evocation_main {
   padding: 20px;
-  min-width: 900px;
+  min-width: 1120px;
   max-width: 1750px;
   margin-right: 10%;
 }
@@ -213,6 +213,7 @@ body {
 #sounds {
   column-count: 2;
   max-width: 1200px;
+  min-width: 1040px;
   margin: 0px auto;
   padding: 20px;
 }
@@ -220,6 +221,7 @@ body {
 #each_sound {
   display: flex;
   flex-direction: column;
+  width: 475px;
   padding: 20px;
   border: .5px solid black;
   box-shadow: 0 0 2px black;
