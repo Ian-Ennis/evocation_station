@@ -30,6 +30,10 @@ body {
   margin: 10px auto;
 }
 
+#account_exists {
+  text-align: center;
+}
+
 #navbar a {
   display: flex;
   flex-direction: column;
@@ -50,7 +54,6 @@ body {
   padding: 20px;
   min-width: 900px;
   max-width: 1750px;
-  margin: 0 auto;
   margin-right: 10%;
 }
 
@@ -67,7 +70,7 @@ body {
 #home {
   display: flex;
   flex-direction: column;
-  gap: 20px 0px;
+  gap: 40px 0px;
 }
 
 #evocations {
@@ -76,15 +79,16 @@ body {
   flex-direction: column;
   justify-content: center; 
   gap: 20px 0px;
-  border: 1px solid black;
+  border: .5px solid black;
   width: 400px;
   height: auto;
   box-sizing: border-box;
-  box-shadow: 0 0 5px black;
+  box-shadow: 0 0 20px black;
 }
 
 #uploaded_evocations_container {
-  box-shadow: 0 0 5px black;
+  /* border: 1px solid black; */
+  box-shadow: 0 0 10px black;
   padding: 20px;
 }
 
@@ -98,7 +102,7 @@ body {
 }
 
 #prebuilt_evocations_container {
-  box-shadow: 0 0 5px black;
+  box-shadow: 0 0 10px black;
   padding: 20px;
 }
 
@@ -114,18 +118,23 @@ body {
 #evocation_image {
   max-width: 300px;
   max-height: auto;
-  margin: 0 auto;
+  margin: 25px auto 0 auto;
   box-sizing: border-box;
   box-shadow: 0 0 5px black;
 }
  
 #new_evocations {
+  /* padding: 20px; */
   display: flex;
   flex-direction: column;
   justify-content: center;
   text-align: center;
-  box-shadow: 0 0 5px black;
+  box-shadow: 0 0 10px black;
   width: 100%;
+}
+
+#new_evocations > * {
+  padding: 20px;
 }
 
 #editor_uploads_container > * {
@@ -149,6 +158,10 @@ body {
   width: 10%;
 } 
 
+.materials {
+  text-align: center;
+}
+
 .labels {
   text-align: center;
 }
@@ -166,6 +179,7 @@ body {
   display: block;
   margin-bottom: 20px;
   padding: 10px;
+  /* border: .5px solid black; */
   box-sizing: border-box;
   box-shadow: 0 0 2px black;
   cursor: pointer;
@@ -183,9 +197,9 @@ body {
   height: auto;
   display: block;
   margin-bottom: 20px;
-  padding: 10px;
+  padding: 20px;
   box-sizing: border-box;
-  box-shadow: 0 0 5px black;
+  box-shadow: 0 0 2px black;
   cursor: pointer;
 }
 
@@ -193,20 +207,35 @@ body {
   max-width: 100%;
   max-height: 100%;
   box-sizing: border-box;
-  box-shadow: 0 0 5px black;
+  /* box-shadow: 0 0 10px black; */
 }
 
 #sounds {
   column-count: 2;
-  max-width: 1000px;
-  margin: 0 auto;
+  max-width: 1200px;
+  margin: 0px auto;
   padding: 20px;
 }
 
 #each_sound {
+  display: flex;
+  flex-direction: column;
+  width: 450px;
   padding: 20px;
-  border: 1px solid black;
+  border: .5px solid black;
+  box-shadow: 0 0 2px black;
   margin-bottom: 20px;
+}
+
+#select_sound_button {
+  width: 100px;
+  margin: 0 auto;
+  margin-top: 10px;
+}
+
+.audio_controls {
+  margin: 0 auto;
+  text-align: center;
 }
 
 #controls_template_container {
@@ -215,7 +244,8 @@ body {
 }
 
 #template {
-  border: 2px solid gray;
+  border: 2px solid rgb(0, 0, 0);
+  box-shadow: 0 0 2px black;
   padding: 40px;
 }
 

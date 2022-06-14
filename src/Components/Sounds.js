@@ -50,10 +50,10 @@ function Sounds({ setPrebuiltEvocations, writing, setWriting, image, setImage, s
     return (
       <div id="each_sound" key={uuid().slice(0, 8)}>
         <p>&nbsp;{sound.name}</p>
-        <audio controls>
+        <audio controls className="audio_controls">
           <source src={`${sound.url}`} />
-        </audio>
-        <button onClick={() => setSound(sound.url)}>Select Sound</button>
+        </audio>&nbsp;
+        <button id="select_sound_button" onClick={() => setSound(sound.url)}>Select Sound</button>
       </div>
     )
   })

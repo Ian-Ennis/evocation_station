@@ -41,8 +41,6 @@ function Template({ setPrebuiltEvocations, writing, setWriting, image, setImage,
           <div id="controls_template_container">
             <div id="template">
               <div id="selected_materials">
-                {writing.length ? <p className="labels"><b>{writing}</b></p>
-                 : null}
                 {image.length ? <div id="template_image"><img id="image" src={`${image}`}/>
                   </div> : null}
                 {sound.length ? <>
@@ -50,14 +48,16 @@ function Template({ setPrebuiltEvocations, writing, setWriting, image, setImage,
                     <source src={`${sound}`} />
                   </audio> 
                 </> : null}
+                {writing.length ? <p className="labels"><b>{writing}</b></p>
+                 : null}
               </div>
             </div>
             <div>
               <p className="labels">Template actions:</p>
               <div id="controls">
-                {writing.length ? <button onClick={() => setWriting([])}>Detach Writing</button> : null}
                 {image.length ? <button onClick={() => setImage([])}>Detach Image</button> : null}
                 {sound.length ? <button onClick={() => setSound([])}>Detach Sound</button> : null}
+                {writing.length ? <button onClick={() => setWriting([])}>Detach Writing</button> : null}
               </div>
                 {writing.length || image.length || sound.length ?
                 <div id="commit_container"> 
