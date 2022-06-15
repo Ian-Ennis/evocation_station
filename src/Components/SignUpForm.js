@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-function SignupForm({ setCurrentUser }) {
+function SignupForm({ menuBar, setCurrentUser }) {
   const [formData, setFormData] = useState({username: "", password: ""});
   const [accountExists, setAccountExists] = useState(false)
 
@@ -50,7 +50,7 @@ function SignupForm({ setCurrentUser }) {
   }
 
   return (
-    <>
+    <div className="auth_background">
       <form className="auth_forms" onSubmit={handleSubmit}>
       <h1>...sign up</h1>
         <label htmlFor="username">Username:</label>
@@ -73,7 +73,7 @@ function SignupForm({ setCurrentUser }) {
       <button className="auth_form_switch" onClick={userHasAccount}>Have an account?</button>
       </form>
       {accountExists ? <div id="account_exists">An account already exists with this username/password. Please log in.</div> : null}
-    </>
+    </div>
   );
 }
 

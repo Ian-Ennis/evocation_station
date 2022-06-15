@@ -80,7 +80,7 @@ function UploadForm({ setNewEvocations }) {
             <input type="file" name="image_upload" accept="image/png, image/jpeg, image/jpg"></input>
           <label for="audio_upload">Add a sound: </label>
             <input type="file" name="audio_upload" accept="audio/*"></input>
-          <button id="upload_form_button" type="submit"><b>Upload Evocation</b></button>
+          <button className="submit_button" type="submit"><b>Upload Evocation</b></button>
         </form>
       </div>
     </div>

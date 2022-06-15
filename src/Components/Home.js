@@ -1,9 +1,11 @@
 import { useNavigate } from "react-router-dom";
+import Title from "./Title";
+import Menu from "./Menu";
 import UploadForm from "./UploadForm";
 import UploadedEvocations from "./UploadedEvocations";
 import PrebuiltEvocations from "./PrebuiltEvocations";
 
-const Home = ({ currentUser, setCurrentUser, setSignedIn, newEvocations, setNewEvocations, prebuiltEvocations, setPrebuiltEvocations, setWriting, setImage, setSound }) => {
+const Home = ({ setMenuBar, currentUser, setCurrentUser, setSignedIn, newEvocations, setNewEvocations, prebuiltEvocations, setPrebuiltEvocations, setWriting, setImage, setSound }) => {
   const navigate = useNavigate();
 
   function logout() {
@@ -18,26 +20,33 @@ const Home = ({ currentUser, setCurrentUser, setSignedIn, newEvocations, setNewE
       setWriting([])
       setImage([])
       setSound([])
+      setMenuBar(false)
       navigate("/");
     });
   }
 
   return (
-    <div id="home">
-      <button id="logout_btn" onClick={logout}>Log out</button>
-      <div id="welcome_bar">
-        <h2>Welcome, {currentUser.username}</h2>
-      </div>
-      <p>
-        Welcome! Create your own evocation. An evocation is any combination of
+    <>
+      <div id="home">
+        <Title />
+        <Menu />
+    <div id="evocation_main">
+        <button id="logout_btn" onClick={logout}>Log out</button>
+        <div id="welcome_bar">
+          <h2>Welcome, {currentUser.username}</h2>
+        </div>
+        <p>
+        Create your own evocation. An evocation is any combination of
         writing, imagery, and sound, that together convey meaning. There are crafting materials to choose 
         from on the left, or you can upload your own materials using the form below. Be creative, have fun,
         and see what you can make.
-      </p>
-      <UploadForm newEvocations={newEvocations} setNewEvocations={setNewEvocations}/>
-      <UploadedEvocations newEvocations={newEvocations} setNewEvocations={setNewEvocations}/>
-      <PrebuiltEvocations prebuiltEvocations={prebuiltEvocations} setPrebuiltEvocations={setPrebuiltEvocations} />
+        </p>
+        <UploadForm newEvocations={newEvocations} setNewEvocations={setNewEvocations}/>
+        <UploadedEvocations newEvocations={newEvocations} setNewEvocations={setNewEvocations}/>
+        <PrebuiltEvocations prebuiltEvocations={prebuiltEvocations} setPrebuiltEvocations={setPrebuiltEvocations} />
+      </div>
     </div>
+    </>
   );
 };
 

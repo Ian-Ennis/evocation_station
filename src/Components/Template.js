@@ -61,7 +61,7 @@ function Template({ setPrebuiltEvocations, writing, setWriting, image, setImage,
               </div>
                 {writing.length || image.length || sound.length ?
                 <div id="commit_container"> 
-                  <button onClick={(e) => uploadTemplate(e)}><b>Commit Evocation</b></button>
+                  <button className="submit_button" onClick={(e) => uploadTemplate(e)}><b>Commit Evocation</b></button>
                 </div>
                   : null}
              </div>

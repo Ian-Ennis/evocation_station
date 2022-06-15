@@ -44,7 +44,7 @@ function PrebuiltEvocations({ prebuiltEvocations, setPrebuiltEvocations }) {
           <source src={`${evocation.sound_url}`}/>
         </audio> : null}
         {evocation.text ? <p className="labels"><b>{evocation.text}</b></p> : null}
-        <div className="bottom_aligner"></div>
+        &nbsp;<div className="bottom_aligner"></div>
         <button className="delete_button" onClick={(e) => deletePrebuiltEvocation(e, evocation)}>Delete</button>
       </div>
     )

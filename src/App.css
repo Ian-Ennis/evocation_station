@@ -1,28 +1,51 @@
-.App {
-  text-align: center;
-}
-
 body {
-  margin-left: 50px;
+  /* margin-left: 50px; */
   max-width: 2500px;
 }
 
-#title {
-  margin: 30px 0;
-  min-width: 275px;
+#title_container {
+  width: 20%;
+  height: auto;
+  margin: 3% 0% 0% 2%;
 }
 
-#menu_and_main {
+#title_image {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+/* #evocation_station_title {
+  width: 300px;
+  height: auto;
+  object-fit: contain;
+} */
+
+.auth_background {
+  background: url('./Components/Logo/Welcome.png') no-repeat center center fixed;
+  background-size: contain;
+  height: 100vh;
+  width: 100vw;
+}
+
+/* #menu_and_main { *****************************************************
   display: flex;
   flex-direction: row;
-}
+} */
 
 .auth_forms {
+  padding: 20px;
+  text-align: center;
+  position: fixed;
+  top: 35%;
+  left: 44%;
   display: flex;
   flex-direction: column;
-  margin: 0 auto;
-  gap: 10px 0px;
-  max-width: 20%;
+  justify-content: center;
+  gap: 15px 0px;
+  width: 10%;
+  border: 2px solid #000000;
+  border-radius: 5px;
+  background-color: rgb(255, 255, 255);
 }
 
 .auth_form_switch {
@@ -47,14 +70,41 @@ body {
 #menu_column {
   min-width: 200px;
   max-width: 200px;
-  margin-left: 20px;
+  margin: 0% 0% 0% 4%;
 }
 
 #evocation_main {
-  padding: 20px;
-  min-width: 1120px;
-  max-width: 1750px;
-  margin-right: 10%;
+  position: absolute;
+  top: 12%;
+  left: 20%;
+  margin: 0 15% 0% 0%;
+  display: flex;
+  flex-direction: column;
+  gap: 40px 0px;
+  /* padding: 20px; */
+  /* /* min-width: 1120px; */
+  /* max-width: 1750px; */
+  /* margin-right: 10%;  */
+}
+
+button {
+  background-color:#a02424;
+  color: #fff;
+  border: 2px solid #550e0e;
+  border-radius:10px;
+  cursor: pointer;
+} 
+
+button:hover {
+  background-color:#7e0e0e;
+  outline-color: 2px solid #a02424;
+  outline-style:solid;
+  box-shadow: 0px 0px 1.75px 1.75px rgb(0,0,0);
+}
+
+.submit_button:hover {
+  box-shadow: 0px 0px 2px 2px rgb(160, 36, 36);
+  text-shadow: 0 0 3em rgb(160, 36, 36);
 }
 
 #logout_btn {
@@ -88,7 +138,6 @@ body {
 }
 
 #uploaded_evocations_container {
-  /* border: 1px solid black; */
   box-shadow: 0 0 10px black;
   padding: 20px;
 }
@@ -125,9 +174,10 @@ body {
 }
 
 .delete_button {
-  position:absolute;                
-  bottom: 10px;   
-  left: 43%;                        
+  position:absolute;   
+  width: 100px;             
+  bottom: 15px;   
+  left: 37.5%;   
 }
  
 #new_evocations {
@@ -160,9 +210,31 @@ body {
   width: 90%;
 }
 
-#upload_form_button {
+/* .submit_button {
   width: 10%;
+  display:inline-block;
+  padding:0.46em 1.6em;
+  border:0.1em solid #000000;
+  margin:0 0.2em 0.2em 0;
+  border-radius:0.12em;
+  box-sizing: border-box;
+  text-decoration:none;
+  font-family:'Roboto',sans-serif;
+  font-weight:300;
+  color:#000000;
+  text-shadow: 0 0.04em 0.04em rgba(0,0,0,0.35);
+  background-color:#FFFFFF;
+  text-align:center;
+  transition: all 0.15s;
+  cursor: pointer;
 } 
+
+.submit_button:hover {
+  text-shadow: 0 0 1em rgb(160, 36, 36);
+  color:#ffffff;
+  background-color:#6a0909;
+  border-color:#000000;
+} */
 
 .materials {
   text-align: center;
@@ -185,7 +257,6 @@ body {
   display: block;
   margin-bottom: 20px;
   padding: 10px;
-  /* border: .5px solid black; */
   box-sizing: border-box;
   box-shadow: 0 0 2px black;
   cursor: pointer;
@@ -213,7 +284,6 @@ body {
   max-width: 100%;
   max-height: 100%;
   box-sizing: border-box;
-  /* box-shadow: 0 0 10px black; */
 }
 
 #sounds {
@@ -292,8 +362,13 @@ body {
 }
 
 #footer {
+  position: absolute;
+  bottom: 2%;
+  right: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   text-align: center;
-  position: bottom;
-  margin-top: 20%;
+  /* margin-top: 30%; */
   color: rgb(92, 92, 92);
 }

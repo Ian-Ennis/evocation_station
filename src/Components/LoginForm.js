@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-function LoginForm({ setCurrentUser, setSignedIn }) {
+function LoginForm({ setMenuBar, setCurrentUser, setSignedIn }) {
   const [formData, setFormData] = useState({ username: "", password: "" });
   const [noAccount, setNoAccount] = useState(false)
   const navigate = useNavigate();
@@ -50,7 +50,7 @@ function LoginForm({ setCurrentUser, setSignedIn }) {
     }
 
   return (
-    <>
+    <div className="auth_background">
       <form className="auth_forms" onSubmit={handleSubmit}>
       <h1>...login</h1>
         <label htmlFor="username">Username:</label>
@@ -73,7 +73,7 @@ function LoginForm({ setCurrentUser, setSignedIn }) {
       <button className="auth_form_switch" onClick={userNeedsAccount}>Create an account</button>
       </form>
       {noAccount ? <div><em>Error: Please double-check your username and/or password.</em></div> : null}
-    </>
+    </div>
   );
 };
 
