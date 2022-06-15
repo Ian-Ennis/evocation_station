@@ -71,8 +71,8 @@ function SignupForm({ menuBar, setCurrentUser }) {
         />
         <button type="submit">Submit</button>
       <button className="auth_form_switch" onClick={userHasAccount}>Have an account?</button>
-      </form>
       {accountExists ? <div id="account_exists">An account already exists with this username/password. Please log in.</div> : null}
+      </form>
     </div>
   );
 }

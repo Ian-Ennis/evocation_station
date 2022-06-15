@@ -76,11 +76,11 @@ function UploadForm({ setNewEvocations }) {
           }}
         />
         <form id="new_evocation_form" onSubmit={uploadNewEvocation}>
-          <label for="image_upload">Add an image: </label>
+          <label htmlFor="image_upload">Add an image: </label>
             <input type="file" name="image_upload" accept="image/png, image/jpeg, image/jpg"></input>
-          <label for="audio_upload">Add a sound: </label>
+          <label htmlFor="audio_upload">Add a sound: </label>
             <input type="file" name="audio_upload" accept="audio/*"></input>
-          <button className="submit_button" type="submit"><b>Upload Evocation</b></button>
+          <button className="submit_button" type="submit"><b>Commit Evocation</b></button>
         </form>
       </div>
     </div>

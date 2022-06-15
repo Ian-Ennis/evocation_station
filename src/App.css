@@ -1,5 +1,4 @@
 body {
-  /* margin-left: 50px; */
   max-width: 2500px;
 }
 
@@ -14,23 +13,12 @@ body {
   max-height: 100%;
 }
 
-/* #evocation_station_title {
-  width: 300px;
-  height: auto;
-  object-fit: contain;
-} */
-
 .auth_background {
   background: url('./Components/Logo/Welcome.png') no-repeat center center fixed;
   background-size: contain;
   height: 100vh;
   width: 100vw;
 }
-
-/* #menu_and_main { *****************************************************
-  display: flex;
-  flex-direction: row;
-} */
 
 .auth_forms {
   padding: 20px;
@@ -74,17 +62,9 @@ body {
 }
 
 #evocation_main {
-  position: absolute;
-  top: 12%;
-  left: 20%;
-  margin: 0 15% 0% 0%;
-  display: flex;
-  flex-direction: column;
-  gap: 40px 0px;
-  /* padding: 20px; */
-  /* /* min-width: 1120px; */
-  /* max-width: 1750px; */
-  /* margin-right: 10%;  */
+  position: relative;
+  margin: -22% 22% 12% 22%;  
+  padding: 20px;
 }
 
 button {
@@ -109,7 +89,7 @@ button:hover {
 
 #logout_btn {
   width: 100px;
-  margin-left: 91%;
+  margin-left: 90%; 
 }
 
 #welcome_bar {
@@ -117,10 +97,10 @@ button:hover {
   flex-direction: row;
 }
 
-#home {
+#evocation_elements {
   display: flex;
   flex-direction: column;
-  gap: 40px 0px;
+  gap: 60px 0;
 }
 
 #evocations {
@@ -210,34 +190,10 @@ button:hover {
   width: 90%;
 }
 
-/* .submit_button {
-  width: 10%;
-  display:inline-block;
-  padding:0.46em 1.6em;
-  border:0.1em solid #000000;
-  margin:0 0.2em 0.2em 0;
-  border-radius:0.12em;
-  box-sizing: border-box;
-  text-decoration:none;
-  font-family:'Roboto',sans-serif;
-  font-weight:300;
-  color:#000000;
-  text-shadow: 0 0.04em 0.04em rgba(0,0,0,0.35);
-  background-color:#FFFFFF;
-  text-align:center;
-  transition: all 0.15s;
-  cursor: pointer;
-} 
-
-.submit_button:hover {
-  text-shadow: 0 0 1em rgb(160, 36, 36);
-  color:#ffffff;
-  background-color:#6a0909;
-  border-color:#000000;
-} */
-
 .materials {
   text-align: center;
+  position: relative;
+  margin: -16% 15% 12% 15%;
 }
 
 .labels {
@@ -297,7 +253,6 @@ button:hover {
 #each_sound {
   display: flex;
   flex-direction: column;
-  width: 475px;
   padding: 20px;
   border: .5px solid black;
   box-shadow: 0 0 2px black;
@@ -318,10 +273,12 @@ button:hover {
 #controls_template_container {
   display: flex;
   flex-direction: column;
+  margin: 0 auto;
+  width: 50%;
 }
 
 #template {
-  border: 2px solid rgb(0, 0, 0);
+  /* border: 2px solid rgb(0, 0, 0); */
   box-shadow: 0 0 2px black;
   padding: 40px;
 }
@@ -362,13 +319,6 @@ button:hover {
 }
 
 #footer {
-  position: absolute;
-  bottom: 2%;
-  right: 50%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
   text-align: center;
-  /* margin-top: 30%; */
   color: rgb(92, 92, 92);
 }

@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react";
 import { v4 as uuid } from "uuid"
+import Title from "./Title";
+import Menu from "./Menu";
 import Template from "./Template";
 
 function Writings({ setPrebuiltEvocations, writing, setWriting, image, setImage, sound, setSound }) {
@@ -27,13 +29,17 @@ function Writings({ setPrebuiltEvocations, writing, setWriting, image, setImage,
       })
 
     return (
+      <>
+        <Title />
+        <Menu />
         <div className="materials">
           <Template setPrebuiltEvocations={setPrebuiltEvocations} writing={writing} setWriting={setWriting} image={image} setImage={setImage} sound={sound} setSound={setSound} />
-            <p className="labels"><b>Writings:</b></p>
-            <div id="writings">
-              {writingData}
-            </div>
+          <p className="labels"><b>Writings:</b></p>
+          <div id="writings">
+            {writingData}
+          </div>
         </div>
+      </>
     )
 }
 

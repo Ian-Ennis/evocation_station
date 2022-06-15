@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-function LoginForm({ setMenuBar, setCurrentUser, setSignedIn }) {
+function LoginForm({ setCurrentUser }) {
   const [formData, setFormData] = useState({ username: "", password: "" });
   const [noAccount, setNoAccount] = useState(false)
   const navigate = useNavigate();
@@ -29,7 +29,6 @@ function LoginForm({ setMenuBar, setCurrentUser, setSignedIn }) {
         response.json()
         .then((user) => {
           setNoAccount(false);
-          setSignedIn(true)
           setCurrentUser(user);
           setFormData({
             username: "",
