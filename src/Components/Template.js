@@ -41,14 +41,14 @@ function Template({ setPrebuiltEvocations, writing, setWriting, image, setImage,
           <div id="controls_template_container">
             <div id="template">
               <div id="selected_materials">
-                {image.length ? <div id="template_image"><img id="image" src={`${image}`}/>
-                  </div> : null}
+                {image.length ? <img id="template_image" src={`${image}`}/>
+                 : null}
                 {sound.length ? <>
-                  <audio controls>
+                  <audio controls className="audio_controls">
                     <source src={`${sound}`} />
                   </audio> 
                 </> : null}
-                {writing.length ? <p className="labels"><b>{writing}</b></p>
+                {writing.length ? <p id="template_writing"><b>{writing}</b></p>
                  : null}
               </div>
             </div>

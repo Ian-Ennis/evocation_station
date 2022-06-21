@@ -40,7 +40,7 @@ function UploadForm({ setNewEvocations }) {
     <div id="new_evocations">
       <p><b>Upload any combination of your own materials..</b></p>
       <div id="editor_uploads_container">
-        <p className="labels">Add writing:</p>&nbsp;
+        <p className="labels">Writing:</p>&nbsp;
         <Editor id="text_editor"
           tinymceScriptSrc={process.env.PUBLIC_URL + "/tinymce/tinymce.min.js"}
           onInit={(evt, editor) => (editorRef.current = editor)}
@@ -76,11 +76,13 @@ function UploadForm({ setNewEvocations }) {
           }}
         />
         <form id="new_evocation_form" onSubmit={uploadNewEvocation}>
-          <label htmlFor="image_upload">Add an image: </label>
-            <input type="file" name="image_upload" accept="image/png, image/jpeg, image/jpg"></input>
-          <label htmlFor="audio_upload">Add a sound: </label>
-            <input type="file" name="audio_upload" accept="audio/*"></input>
-          <button className="submit_button" type="submit"><b>Commit Evocation</b></button>
+          <div id="form_elements">
+            <label className="form_label" htmlFor="image_upload">Image: </label>
+              <input type="file" name="image_upload" accept="image/png, image/jpeg, image/jpg"></input>
+            <label className="form_label" htmlFor="audio_upload">Sound: </label>
+              <input type="file" name="audio_upload" accept="audio/*"></input>
+          </div>
+          <button id="upload_submit_button" type="submit"><b>Commit Evocation</b></button>
         </form>
       </div>
     </div>

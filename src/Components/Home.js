@@ -8,8 +8,6 @@ import PrebuiltEvocations from "./PrebuiltEvocations";
 const Home = ({ currentUser, setCurrentUser, newEvocations, setNewEvocations, prebuiltEvocations, setPrebuiltEvocations, setWriting, setImage, setSound }) => {
   const navigate = useNavigate();
 
-  console.log("current user:", currentUser)
-
   function logout() {
     fetch("https://evocation-station-api.herokuapp.com/logout", {
       method: "DELETE",
@@ -17,8 +15,6 @@ const Home = ({ currentUser, setCurrentUser, newEvocations, setNewEvocations, pr
         "Content-Type": "application/json",
       },
     }).then((response) => {
-      console.log('got here')
-      console.log(response)
       setWriting([])
       setImage([])
       setSound([])
@@ -38,9 +34,9 @@ const Home = ({ currentUser, setCurrentUser, newEvocations, setNewEvocations, pr
           </button>
           <div id="welcome_bar">
             <h2>Welcome, {currentUser.username}</h2>
-          </div>
+          </div>&nbsp;
           <div id="evocation_elements">
-          <p>
+          <p id="user_directions">
             Create your own evocation. An evocation is any combination of
             writing, imagery, and sound, that together convey meaning. There are
             crafting materials to choose from on the left, or you can upload

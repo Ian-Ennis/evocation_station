@@ -63,7 +63,7 @@ body {
 
 #evocation_main {
   position: relative;
-  margin: -22% 22% 12% 22%;  
+  margin: -22% 20.75% 12% 22%;  
   padding: 20px;
 }
 
@@ -87,6 +87,10 @@ button:hover {
   text-shadow: 0 0 3em rgb(160, 36, 36);
 }
 
+#upload_submit_button {
+  margin: 20px 0px 0px 0px;
+}
+
 #logout_btn {
   width: 100px;
   margin-left: 90%; 
@@ -103,6 +107,12 @@ button:hover {
   gap: 60px 0;
 }
 
+#user_directions {
+  width: 95%;
+  text-align: center;
+  margin: 0 auto;
+}
+
 #evocations {
   padding: 20px;
   display: flex;
@@ -114,11 +124,13 @@ button:hover {
   height: auto;
   box-sizing: border-box;
   box-shadow: 0 0 20px black;
+  border-radius: 25px;
   position: relative;
 }
 
 #uploaded_evocations_container {
   box-shadow: 0 0 10px black;
+  border-radius: 25px;
   padding: 20px;
 }
 
@@ -126,13 +138,14 @@ button:hover {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 20px 20px;
+  gap: 40px 20px;
   padding: 20px;
   margin: 20px 0px;
 }
 
 #prebuilt_evocations_container {
   box-shadow: 0 0 10px black;
+  border-radius: 25px;
   padding: 20px;
 }
 
@@ -140,7 +153,7 @@ button:hover {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 20px 20px;
+  gap: 40px 20px;
   padding: 20px;
   margin: 20px 0px;
 }
@@ -165,7 +178,8 @@ button:hover {
   flex-direction: column;
   justify-content: center;
   text-align: center;
-  box-shadow: 0 0 10px black;
+  box-shadow: 0 0 20px black;
+  border-radius: 25px;
   width: 100%;
 }
 
@@ -182,12 +196,18 @@ button:hover {
   padding: 20px;
 }
 
+#form_elements {
+  display: flex;
+  flex-direction: row;
+  margin: 10px auto;
+}
+
 #new_evocation_form input {
-  margin: 10px 0 0 0;
+  margin: 0 auto;
 }
 
 #new_evocation_form label {
-  width: 90%;
+  text-align: left;
 }
 
 .materials {
@@ -244,8 +264,6 @@ button:hover {
 
 #sounds {
   column-count: 2;
-  max-width: 1200px;
-  min-width: 1040px;
   margin: 0px auto;
   padding: 20px;
 }
@@ -265,7 +283,7 @@ button:hover {
 }
 
 .audio_controls {
-  margin: 0 auto;
+  margin: 20px auto;
   text-align: center;
 }
 
@@ -277,26 +295,40 @@ button:hover {
 }
 
 #template {
-  /* border: 2px solid rgb(0, 0, 0); */
-  box-shadow: 0 0 2px black;
+  border: .5px solid black;
+  box-shadow: 0 0 10px black;
+  border-radius: 25px;
   padding: 40px;
 }
 
 #selected_materials {
   display: flex;
   flex-direction: column;
-  gap: 20px 0px;
+  border: .5px solid black;
+  padding: 20px;
   justify-content: center;
+  max-width: 350px;
+  margin: 25px auto 25px auto;
+  box-sizing: border-box;
+  box-shadow: 0 0 20px black;
+  border-radius: 25px;
   min-width: 300px;
 }
 
-#selected_materials > * {
+/* #selected_materials > * {
   margin: 0 auto;
-}
+} */
 
 #template_image {
-  max-width: 50%;
-  max-height: auto;
+  max-width: 250px;
+  margin: 25px auto 25px auto;
+  box-sizing: border-box;
+  box-shadow: 0 0 5px black;;
+}
+
+#template_writing {
+  text-align: center;
+  /* margin-top: 20px; */
 }
 
 #controls {
