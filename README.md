@@ -42,6 +42,6 @@ As a user, I can login to the site, and create an account if I haven't done so y
 
 ![Prebuilt Evocation](https://github.com/Ian-Ennis/evocation_station/blob/main/public/Screenshots/Prebuilt%20Evocation.png)
 
-.
+..
 
 <p align="right">(<a href="#top">back to top</a>)</p>
