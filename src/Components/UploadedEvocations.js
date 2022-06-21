@@ -41,7 +41,7 @@ function UploadedEvocations({ newEvocations, setNewEvocations }) {
     return (
       <div id="evocations" key={uuid().slice(0, 8)}>
         {evocation.image ? (
-          <img id="evocation_image" src={`${rootURL}${evocation.image}`} />
+          <img id="evocation_image" alt="evocation_image" src={`${rootURL}${evocation.image}`} />
         ) : null}
         {evocation.audio ? (
           <audio controls className="audio_controls">

@@ -40,7 +40,7 @@ function PrebuiltEvocations({ prebuiltEvocations, setPrebuiltEvocations }) {
     return (
       <div id="evocations" key={uuid().slice(0, 8)}>
         {evocation.image_url ? (
-          <img id="evocation_image" src={`${evocation.image_url}`} />
+          <img id="evocation_image" alt="evocation_image" src={`${evocation.image_url}`} />
         ) : null}
         {evocation.sound_url ? (
           <audio controls className="audio_controls">

@@ -9,7 +9,7 @@ function Template({
   sound,
   setSound,
 }) {
-  
+
   const navigate = useNavigate();
   const rootURL = `https://evocation-station-api.herokuapp.com`;
 
@@ -53,7 +53,7 @@ function Template({
             <div id="template">
               <div id="selected_materials">
                 {image.length ? (
-                  <img id="template_image" src={`${image}`} />
+                  <img id="template_image" alt ="template_image" src={`${image}`} />
                 ) : null}
                 {sound.length ? (
                   <>

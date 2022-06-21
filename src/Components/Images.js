@@ -104,7 +104,7 @@ function Images({
     return (
       <div id="each_image" key={uuid().slice(0, 8)}>
         <img
-          id="image"
+          id="image" alt="crafting_image"
           onClick={(e) => {
             e.preventDefault();
             setImage(image.url);
