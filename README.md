@@ -24,7 +24,7 @@ As a user, I can login to the site, and create an account if I haven't done so y
 
 ## Built With
 
-* [React.js]([https://react-redux.js.org/](https://create-react-app.dev/))
+* [React.js]([https://react-redux.js.org/](https://create-react-app.dev/)]
 
 
 ## Screenshots
