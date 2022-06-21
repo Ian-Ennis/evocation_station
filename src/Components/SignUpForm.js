@@ -2,8 +2,8 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 function SignupForm({ menuBar, setCurrentUser }) {
-  const [formData, setFormData] = useState({username: "", password: ""});
-  const [accountExists, setAccountExists] = useState(false)
+  const [formData, setFormData] = useState({ username: "", password: "" });
+  const [accountExists, setAccountExists] = useState(false);
 
   const navigate = useNavigate();
 
@@ -26,33 +26,33 @@ function SignupForm({ menuBar, setCurrentUser }) {
       body: JSON.stringify(userCreds),
     }).then((response) => {
       if (response.ok) {
-        response.json()
-        .then((user) => {
+        response.json().then((user) => {
           console.log("response is okay, here's the user:", user);
           setCurrentUser(user);
-          setAccountExists(false)
+          setAccountExists(false);
           setFormData({
             username: "",
             password: "",
           });
           navigate("/login");
         });
-      } else {response.json()
-        setAccountExists(true)
-        throw Error(response.status, response.statusText)
+      } else {
+        response.json();
+        setAccountExists(true);
+        throw Error(response.status, response.statusText);
       }
     });
   }
 
   function userHasAccount(e) {
     e.preventDefault();
-    navigate("/login")
+    navigate("/login");
   }
 
   return (
     <div className="auth_background">
       <form className="auth_forms" onSubmit={handleSubmit}>
-      <h1>...sign up</h1>
+        <h1>...sign up</h1>
         <label htmlFor="username">Username:</label>
         <input
           id="username-signup-input"
@@ -70,8 +70,15 @@ function SignupForm({ menuBar, setCurrentUser }) {
           onChange={handleChange}
         />
         <button type="submit">Submit</button>
-      <button className="auth_form_switch" onClick={userHasAccount}>Have an account?</button>
-      {accountExists ? <div id="account_exists">An account already exists with this username/password. Please log in.</div> : null}
+        <button className="auth_form_switch" onClick={userHasAccount}>
+          Have an account?
+        </button>
+        {accountExists ? (
+          <div id="account_exists">
+            An account already exists with this username/password. Please log
+            in.
+          </div>
+        ) : null}
       </form>
     </div>
   );

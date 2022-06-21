@@ -315,10 +315,6 @@ button:hover {
   min-width: 300px;
 }
 
-/* #selected_materials > * {
-  margin: 0 auto;
-} */
-
 #template_image {
   max-width: 250px;
   margin: 25px auto 25px auto;
@@ -328,7 +324,6 @@ button:hover {
 
 #template_writing {
   text-align: center;
-  /* margin-top: 20px; */
 }
 
 #controls {

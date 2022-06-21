@@ -5,7 +5,17 @@ import UploadForm from "./UploadForm";
 import UploadedEvocations from "./UploadedEvocations";
 import PrebuiltEvocations from "./PrebuiltEvocations";
 
-const Home = ({ currentUser, setCurrentUser, newEvocations, setNewEvocations, prebuiltEvocations, setPrebuiltEvocations, setWriting, setImage, setSound }) => {
+const Home = ({
+  currentUser,
+  setCurrentUser,
+  newEvocations,
+  setNewEvocations,
+  prebuiltEvocations,
+  setPrebuiltEvocations,
+  setWriting,
+  setImage,
+  setSound,
+}) => {
   const navigate = useNavigate();
 
   function logout() {
@@ -15,9 +25,9 @@ const Home = ({ currentUser, setCurrentUser, newEvocations, setNewEvocations, pr
         "Content-Type": "application/json",
       },
     }).then((response) => {
-      setWriting([])
-      setImage([])
-      setSound([])
+      setWriting([]);
+      setImage([]);
+      setSound([]);
       setCurrentUser(null);
       navigate("/");
     });
@@ -34,18 +44,28 @@ const Home = ({ currentUser, setCurrentUser, newEvocations, setNewEvocations, pr
           </button>
           <div id="welcome_bar">
             <h2>Welcome, {currentUser.username}</h2>
-          </div>&nbsp;
+          </div>
+          &nbsp;
           <div id="evocation_elements">
-          <p id="user_directions">
-            Create your own evocation. An evocation is any combination of
-            writing, imagery, and sound, that together convey meaning. There are
-            crafting materials to choose from on the left, or you can upload
-            your own materials using the form below. Be creative, have fun, and
-            see what you can make.
-          </p>
-          <UploadForm newEvocations={newEvocations} setNewEvocations={setNewEvocations}/>
-          <UploadedEvocations newEvocations={newEvocations} setNewEvocations={setNewEvocations}/>
-          <PrebuiltEvocations prebuiltEvocations={prebuiltEvocations} setPrebuiltEvocations={setPrebuiltEvocations}/>
+            <p id="user_directions">
+              Create your own evocation. An evocation is any combination of
+              writing, imagery, and sound, that together convey meaning. There
+              are crafting materials to choose from on the left, or you can
+              upload your own materials using the form below. Be creative, have
+              fun, and see what you can make.
+            </p>
+            <UploadForm
+              newEvocations={newEvocations}
+              setNewEvocations={setNewEvocations}
+            />
+            <UploadedEvocations
+              newEvocations={newEvocations}
+              setNewEvocations={setNewEvocations}
+            />
+            <PrebuiltEvocations
+              prebuiltEvocations={prebuiltEvocations}
+              setPrebuiltEvocations={setPrebuiltEvocations}
+            />
           </div>
         </div>
       </div>

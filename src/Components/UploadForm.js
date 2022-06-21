@@ -1,5 +1,5 @@
 import { useRef } from "react";
-import { Editor } from '@tinymce/tinymce-react';
+import { Editor } from "@tinymce/tinymce-react";
 
 function UploadForm({ setNewEvocations }) {
   const rootURL = `https://evocation-station-api.herokuapp.com`;
@@ -8,7 +8,7 @@ function UploadForm({ setNewEvocations }) {
   function uploadNewEvocation(e) {
     e.preventDefault();
 
-    const text = editorRef.current.getContent()
+    const text = editorRef.current.getContent();
     const picture = e.target.image_upload.files[0];
     const audio = e.target.audio_upload.files[0];
 
@@ -16,12 +16,13 @@ function UploadForm({ setNewEvocations }) {
     if (text) {
       formData.append("text", text);
     }
+    
     if (picture) formData.append("image", picture);
     if (audio) formData.append("audio", audio);
 
     fetch(`${rootURL}/newevocations`, {
       method: "POST",
-      body: formData
+      body: formData,
     }).then(() => {
       fetch(`${rootURL}/newevocations`).then((response) => {
         if (response.ok) {
@@ -32,16 +33,19 @@ function UploadForm({ setNewEvocations }) {
           response.json();
           throw Error(response.status, response.statusText);
         }
-      })
+      });
     });
   }
 
   return (
     <div id="new_evocations">
-      <p><b>Upload any combination of your own materials..</b></p>
+      <p>
+        <b>Upload any combination of your own materials..</b>
+      </p>
       <div id="editor_uploads_container">
         <p className="labels">Writing:</p>&nbsp;
-        <Editor id="text_editor"
+        <Editor
+          id="text_editor"
           tinymceScriptSrc={process.env.PUBLIC_URL + "/tinymce/tinymce.min.js"}
           onInit={(evt, editor) => (editorRef.current = editor)}
           init={{
@@ -77,12 +81,22 @@ function UploadForm({ setNewEvocations }) {
         />
         <form id="new_evocation_form" onSubmit={uploadNewEvocation}>
           <div id="form_elements">
-            <label className="form_label" htmlFor="image_upload">Image: </label>
-              <input type="file" name="image_upload" accept="image/png, image/jpeg, image/jpg"></input>
-            <label className="form_label" htmlFor="audio_upload">Sound: </label>
-              <input type="file" name="audio_upload" accept="audio/*"></input>
+            <label className="form_label" htmlFor="image_upload">
+              Image:{" "}
+            </label>
+            <input
+              type="file"
+              name="image_upload"
+              accept="image/png, image/jpeg, image/jpg"
+            ></input>
+            <label className="form_label" htmlFor="audio_upload">
+              Sound:{" "}
+            </label>
+            <input type="file" name="audio_upload" accept="audio/*"></input>
           </div>
-          <button id="upload_submit_button" type="submit"><b>Commit Evocation</b></button>
+          <button id="upload_submit_button" type="submit">
+            <b>Commit Evocation</b>
+          </button>
         </form>
       </div>
     </div>

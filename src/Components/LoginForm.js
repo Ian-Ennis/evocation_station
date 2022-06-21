@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 
 function LoginForm({ setCurrentUser }) {
   const [formData, setFormData] = useState({ username: "", password: "" });
-  const [noAccount, setNoAccount] = useState(false)
+  const [noAccount, setNoAccount] = useState(false);
   const navigate = useNavigate();
 
   function handleChange(e) {
@@ -24,10 +24,9 @@ function LoginForm({ setCurrentUser }) {
       },
       body: JSON.stringify(userCreds),
     }).then((response) => {
-      console.log(response)
+      console.log(response);
       if (response.ok) {
-        response.json()
-        .then((user) => {
+        response.json().then((user) => {
           setNoAccount(false);
           setCurrentUser(user);
           setFormData({
@@ -45,13 +44,13 @@ function LoginForm({ setCurrentUser }) {
 
   function userNeedsAccount(e) {
     e.preventDefault();
-    navigate("/")
-    }
+    navigate("/");
+  }
 
   return (
     <div className="auth_background">
       <form className="auth_forms" onSubmit={handleSubmit}>
-      <h1>...login</h1>
+        <h1>...login</h1>
         <label htmlFor="username">Username:</label>
         <input
           id="username-input"
@@ -69,11 +68,17 @@ function LoginForm({ setCurrentUser }) {
           onChange={handleChange}
         />
         <button type="submit">Submit</button>
-      <button className="auth_form_switch" onClick={userNeedsAccount}>Create an account</button>
+        <button className="auth_form_switch" onClick={userNeedsAccount}>
+          Create an account
+        </button>
       </form>
-      {noAccount ? <div><em>Error: Please double-check your username and/or password.</em></div> : null}
+      {noAccount ? (
+        <div>
+          <em>Error: Please double-check your username and/or password.</em>
+        </div>
+      ) : null}
     </div>
   );
-};
+}
 
 export default LoginForm;
