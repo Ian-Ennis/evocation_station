@@ -30,17 +30,14 @@ As a user, I can login to the site, and create an account if I haven't done so y
 ## Screenshots
 ![Login](https://github.com/Ian-Ennis/evocation_station/blob/main/public/Screenshots/Signup.png)
 
-![Home](https://github.com/Ian-Ennis/evocation_station/blob/main/public/Screenshots/Text%20Editor.png)
+![Home](https://github.com/Ian-Ennis/evocation_station/blob/main/public/Screenshots/TextEditor.png)
 
 ![Images](https://github.com/Ian-Ennis/evocation_station/blob/main/public/Screenshots/Images.png)
 
 ![Sounds](https://github.com/Ian-Ennis/evocation_station/blob/main/public/Screenshots/Sounds.png)
 
-![Template](https://github.com/Ian-Ennis/evocation_station/blob/main/public/Screenshots/Template.png)
+![Uploaded Evocation](https://github.com/Ian-Ennis/evocation_station/blob/main/public/Screenshots/UploadedEvocation.png)
 
-![Uploaded Evocation](https://github.com/Ian-Ennis/evocation_station/blob/main/public/Screenshots/Uploaded%20Evocation.png)
-
-![Prebuilt Evocation](https://github.com/Ian-Ennis/evocation_station/blob/main/public/Screenshots/Prebuilt%20Evocation.png)
 
 
 <p align="right">(<a href="#top">back to top</a>)</p>
