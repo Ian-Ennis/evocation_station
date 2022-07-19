@@ -74,3 +74,37 @@ const Home = ({
 };
 
 export default Home;
+
+
+/* // function sortTitlesAscending( a, b ) {
+  //   if ( a.title < b.title ){
+  //     return -1;
+  //   }
+  //   if ( a.title > b.title ){
+  //     return 1;
+  //   }
+  //   return 0;
+  // }
+
+  // function sortStartTimesAscending( a, b ) {
+  //   if ( a.scheduledStartTime < b.scheduledStartTime ){
+  //     return -1;
+  //   }
+  //   if ( a.scheduledStartTime > b.scheduledStartTime ){
+  //     return 1;
+  //   }
+  //   return 0;
+  // }
+
+  // const titlesAscending = shows.sort( sortTitlesAscending )
+  // console.log("titles ascending:", titlesAscending)
+
+  // const startTimesAscending = shows.sort( sortStartTimesAscending )
+  // console.log("start times ascending:", startTimesAscending)
+
+  // const titlesAsc = shows.sort((a,b) => (a.title > b.title) ? 1 : ((b.title > a.title) ? -1 : 0))
+  // console.log("titles ascending:", titlesAsc)
+  // const titlesDesc = undefined;
+  // const startTimeAsc = shows.sort((a,b) => (a.scheduledStartTime > b.scheduledStartTime) ? 1 : ((b.scheduledStartTime > a.scheduledStartTime) ? -1 : 0));
+  // console.log("start times ascending:", startTimeAsc)
+  // const startTimeDesc = undefined; */
