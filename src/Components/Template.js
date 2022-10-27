@@ -28,7 +28,6 @@ function Template({
       }),
     }).then(() => {
       fetch(`${rootURL}/prebuiltevocations`).then((response) => {
-        console.log(response);
         if (response.ok) {
           response.json().then((data) => {
             setPrebuiltEvocations(data);

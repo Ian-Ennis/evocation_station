@@ -24,7 +24,6 @@ function LoginForm({ setCurrentUser }) {
       },
       body: JSON.stringify(userCreds),
     }).then((response) => {
-      console.log(response);
       if (response.ok) {
         response.json().then((user) => {
           setNoAccount(false);

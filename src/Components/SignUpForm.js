@@ -27,7 +27,6 @@ function SignupForm({ menuBar, setCurrentUser }) {
     }).then((response) => {
       if (response.ok) {
         response.json().then((user) => {
-          console.log("response is okay, here's the user:", user);
           setCurrentUser(user);
           setAccountExists(false);
           setFormData({
