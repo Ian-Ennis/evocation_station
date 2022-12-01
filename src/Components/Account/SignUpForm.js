@@ -1,9 +1,9 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-function LoginForm({ setCurrentUser }) {
+function SignupForm({ menuBar, setCurrentUser }) {
   const [formData, setFormData] = useState({ username: "", password: "" });
-  const [noAccount, setNoAccount] = useState(false);
+  const [accountExists, setAccountExists] = useState(false);
   const navigate = useNavigate();
 
   function handleChange(e) {
@@ -17,7 +17,7 @@ function LoginForm({ setCurrentUser }) {
     e.preventDefault();
     const userCreds = { ...formData };
 
-    fetch("https://evocation-station-api.herokuapp.com/login", {
+    fetch("https://evocation-station-api.herokuapp.com/users", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -25,34 +25,38 @@ function LoginForm({ setCurrentUser }) {
       body: JSON.stringify(userCreds),
     }).then((response) => {
       if (response.ok) {
-        response.json().then((user) => {
-          setNoAccount(false);
-          setCurrentUser(user);
+        response.json().then((data) => {
+          localStorage.setItem("token", data.jwt);
+          setCurrentUser(data.user);
+          setAccountExists(false);
           setFormData({
             username: "",
             password: "",
           });
-          navigate("/home");
+          navigate("/login");
         });
       } else {
-        setNoAccount(true);
-        throw Error(response.status, response.statusText);
+        response.json().then((err) => {
+          console.log("login response is bad")
+          setAccountExists(true)
+          console.log(err);
+        });
       }
     });
   }
 
-  function userNeedsAccount(e) {
+  function userHasAccount(e) {
     e.preventDefault();
-    navigate("/");
+    navigate("/login");
   }
 
   return (
     <div className="auth_background">
       <form className="auth_forms" onSubmit={handleSubmit}>
-        <h1>...login</h1>
-        <label htmlFor="username">Username:</label>
-        <input
-          id="username-input"
+        <h1>...sign up</h1>
+          <label htmlFor="username">Username</label>
+          <input
+          id="username-signup-input"
           type="text"
           name="username"
           value={formData.username}
@@ -60,24 +64,25 @@ function LoginForm({ setCurrentUser }) {
         />
         <label htmlFor="password">Password:</label>
         <input
-          id="password-input"
+          id="password-signup-input"
           type="password"
           name="password"
           value={formData.password}
           onChange={handleChange}
         />
         <button type="submit">Submit</button>
-        <button className="auth_form_switch" onClick={userNeedsAccount}>
-          Create an account
+        <button className="auth_form_switch" onClick={userHasAccount}>
+          Have an account?
         </button>
+        {accountExists ? (
+          <div id="account_exists">
+            An account already exists with this username/password. Please log
+            in.
+          </div>
+        ) : null}
       </form>
-      {noAccount ? (
-        <div>
-          <em>Error: Please double-check your username and/or password.</em>
-        </div>
-      ) : null}
     </div>
   );
 }
 
-export default LoginForm;
+export default SignupForm;

@@ -52,7 +52,7 @@ const Home = ({
               writing, imagery, and sound, that together convey meaning. There
               are crafting materials to choose from on the left, or you can
               upload your own materials using the form below. Be creative, have
-              fun, and see what you can make.
+              fun, and see what you can make!
             </p>
             <UploadForm
               newEvocations={newEvocations}
