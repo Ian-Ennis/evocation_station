@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
 import { v4 as uuid } from "uuid";
-import Title from "./Title";
-import Menu from "./Menu";
-import Template from "./Template";
+import Title from "../Title";
+import NavBar from "../NavBar"
+import Template from "../Template";
 
 function Writings({
   setPrebuiltEvocations,
@@ -46,7 +46,7 @@ function Writings({
   return (
     <>
       <Title />
-      <Menu />
+      <NavBar />
       <div className="materials">
         <Template
           setPrebuiltEvocations={setPrebuiltEvocations}

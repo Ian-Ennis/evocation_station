@@ -1,4 +1,4 @@
-import TitleImage from "./Logo/TitleImage.png";
+import TitleImage from "./Images/TitleImage.png";
 
 function Title() {
   return (

@@ -14,7 +14,7 @@ body {
 }
 
 .auth_background {
-  background: url('./Components/Logo/Welcome.png') no-repeat center center fixed;
+  background: url('./Components/Images/Welcome.png') no-repeat center center fixed;
   background-size: contain;
   height: 100vh;
   width: 100vw;

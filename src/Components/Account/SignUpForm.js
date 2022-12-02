@@ -17,7 +17,7 @@ function SignupForm({ menuBar, setCurrentUser }) {
     e.preventDefault();
     const userCreds = { ...formData };
 
-    fetch("https://evocation-station-api.herokuapp.com/users", {
+    fetch("http://localhost:3000/api/v1/users", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

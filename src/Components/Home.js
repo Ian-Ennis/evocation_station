@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import Title from "./Title";
-import Menu from "./Menu";
+import NavBar from "./NavBar";
 import UploadForm from "./UploadForm";
 import UploadedEvocations from "./UploadedEvocations";
 import PrebuiltEvocations from "./PrebuiltEvocations";
@@ -37,7 +37,7 @@ const Home = ({
     <>
       <div id="home">
         <Title />
-        <Menu />
+        <NavBar />
         <div id="evocation_main">
           <button id="logout_btn" onClick={logout}>
             Log out
