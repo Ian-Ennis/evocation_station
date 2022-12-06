@@ -3,7 +3,7 @@ import { v4 as uuid } from "uuid";
 import parse from "html-react-parser";
 
 function UploadedEvocations({ newEvocations, setNewEvocations }) {
-  const rootURL = `https://evocation-station-api.herokuapp.com`;
+  const rootURL = `http://localhost:3000`;
 
   useEffect(() => {
     fetch(`${rootURL}/newevocations`).then((response) => {
@@ -12,8 +12,9 @@ function UploadedEvocations({ newEvocations, setNewEvocations }) {
           setNewEvocations(data);
         });
       } else {
-        response.json();
-        throw Error(response.status, response.statusText);
+        response.json().then(err => {
+          console.log("error:", err)
+        })
       }
     });
   }, []);

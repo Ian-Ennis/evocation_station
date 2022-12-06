@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { v4 as uuid } from "uuid";
 
 function PrebuiltEvocations({ prebuiltEvocations, setPrebuiltEvocations }) {
-  const rootURL = `https://evocation-station-api.herokuapp.com`;
+  const rootURL = `http://localhost:3000`;
 
   useEffect(() => {
     fetch(`${rootURL}/prebuiltevocations`).then((response) => {
@@ -11,8 +11,9 @@ function PrebuiltEvocations({ prebuiltEvocations, setPrebuiltEvocations }) {
           setPrebuiltEvocations(data);
         });
       } else {
-        response.json();
-        throw Error(response.status, response.statusText);
+        response.json().then(err => {
+          console.log("error:", err)
+        })
       }
     });
   }, []);

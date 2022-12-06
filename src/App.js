@@ -1,5 +1,5 @@
 import "./index.css"
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
 import SignUpForm from "./Components/Account/SignUpForm";
 import LoginForm from "./Components/Account/LoginForm";
@@ -16,6 +16,12 @@ const App = () => {
   const [writing, setWriting] = useState([])
   const [image, setImage] = useState([])
   const [sound, setSound] = useState([])
+
+  console.log("in App.js")
+
+  useEffect(() => {
+    console.log("in App use effect")
+  })
 
   return (
     <div id="application">

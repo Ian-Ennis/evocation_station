@@ -27,7 +27,6 @@ function SignupForm({ menuBar, setCurrentUser }) {
       if (response.ok) {
         response.json().then((data) => {
           localStorage.setItem("token", data.jwt);
-          setCurrentUser(data.user);
           setAccountExists(false);
           setFormData({
             username: "",

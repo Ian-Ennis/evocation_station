@@ -17,15 +17,19 @@ function Writings({
   const [writings, setWritings] = useState([]);
 
   useEffect(() => {
-    fetch("https://evocation-station-api.herokuapp.com/writings").then(
+    fetch("http://localhost:3000/writings", {
+      
+    }).then(
       (response) => {
         if (response.ok) {
           response.json().then((data) => {
             setWritings(data);
           });
         } else {
-          response.json();
-          throw Error(response.status, response.statusText);
+          response.json().then((err) => {
+            console.log("writings fetch response is bad")
+            console.log(err);
+          });
         }
       }
     );
