@@ -26,6 +26,7 @@ function LoginForm({ setCurrentUser }) {
     }).then((response) => {
       if (response.ok) {
         response.json().then((data) => {
+          console.log("data:", data)
           localStorage.setItem("token", data.jwt);
           localStorage.setItem("current user", data.user.username)
           setCurrentUser(data.user)

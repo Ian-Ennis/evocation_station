@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-function SignupForm({ menuBar, setCurrentUser }) {
+function SignupForm() {
   const [formData, setFormData] = useState({ username: "", password: "" });
   const [accountExists, setAccountExists] = useState(false);
   const navigate = useNavigate();
@@ -20,12 +20,14 @@ function SignupForm({ menuBar, setCurrentUser }) {
     fetch("http://localhost:3000/api/v1/users", {
       method: "POST",
       headers: {
+        Accepts: "application/json",
         "Content-Type": "application/json",
       },
       body: JSON.stringify(userCreds),
     }).then((response) => {
       if (response.ok) {
         response.json().then((data) => {
+          console.log("data:", data)
           localStorage.setItem("token", data.jwt);
           setAccountExists(false);
           setFormData({

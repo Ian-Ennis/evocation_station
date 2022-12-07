@@ -6,9 +6,17 @@ function UploadedEvocations({ newEvocations, setNewEvocations }) {
   const rootURL = `http://localhost:3000`;
 
   useEffect(() => {
-    fetch(`${rootURL}/newevocations`).then((response) => {
+    console.log("in useEffect")
+    fetch(`${rootURL}/newevocations`, {
+      method: "GET",
+      headers: {
+        Accepts: "application/json",
+        Authorization: `Bearer ${localStorage.getItem("token")}`,
+      },
+    }).then((response) => {
       if (response.ok) {
         response.json().then((data) => {
+          console.log("new evocation data:", data)
           setNewEvocations(data);
         });
       } else {
@@ -24,8 +32,18 @@ function UploadedEvocations({ newEvocations, setNewEvocations }) {
 
     fetch(`${rootURL}/newevocations/${evoc.id}`, {
       method: "DELETE",
+      headers: {
+        Accepts: "application/json",
+        Authorization: `Bearer ${localStorage.getItem("token")}`,
+      },
     }).then(() => {
-      fetch(`${rootURL}/newevocations/`).then((response) => {
+      fetch(`${rootURL}/newevocations/`, {
+        method: "GET",
+        headers: {
+          Accepts: "application/json",
+          Authorization: `Bearer ${localStorage.getItem("token")}`,
+        },
+      }).then((response) => {
         if (response.ok) {
           response.json().then((data) => {
             setNewEvocations(data);
@@ -64,7 +82,7 @@ function UploadedEvocations({ newEvocations, setNewEvocations }) {
   return (
     <div id="uploaded_evocations_container">
       <p className="labels">
-        <b>Uploaded Evocations</b>
+        <b>Your Evocations</b>
       </p>
       <div id="uploaded_evocations">{evocationData}</div>
     </div>

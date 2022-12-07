@@ -17,17 +17,11 @@ const App = () => {
   const [image, setImage] = useState([])
   const [sound, setSound] = useState([])
 
-  console.log("in App.js")
-
-  useEffect(() => {
-    console.log("in App use effect")
-  })
-
   return (
     <div id="application">
       <Routes>
-        <Route path="/" element={<SignUpForm setCurrentUser={setCurrentUser}/>} />
-        <Route path="/login" element={<LoginForm setCurrentUser={setCurrentUser} currentUser={currentUser}/>} />
+        <Route path="/" element={<SignUpForm />} />
+        <Route path="/login" element={<LoginForm setCurrentUser={setCurrentUser} />} />
         <Route path="/home" element={<Home setCurrentUser={setCurrentUser} currentUser={currentUser} newEvocations={newEvocations} setNewEvocations={setNewEvocations} prebuiltEvocations={prebuiltEvocations} setPrebuiltEvocations={setPrebuiltEvocations} setWriting={setWriting} setImage={setImage} setSound={setSound} />} />
         <Route path="/writings" element={<Writings prebuiltEvocations={prebuiltEvocations} setPrebuiltEvocations={setPrebuiltEvocations} writing={writing} setWriting={setWriting} image={image} setImage={setImage} sound={sound} setSound={setSound} />} />
         <Route path="/images" element={<Pictures prebuiltEvocations={prebuiltEvocations} setPrebuiltEvocations={setPrebuiltEvocations} writing={writing} setWriting={setWriting} image={image} setImage={setImage} sound={sound} setSound={setSound} />} />

@@ -1,37 +1,50 @@
 import { useRef } from "react";
 import { Editor } from "@tinymce/tinymce-react";
 
-function UploadForm({ setNewEvocations }) {
-  const rootURL = `https://evocation-station-api.herokuapp.com`;
+function NewEvocationForm({ currentUser, setNewEvocations }) {
+  const rootURL = `http://localhost:3000`;
   const editorRef = useRef(null);
 
   function uploadNewEvocation(e) {
     e.preventDefault();
 
+    const user_id = currentUser.id
     const text = editorRef.current.getContent();
     const picture = e.target.image_upload.files[0];
     const audio = e.target.audio_upload.files[0];
 
     const formData = new FormData();
+    formData.append("user_id", user_id)
     if (text) {
       formData.append("text", text);
     }
-    
     if (picture) formData.append("image", picture);
     if (audio) formData.append("audio", audio);
 
     fetch(`${rootURL}/newevocations`, {
       method: "POST",
+      headers: {
+        Accepts: "application/json",
+        Authorization: `Bearer ${localStorage.getItem("token")}`,
+      },
       body: formData,
     }).then(() => {
-      fetch(`${rootURL}/newevocations`).then((response) => {
+      fetch(`${rootURL}/newevocations`, {
+        method: "GET",
+        headers: {
+          Accepts: "application/json",
+          Authorization: `Bearer ${localStorage.getItem("token")}`,
+        },
+      }).then((response) => {
         if (response.ok) {
           response.json().then((data) => {
+            console.log("new evocation data:", data)
             setNewEvocations(data);
           });
         } else {
-          response.json();
-          throw Error(response.status, response.statusText);
+          response.json().then(err => {
+            console.log("error:", err)
+          });
         }
       });
     });
@@ -103,4 +116,4 @@ function UploadForm({ setNewEvocations }) {
   );
 }
 
-export default UploadForm;
+export default NewEvocationForm;

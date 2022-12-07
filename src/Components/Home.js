@@ -1,18 +1,13 @@
-import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import Title from "./Title";
 import NavBar from "./NavBar";
-import UploadForm from "./UploadForm";
-import UploadedEvocations from "./UploadedEvocations";
+import NewEvocationForm from "./NewEvocationForm";
+import NewEvocations from "./NewEvocations";
 import PrebuiltEvocations from "./PrebuiltEvocations";
 
 function Home({currentUser, setCurrentUser, newEvocations, setNewEvocations, prebuiltEvocations, setPrebuiltEvocations, setWriting, setImage, setSound}) {
   const navigate = useNavigate();
 
-  useEffect(() => {
-    console.log("in App use effect")
-  })
-  
   function logout() {
     // fetch("https://evocation-station-api.herokuapp.com/logout", {
     //   method: "DELETE",
@@ -44,7 +39,7 @@ function Home({currentUser, setCurrentUser, newEvocations, setNewEvocations, pre
             Log out
           </button>
           <div id="welcome_bar">
-            <h2>Welcome, {currentUser.username}</h2>
+            <h2>Welcome, {localStorage.getItem("current user")}</h2>
           </div>
           &nbsp;
           <div id="evocation_elements">
@@ -55,11 +50,12 @@ function Home({currentUser, setCurrentUser, newEvocations, setNewEvocations, pre
               upload your own materials using the form below. Be creative, have
               fun, and see what you can make!
             </p>
-            <UploadForm
+            <NewEvocationForm
               newEvocations={newEvocations}
               setNewEvocations={setNewEvocations}
+              currentUser={currentUser}
             />
-            <UploadedEvocations
+            <NewEvocations
               newEvocations={newEvocations}
               setNewEvocations={setNewEvocations}
             />

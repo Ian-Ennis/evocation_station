@@ -11,7 +11,7 @@ function Template({
 }) {
 
   const navigate = useNavigate();
-  const rootURL = `https://evocation-station-api.herokuapp.com`;
+  const rootURL = `http://localhost:3000`;
 
   function uploadTemplate(e) {
     e.preventDefault();
@@ -19,7 +19,8 @@ function Template({
     fetch(`${rootURL}/prebuiltevocations`, {
       method: "POST",
       headers: {
-        "Content-Type": "application/json",
+        Accepts: "application/json",
+        Authorization: `Bearer ${localStorage.getItem("token")}`,
       },
       body: JSON.stringify({
         text: writing,
@@ -27,7 +28,13 @@ function Template({
         sound_url: `${sound}`,
       }),
     }).then(() => {
-      fetch(`${rootURL}/prebuiltevocations`).then((response) => {
+      fetch(`${rootURL}/prebuiltevocations`, {
+        method: "GET",
+        headers: {
+          Accepts: "application/json",
+          Authorization: `Bearer ${localStorage.getItem("token")}`,
+        },
+      }).then((response) => {
         if (response.ok) {
           response.json().then((data) => {
             setPrebuiltEvocations(data);

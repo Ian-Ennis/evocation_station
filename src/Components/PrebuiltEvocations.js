@@ -5,7 +5,13 @@ function PrebuiltEvocations({ prebuiltEvocations, setPrebuiltEvocations }) {
   const rootURL = `http://localhost:3000`;
 
   useEffect(() => {
-    fetch(`${rootURL}/prebuiltevocations`).then((response) => {
+    fetch(`${rootURL}/prebuiltevocations`, {
+      method: "GET",
+      headers: {
+        Accepts: "application/json",
+        Authorization: `Bearer ${localStorage.getItem("token")}`,
+      },
+    }).then((response) => {
       if (response.ok) {
         response.json().then((data) => {
           setPrebuiltEvocations(data);
@@ -23,6 +29,11 @@ function PrebuiltEvocations({ prebuiltEvocations, setPrebuiltEvocations }) {
 
     fetch(`${rootURL}/prebuiltevocations/${evoc.id}`, {
       method: "DELETE",
+      headers: {
+        Accepts: "application/json",
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${localStorage.getItem("token")}`,
+      },
     }).then(() => {
       fetch(`${rootURL}/prebuiltevocations`).then((response) => {
         if (response.ok) {
@@ -67,7 +78,7 @@ function PrebuiltEvocations({ prebuiltEvocations, setPrebuiltEvocations }) {
   return (
     <div id="prebuilt_evocations_container">
       <p className="labels">
-        <b>Prebuilt Evocations</b>
+        <b>Example Evocations</b>
       </p>
       <div id="prebuilt_evocations">{evocationData}</div>
     </div>
