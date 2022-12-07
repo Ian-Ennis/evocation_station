@@ -8,6 +8,8 @@ function NewEvocationForm({ currentUser, setNewEvocations }) {
   function uploadNewEvocation(e) {
     e.preventDefault();
 
+    console.log("Current user in NewEvocationForm:", currentUser)
+
     const user_id = currentUser.id
     const text = editorRef.current.getContent();
     const picture = e.target.image_upload.files[0];
@@ -53,7 +55,7 @@ function NewEvocationForm({ currentUser, setNewEvocations }) {
   return (
     <div id="new_evocations">
       <p>
-        <b>Upload any combination of your own materials..</b>
+        <b>Make your own from scratch, by uploading custom materials!</b>
       </p>
       <div id="editor_uploads_container">
         <p className="labels">Writing:</p>&nbsp;

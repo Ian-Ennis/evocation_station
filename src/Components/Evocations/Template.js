@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router-dom";
 
 function Template({
+  currentUser,
   setPrebuiltEvocations,
   writing,
   setWriting,
@@ -16,6 +17,13 @@ function Template({
   function uploadTemplate(e) {
     e.preventDefault();
 
+    const user_id = currentUser.id
+
+    console.log("user_id:", user_id)
+    console.log("text:", writing)
+    console.log("image:", image)
+    console.log("sound:", sound)
+
     fetch(`${rootURL}/prebuiltevocations`, {
       method: "POST",
       headers: {
@@ -23,6 +31,7 @@ function Template({
         Authorization: `Bearer ${localStorage.getItem("token")}`,
       },
       body: JSON.stringify({
+        user_id,
         text: writing,
         image_url: `${image}`,
         sound_url: `${sound}`,
@@ -41,8 +50,9 @@ function Template({
             navigate("/home");
           });
         } else {
-          response.json();
-          throw Error(response.status, response.statusText);
+          response.json().then(err => {
+            console.log("error:", err)
+          });
         }
       });
     });

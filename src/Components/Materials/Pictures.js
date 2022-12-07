@@ -1,9 +1,10 @@
 import { v4 as uuid } from "uuid";
 import Title from "../Title";
 import NavBar from "../NavBar"
-import Template from "../Template";
+import Template from "../Evocations/Template";
 
 function Images({
+  currentUser,
   setPrebuiltEvocations,
   writing,
   setWriting,
@@ -16,87 +17,87 @@ function Images({
     {
       id: 1,
       title: "Concert Hall",
-      url: "https://evocation-station.s3.amazonaws.com/pioilpsr893oo5ucmfczdc7qvk7a",
+      url: "https://evocation-station.s3.amazonaws.com/Image_Symphony",
     },
     {
       id: 2,
       title: "Firefly",
-      url: "https://evocation-station.s3.amazonaws.com/o4xbv1030h6h2yfhwcu8uuqo1q27",
+      url: "https://evocation-station.s3.amazonaws.com/Image_Lightning_Bug",
     },
     {
       id: 3,
       title: "Breaking Waves",
-      url: "https://evocation-station.s3.amazonaws.com/lefg1onaa56yr0zh6gn049hjnf31",
+      url: "https://evocation-station.s3.amazonaws.com/Image_Breaking_Waves",
     },
     {
       id: 4,
       title: "Volcano",
-      url: "https://evocation-station.s3.amazonaws.com/laotc5on7xsxghqd6iixce627rs1",
+      url: "https://evocation-station.s3.amazonaws.com/Image_Volcano",
     },
     {
       id: 5,
       title: "Rising Dusk",
-      url: "https://evocation-station.s3.amazonaws.com/kxmwva61suofvt7jsv91wqnusuh8",
+      url: "https://evocation-station.s3.amazonaws.com/Image_Forest_Moon+",
     },
     {
       id: 6,
       title: "Elegance",
-      url: "https://evocation-station.s3.amazonaws.com/iqbjmbo5dzrimwgxa766d5r7viqf",
+      url: "https://evocation-station.s3.amazonaws.com/Image_Dinner_Party",
     },
     {
       id: 7,
       title: "Terra Cotta Rain",
-      url: "https://evocation-station.s3.amazonaws.com/hkerd5ybj5cvo5bvane72xivfwy9",
+      url: "https://evocation-station.s3.amazonaws.com/Image_Porch_Rainstorm",
     },
     {
       id: 8,
       title: "On The Town",
-      url: "https://evocation-station.s3.amazonaws.com/hevd0u0jdxg698rom2hc3zjgifde",
+      url: "https://evocation-station.s3.amazonaws.com/Image_Chicago_Theatre",
     },
     {
       id: 9,
       title: "Midnight Reflections",
-      url: "https://evocation-station.s3.amazonaws.com/g7xm1drxocy3s1yxz0bkpponuqof",
+      url: "https://evocation-station.s3.amazonaws.com/Image_Nighttime_Bay",
     },
     {
       id: 10,
       title: "Firework",
-      url: "https://evocation-station.s3.amazonaws.com/2zk0l9i5q3qilc0zvu1qnpm92y3t",
+      url: "https://evocation-station.s3.amazonaws.com/Image_Firecracker",
     },
     {
       id: 11,
       title: "Ignite",
-      url: "https://evocation-station.s3.amazonaws.com/zq3di5xzjarvne2g8h4uui0gw8ry",
+      url: "https://evocation-station.s3.amazonaws.com/Image_Flames",
     },
     {
       id: 12,
       title: "Windmill",
-      url: "https://evocation-station.s3.amazonaws.com/ze7ophk6cb9kiw3bguq8l5hdkl2h",
+      url: "https://evocation-station.s3.amazonaws.com/Image_Windmill",
     },
     {
       id: 13,
       title: "VHS",
-      url: "https://evocation-station.s3.amazonaws.com/y68b1z7ek7r8hg2q0mjddvqswcvb",
+      url: "https://evocation-station.s3.amazonaws.com/Image_VHS",
     },
     {
       id: 14,
       title: "Mandrillus sphinx",
-      url: "https://evocation-station.s3.amazonaws.com/xjl1k97vbu2f4ebkp3watx2ggreu",
+      url: "https://evocation-station.s3.amazonaws.com/Image_Baboon",
     },
     {
       id: 15,
       title: "Train Station",
-      url: "https://evocation-station.s3.amazonaws.com/x0xp2wrs5iqq749oh087pofsgu52",
+      url: "https://evocation-station.s3.amazonaws.com/Image_Train_Station",
     },
     {
       id: 16,
       title: "Boombox",
-      url: "https://evocation-station.s3.amazonaws.com/vpnrhjvs7i3f07tm6w3zjcs5kdug",
+      url: "https://evocation-station.s3.amazonaws.com/Image_Boombox",
     },
     {
       id: 17,
       title: "Autumn Stream",
-      url: "https://evocation-station.s3.amazonaws.com/q4dskxcfgqua5j5zxtu7wh4h8m2p",
+      url: "https://evocation-station.s3.amazonaws.com/Image_Fall_Stream",
     },
   ];
 
@@ -121,6 +122,7 @@ function Images({
       <NavBar />
       <div className="materials">
         <Template
+          currentUser={currentUser}
           setPrebuiltEvocations={setPrebuiltEvocations}
           writing={writing}
           setWriting={setWriting}

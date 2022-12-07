@@ -2,9 +2,10 @@ import { useState, useEffect } from "react";
 import { v4 as uuid } from "uuid";
 import Title from "../Title";
 import NavBar from "../NavBar"
-import Template from "../Template";
+import Template from "../Evocations/Template";
 
 function Writings({
+  currentUser,
   setPrebuiltEvocations,
   writing,
   setWriting,
@@ -58,6 +59,7 @@ function Writings({
       <NavBar />
       <div className="materials">
         <Template
+          currentUser={currentUser}
           setPrebuiltEvocations={setPrebuiltEvocations}
           writing={writing}
           setWriting={setWriting}

@@ -1,9 +1,10 @@
 import { useNavigate } from "react-router-dom";
 import Title from "./Title";
 import NavBar from "./NavBar";
-import NewEvocationForm from "./NewEvocationForm";
-import NewEvocations from "./NewEvocations";
-import PrebuiltEvocations from "./PrebuiltEvocations";
+import NewEvocationForm from "./Evocations/NewEvocationForm";
+import NewEvocations from "./Evocations/NewEvocations";
+import PrebuiltEvocations from "./Evocations/PrebuiltEvocations";
+import ExampleEvocations from "./Evocations/ExampleEvocations";
 
 function Home({currentUser, setCurrentUser, newEvocations, setNewEvocations, prebuiltEvocations, setPrebuiltEvocations, setWriting, setImage, setSound}) {
   const navigate = useNavigate();
@@ -45,11 +46,17 @@ function Home({currentUser, setCurrentUser, newEvocations, setNewEvocations, pre
           <div id="evocation_elements">
             <p id="user_directions">
               Create your own evocation. An evocation is any combination of
-              writing, imagery, and sound, that together convey meaning. There
-              are crafting materials to choose from on the left, or you can
-              upload your own materials using the form below. Be creative, have
-              fun, and see what you can make!
+              writing, imagery, and sound, that together convey meaning. If you
+              would like some inspiration, there are crafting materials to
+              choose from on the left. Or, you can upload your own materials
+              using the form below. Be creative, have fun, and see what you can
+              make!
             </p>
+            <ExampleEvocations />
+            <PrebuiltEvocations
+              prebuiltEvocations={prebuiltEvocations}
+              setPrebuiltEvocations={setPrebuiltEvocations}
+            />
             <NewEvocationForm
               newEvocations={newEvocations}
               setNewEvocations={setNewEvocations}
@@ -58,10 +65,6 @@ function Home({currentUser, setCurrentUser, newEvocations, setNewEvocations, pre
             <NewEvocations
               newEvocations={newEvocations}
               setNewEvocations={setNewEvocations}
-            />
-            <PrebuiltEvocations
-              prebuiltEvocations={prebuiltEvocations}
-              setPrebuiltEvocations={setPrebuiltEvocations}
             />
           </div>
         </div>

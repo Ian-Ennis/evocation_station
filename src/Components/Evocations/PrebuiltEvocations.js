@@ -41,8 +41,9 @@ function PrebuiltEvocations({ prebuiltEvocations, setPrebuiltEvocations }) {
             setPrebuiltEvocations(data);
           });
         } else {
-          response.json();
-          throw Error(response.status, response.statusText);
+          response.json().then(err => {
+            console.log("error:", err)
+          });
         }
       });
     });
@@ -78,7 +79,7 @@ function PrebuiltEvocations({ prebuiltEvocations, setPrebuiltEvocations }) {
   return (
     <div id="prebuilt_evocations_container">
       <p className="labels">
-        <b>Example Evocations</b>
+        <b>Evocations you've created using crafting materials:</b>
       </p>
       <div id="prebuilt_evocations">{evocationData}</div>
     </div>

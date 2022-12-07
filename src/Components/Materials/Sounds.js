@@ -1,9 +1,10 @@
 import { v4 as uuid } from "uuid";
 import Title from "../Title";
 import NavBar from "../NavBar"
-import Template from "../Template";
+import Template from "../Evocations/Template";
 
 function Sounds({
+  currentUser,
   setPrebuiltEvocations,
   writing,
   setWriting,
@@ -17,42 +18,42 @@ function Sounds({
     {
       id: 1,
       name: "Babbling Brook",
-      url: "https://evocation-station.s3.amazonaws.com/o5o2yq8cbrreigovrlh2j1t3btev",
+      url: "https://evocation-station.s3.amazonaws.com/Audio_Stream",
     },
     {
       id: 2,
       name: "Crickets",
-      url: "https://evocation-station.s3.amazonaws.com/Night_time_crickets.wav",
+      url: "https://evocation-station.s3.amazonaws.com/Audio_Nighttime_Crickets",
     },
     {
       id: 3,
       name: "Dinner Party",
-      url: "https://evocation-station.s3.amazonaws.com/eihfb9iwq4af9bi397s7zv6fggt8",
+      url: "https://evocation-station.s3.amazonaws.com/Audio_Dinner_Party",
     },
     {
       id: 4,
       name: "Breaking Waves",
-      url: "https://evocation-station.s3.amazonaws.com/e4ir4czxtc35z2phul71vmg6otx7",
+      url: "https://evocation-station.s3.amazonaws.com/Audio_Breaking_Waves",
     },
     {
       id: 5,
       name: "Thunder and Rain",
-      url: "https://evocation-station.s3.amazonaws.com/d2efb5dpf54q7ih3oiwk4tf1dzrd",
+      url: "https://evocation-station.s3.amazonaws.com/Audio_Thunderstorm",
     },
     {
       id: 6,
       name: "Departing",
-      url: "https://evocation-station.s3.amazonaws.com/7aehm2zmmo88ni6rv3x45wwn77fm",
+      url: "https://evocation-station.s3.amazonaws.com/Audio_Train_Station",
     },
     {
       id: 7,
       name: "Symphony",
-      url: "https://evocation-station.s3.amazonaws.com/28tbd8zcuk0m3p53aye533ikj4es",
+      url: "https://evocation-station.s3.amazonaws.com/Audio_Symphony",
     },
     {
       id: 8,
       name: "Round of Applause",
-      url: "https://evocation-station.s3.amazonaws.com/yrjhhsdvfih53y5b4tnbyx058hit",
+      url: "https://evocation-station.s3.amazonaws.com/Audio_Cheering",
     },
   ];
 
@@ -77,6 +78,7 @@ function Sounds({
       <NavBar />
       <div className="materials">
         <Template
+          currentUser={currentUser}
           setPrebuiltEvocations={setPrebuiltEvocations}
           writing={writing}
           setWriting={setWriting}

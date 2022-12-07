@@ -82,7 +82,7 @@ function UploadedEvocations({ newEvocations, setNewEvocations }) {
   return (
     <div id="uploaded_evocations_container">
       <p className="labels">
-        <b>Your Evocations</b>
+        <b>Evocations you've made from scratch:</b>
       </p>
       <div id="uploaded_evocations">{evocationData}</div>
     </div>
