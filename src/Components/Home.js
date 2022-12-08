@@ -10,18 +10,6 @@ function Home({currentUser, setCurrentUser, newEvocations, setNewEvocations, pre
   const navigate = useNavigate();
 
   function logout() {
-    // fetch("https://evocation-station-api.herokuapp.com/logout", {
-    //   method: "DELETE",
-    //   headers: {
-    //     "Content-Type": "application/json",
-    //   },
-    // }).then((response) => {
-    //   setWriting([]);
-    //   setImage([]);
-    //   setSound([]);
-    //   setCurrentUser(null);
-    //   navigate("/");
-    // });
     setWriting([]);
     setImage([]);
     setSound([]);
