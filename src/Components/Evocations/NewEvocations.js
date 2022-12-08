@@ -6,7 +6,6 @@ function UploadedEvocations({ newEvocations, setNewEvocations }) {
   const rootURL = `http://localhost:3000`;
 
   useEffect(() => {
-    console.log("in useEffect")
     fetch(`${rootURL}/newevocations`, {
       method: "GET",
       headers: {
@@ -16,7 +15,6 @@ function UploadedEvocations({ newEvocations, setNewEvocations }) {
     }).then((response) => {
       if (response.ok) {
         response.json().then((data) => {
-          console.log("new evocation data:", data)
           setNewEvocations(data);
         });
       } else {

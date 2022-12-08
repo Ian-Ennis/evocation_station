@@ -8,11 +8,9 @@ function NewEvocationForm({ currentUser, setNewEvocations }) {
   function uploadNewEvocation(e) {
     e.preventDefault();
 
-    console.log("Current user in NewEvocationForm:", currentUser)
-
     const user_id = currentUser.id
     const text = editorRef.current.getContent();
-    const picture = e.target.image_upload.files[0];
+    const image = e.target.image_upload.files[0];
     const audio = e.target.audio_upload.files[0];
 
     const formData = new FormData();
@@ -20,7 +18,7 @@ function NewEvocationForm({ currentUser, setNewEvocations }) {
     if (text) {
       formData.append("text", text);
     }
-    if (picture) formData.append("image", picture);
+    if (image) formData.append("image", image);
     if (audio) formData.append("audio", audio);
 
     fetch(`${rootURL}/newevocations`, {

@@ -16,13 +16,16 @@ function Template({
 
   function uploadTemplate(e) {
     e.preventDefault();
-
+    
     const user_id = currentUser.id
 
-    console.log("user_id:", user_id)
-    console.log("text:", writing)
-    console.log("image:", image)
-    console.log("sound:", sound)
+    const formData = new FormData();
+    formData.append("user_id", user_id)
+    if (writing) {
+      formData.append("writing", writing);
+    }
+    if (image) formData.append("image", image);
+    if (sound) formData.append("sound", sound);
 
     fetch(`${rootURL}/prebuiltevocations`, {
       method: "POST",
@@ -30,14 +33,8 @@ function Template({
         Accepts: "application/json",
         Authorization: `Bearer ${localStorage.getItem("token")}`,
       },
-      body: JSON.stringify({
-        user_id,
-        text: writing,
-        image_url: `${image}`,
-        sound_url: `${sound}`,
-      }),
-    }).then(() => {
-      fetch(`${rootURL}/prebuiltevocations`, {
+      body: formData,
+    }).then(fetch(`${rootURL}/prebuiltevocations`, {
         method: "GET",
         headers: {
           Accepts: "application/json",
@@ -54,8 +51,8 @@ function Template({
             console.log("error:", err)
           });
         }
-      });
-    });
+      })
+    )
   }
 
   return (
